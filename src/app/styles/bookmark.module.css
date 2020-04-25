@@ -1,26 +1,32 @@
 .container {
-	display: grid;
 	grid-template-columns: 4em auto;
 	grid-template-rows: auto auto;
 	grid-gap: 0 1.2em;
 	padding: 1em 0;
 }
 
-.time {
-	line-height: 2em;
-	text-align: right;
-	font-size: small;
-	opacity: .5;
-}
+@media (min-width: 32em) {
+	.container {
+		display: grid;
+	}
+} 
 
 .title {
 	margin: 0 0 .2em;
 	font-size: 1.2em;
 }
 
+.time {
+	line-height: 2em;
+	text-align: right;
+}
+
 .url {
 	grid-row-start: 2;
 	grid-column-start: 2;
+}
+
+.time, .url {
 	margin: 0;
 	font-size: small;
 	opacity: .5;
