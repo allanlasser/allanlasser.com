@@ -8,6 +8,7 @@ export default (props) => (
 		<Head>
 			<title>Allan Lasser</title>
 			<link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+			<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet" />
 		</Head>
 		<BookmarkList bookmarks={props.bookmarks} />
 	</Page>
