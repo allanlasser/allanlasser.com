@@ -10,7 +10,7 @@ export const Bookmark = ({href, title, ts}) => {
 			<time className={cn(typography.data, bookmarkStyle.time)} title={time}>
 				{time.toLocaleDateString()}
 			</time>
-			<p className={cn(typography.text, typography.title, bookmarkStyle.title)}>
+			<p className={cn(typography.title, bookmarkStyle.title)}>
 				<a href={href}>{title}</a>
 			</p>
 			<p className={cn(typography.data, bookmarkStyle.url)}>{href}</p>

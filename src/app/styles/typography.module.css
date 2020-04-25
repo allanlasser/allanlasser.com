@@ -1,10 +1,11 @@
 .text {
 	font-family: 'Source Serif Pro', serif;
+	font-size: 1em;
 }
 
 .data {
 	font-family: 'Source Code Pro', monospace;
-	font-size: .8em;
+	font-size: .8rem;
 }
 
 .title {
