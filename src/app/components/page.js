@@ -8,7 +8,7 @@ export default (props) => {
 	useSmartquotes()
 	return (
 		<article className={cn(pageStyles.container, typography.text)}>
-			{props.title && <h1 className={cn(typography.title)}>{props.title}</h1>}
+			{props.title && <h1 className={cn(typography.title, pageStyles.title)}>{props.title}</h1>}
 			{props.children}
 		</article>
 	)
