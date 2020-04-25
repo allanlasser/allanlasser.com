@@ -7,6 +7,7 @@ export default (props) => (
 	<Page title="Reading">
 		<Head>
 			<title>Allan Lasser</title>
+			<link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
 		</Head>
 		<BookmarkList bookmarks={props.bookmarks} />
 	</Page>
