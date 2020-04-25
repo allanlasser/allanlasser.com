@@ -1,0 +1,12 @@
+.text {
+	font-family: 'Source Serif Pro', serif;
+}
+
+.data {
+	font-family: 'Source Code Pro', monospace;
+	font-size: .8em;
+}
+
+.title {
+	font-weight: bold;
+}
