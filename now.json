@@ -1,0 +1,10 @@
+{
+  "env": {
+    "PINBOARD_API_TOKEN": "@allan-pinboard-token"
+  },
+  "build": {
+    "env": {
+      "PINBOARD_API_TOKEN": "@allan-pinboard-token"
+    }
+  }
+}
