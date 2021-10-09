@@ -5,9 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
     "isomorphic-fetch": "^2.2.1",
-    "next": "^9.3.5",
+    "next": "^9.4.1",
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
