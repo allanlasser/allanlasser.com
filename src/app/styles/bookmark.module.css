@@ -24,6 +24,8 @@
 .url {
 	grid-row-start: 2;
 	grid-column-start: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .time, .url {
