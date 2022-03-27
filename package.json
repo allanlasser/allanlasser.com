@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@sanity/client": "^2.21.0",
     "classnames": "^2.2.6",
     "isomorphic-fetch": "^2.2.1",
     "next": "^12.1.1",
