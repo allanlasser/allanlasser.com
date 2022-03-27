@@ -6,6 +6,8 @@ export const position = {
     { name: "role", type: "string", title: "Role" },
     { name: "company", type: "string", title: "Company" },
     { name: "description", type: "text", title: "Description" },
+    { name: "startDate", type: "string", title: "From" },
+    { name: "endDate", type: "string", title: "Until" },
   ],
 };
 

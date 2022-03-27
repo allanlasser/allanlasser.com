@@ -212,6 +212,20 @@ export type Position = {
    *
    */
   description?: string;
+
+  /**
+   * From — `string`
+   *
+   *
+   */
+  startDate?: string;
+
+  /**
+   * Until — `string`
+   *
+   *
+   */
+  endDate?: string;
 };
 
 export type Documents = Resume | Post | Author | Category;
