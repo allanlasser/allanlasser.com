@@ -1,0 +1,87 @@
+.position {
+  margin-bottom: 2.5em;
+  break-inside: avoid
+}
+
+.position header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+.position .role {
+  margin: 0;
+}
+
+.position .company {
+  margin: 0;
+}
+
+.description {
+  opacity: .7;
+  line-height: 1.4;
+  font-size: 1em;
+  padding-left: 1rem;
+}
+
+.position .date {
+  font-style: italic;
+  opacity: .7;
+}
+
+.resume {
+  padding: 3rem 0;
+}
+
+.resume header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  align-items: baseline;
+}
+
+.resume header * {
+  margin: 0;
+}
+
+.resume h1 {
+  font-size: 1.5em;
+}
+
+.resume h2 {
+  font-size: 1.3em;
+  font-style: italic;
+  margin-top: 2.5rem;
+}
+
+.resume h3 {
+  font-size: 1.1em;
+}
+
+.education {
+  margin-bottom: 2.5em;
+  break-inside: avoid
+}
+
+.education header {
+  justify-content: space-between;
+}
+
+.education .classYear {
+  font-style: italic;
+}
+
+.skills {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+@media print {
+  .resume {
+    font-size: 12px;
+  }
+}
