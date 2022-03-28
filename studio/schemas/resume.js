@@ -18,9 +18,15 @@ const resume = {
   __experimental_actions: ["create", "update", /*'delete',*/ "publish"],
   fields: [
     {
-      type: "array",
       name: "history",
+      type: "array",
       of: [{ type: "position" }],
+    },
+    {
+      name: "skills",
+      type: "array",
+      of: [{ type: "string" }],
+      layout: "tags",
     },
   ],
 };

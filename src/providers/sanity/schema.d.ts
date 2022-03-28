@@ -50,6 +50,13 @@ export interface Resume extends SanityDocument {
    *
    */
   history?: Array<SanityKeyed<Position>>;
+
+  /**
+   * skills — `array`
+   *
+   *
+   */
+  skills?: Array<SanityKeyed<string>>;
 }
 
 /**
