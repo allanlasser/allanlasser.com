@@ -25,6 +25,10 @@ html, body {
 	font-size: 16px;
 	color: var(--text-color);
 	background: var(--page-color);
+  font-family: 'IBM Plex Serif', serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {

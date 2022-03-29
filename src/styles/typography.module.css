@@ -1,13 +1,17 @@
 .text {
-	font-family: 'Source Serif Pro', serif;
+	font-family: 'IBM Plex Serif', serif;
 	font-size: 1em;
 }
 
 .data {
-	font-family: 'Source Code Pro', monospace;
+	font-family: 'IBM Plex Mono', monospace;
 	font-size: .8rem;
 }
 
 .title {
 	font-weight: bold;
+}
+
+.normal {
+  font-size: 1em;
 }
