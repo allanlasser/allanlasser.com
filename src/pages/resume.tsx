@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from "next";
 import { groq } from "next-sanity";
 import Sanity, { Schema } from "src/providers/sanity";
 import Resume from "src/components/resume";
+import Page from "src/components/page";
 
 export interface ResumePageProps {
   resume: Schema.Resume;
@@ -10,9 +11,9 @@ export interface ResumePageProps {
 const ResumePage: NextPage<ResumePageProps> = (props) => {
   const { resume } = props;
   return (
-    <div>
+    <Page>
       <Resume {...resume} />
-    </div>
+    </Page>
   );
 };
 

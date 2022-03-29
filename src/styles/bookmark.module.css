@@ -13,7 +13,7 @@
 
 .title {
 	margin: 0 0 .2em;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 .time {
@@ -30,6 +30,6 @@
 
 .time, .url {
 	margin: 0;
-	font-size: small;
+	font-size: .7em;
 	opacity: .5;
 }
