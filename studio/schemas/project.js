@@ -18,6 +18,14 @@ const project = {
       },
     },
     {
+      name: "mainImage",
+      title: "Main image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "body",
       title: "Body",
       type: "blockContent",

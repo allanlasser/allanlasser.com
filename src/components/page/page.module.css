@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
+  margin-bottom: 4rem;
 }
 
 .header h1 {
@@ -46,4 +47,10 @@
   display: flex;
   gap: 1rem;
   font-weight: bold;
+}
+
+.icon {
+  display: block;
+  height: 1.5em;
+  width: 1.5em;
 }

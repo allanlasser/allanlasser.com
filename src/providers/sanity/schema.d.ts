@@ -60,6 +60,48 @@ export interface Resume extends SanityDocument {
 }
 
 /**
+ * Project
+ *
+ *
+ */
+export interface Project extends SanityDocument {
+  _type: "project";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Main image — `image`
+   *
+   *
+   */
+  mainImage?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Body — `blockContent`
+   *
+   *
+   */
+  body?: BlockContent;
+}
+
+/**
  * Post
  *
  *
@@ -235,4 +277,4 @@ export type Position = {
   endDate?: string;
 };
 
-export type Documents = Resume | Post | Author | Category;
+export type Documents = Resume | Project | Post | Author | Category;

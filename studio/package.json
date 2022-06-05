@@ -9,7 +9,8 @@
   "scripts": {
     "start": "sanity start",
     "test": "sanity check",
-    "build": "sanity build public -y"
+    "build": "sanity build public -y",
+    "codegen": "sanity-codegen"
   },
   "keywords": [
     "sanity"
@@ -20,6 +21,7 @@
     "@sanity/default-layout": "^2.21.2",
     "@sanity/default-login": "^2.21.0",
     "@sanity/desk-tool": "^2.21.2",
+    "@sanity/image-url": "^1.0.1",
     "@sanity/vision": "^2.21.2",
     "prop-types": "^15.7",
     "react": "^17.0",
