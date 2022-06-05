@@ -58,6 +58,7 @@ const Resume = (props) => {
   const { history, skills } = props;
   return (
     <article className={cx(styles.resume)}>
+      <h1>Résumé</h1>
       <section>
         <h2>Employment History</h2>
         {history.map((position, index) => (
