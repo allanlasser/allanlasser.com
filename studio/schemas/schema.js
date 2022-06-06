@@ -9,6 +9,7 @@ import blockContent from "./blockContent";
 import category from "./category";
 import post from "./post";
 import author from "./author";
+import portfolio from "./portfolio";
 import resume, { position } from "./resume";
 import project from "./project";
 
@@ -21,6 +22,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    portfolio,
     resume,
     project,
     post,

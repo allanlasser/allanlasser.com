@@ -1,0 +1,9 @@
+.projectList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.projectLink h2 {
+  font-style: italic;
+  font-weight: 400;
+}

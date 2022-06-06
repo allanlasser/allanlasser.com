@@ -37,6 +37,22 @@ export type {
 };
 
 /**
+ * Portfolio
+ *
+ *
+ */
+export interface Portfolio extends SanityDocument {
+  _type: "portfolio";
+
+  /**
+   * projects — `array`
+   *
+   *
+   */
+  projects?: Array<SanityKeyedReference<Project>>;
+}
+
+/**
  * Resume
  *
  *
@@ -284,4 +300,4 @@ export type Position = {
   endDate?: string;
 };
 
-export type Documents = Resume | Project | Post | Author | Category;
+export type Documents = Portfolio | Resume | Project | Post | Author | Category;
