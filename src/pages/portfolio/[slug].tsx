@@ -1,4 +1,3 @@
-import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { groq } from "next-sanity";
 import Sanity, { Schema, srcFor } from "src/providers/sanity";
@@ -7,19 +6,11 @@ import Image from "next/image";
 import typography from "src/styles/typography.module.css";
 import projectStyles from "src/styles/project.module.css";
 import Link from "next/link";
+import BlockContent from "src/components/block-content";
 
 export interface ProjectPageProps {
   project: Schema.Project;
 }
-
-const components: Partial<PortableTextReactComponents> = {
-  types: {
-    image: ({ value }) => {
-      const src = srcFor(value).width(1200).height(900).url();
-      return <Image layout='responsive' width='2400' height='1800' src={src} />;
-    },
-  },
-};
 
 const ProjectPage: NextPage<ProjectPageProps> = (props) => {
   const { project } = props;
@@ -45,7 +36,7 @@ const ProjectPage: NextPage<ProjectPageProps> = (props) => {
           </figure>
         </header>
         <main className={projectStyles.body}>
-          <PortableText value={project.body} components={components} />
+          <BlockContent value={project.body} />
         </main>
       </article>
     </Page>
