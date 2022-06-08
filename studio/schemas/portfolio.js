@@ -5,6 +5,11 @@ const portfolio = {
   __experimental_actions: ["create", "update", /*'delete',*/ "publish"],
   fields: [
     {
+      name: "personalStatement",
+      title: "Personal Statement",
+      type: "blockContent",
+    },
+    {
       name: "projects",
       type: "array",
       of: [

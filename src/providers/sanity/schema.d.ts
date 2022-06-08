@@ -45,6 +45,13 @@ export interface Portfolio extends SanityDocument {
   _type: "portfolio";
 
   /**
+   * Personal Statement — `blockContent`
+   *
+   *
+   */
+  personalStatement?: BlockContent;
+
+  /**
    * projects — `array`
    *
    *
