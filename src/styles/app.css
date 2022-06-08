@@ -8,11 +8,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-  	--text-color: #fff;
-  	--page-color: #000;
+  	--text-color: hsl(129, 100%, 70%);
+  	--page-color: hsl(134, 41%, 10%);
   	--link-color: #fff;
-  	--link-hover-color: #ddd;
-  	--link-visited-color: #aaa;
+  	--link-hover-color: #198929;
+  	--link-visited-color: #198929;
   }
 }
 
@@ -22,10 +22,10 @@
 
 html, body {
 	margin: 0;
-	font-size: 16px;
+	font-size: 20px;
 	color: var(--text-color);
 	background: var(--page-color);
-  font-family: 'IBM Plex Serif', serif;
+  font-family: sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
