@@ -9,19 +9,23 @@ export type PositionProps = Position;
 const Position = (props) => {
   const { role, company, description, startDate, endDate } = props;
   return (
-    <section className={cx(styles.position)}>
-      <header>
-        <div>
-          <h3 className={cx(styles.role)}>{role}</h3>
-          <p className={cx(styles.company)}>{company}</p>
-        </div>
-        <p className={cx(styles.when)}>
-          {startDate}
-          {startDate && endDate && <>&nbsp;&ndash;&nbsp;</>}
-          {endDate}
+    <section className={cx(styles.entry, styles.position)}>
+      <aside className={cx(styles.when, typography.data)}>
+        <p>
+          <span className={cx(typography.keepTogether)}>{startDate}</span>
+          {startDate && endDate && <> &ndash; </>}
+          <span className={cx(typography.keepTogether)}>{endDate}</span>
         </p>
-      </header>
-      <p className={cx(styles.description)}>{description}</p>
+      </aside>
+      <div className={cx(styles.entryBody)}>
+        <header className={cx(typography.data)}>
+          <div>
+            <h3 className={cx(styles.role)}>{role}</h3>
+            <p className={cx(styles.company, typography.data)}>{company}</p>
+          </div>
+        </header>
+        <p className={cx(styles.description)}>{description}</p>
+      </div>
     </section>
   );
 };
@@ -29,17 +33,21 @@ const Position = (props) => {
 const Education = (props) => {
   const { institution, degree, classYear } = props;
   return (
-    <div className={cx(styles.education)}>
-      <header>
-        <div>
-          <h3>{institution}</h3>
-          {degree && <p>{degree}</p>}
-        </div>
-        <p className={cx(styles.when)}>Class of {classYear}</p>
-      </header>
-      {props.children && (
-        <div className={cx(styles.description)}>{props.children}</div>
-      )}
+    <div className={cx(styles.entry, styles.education)}>
+      <aside className={cx(styles.when, typography.data)}>
+        <p>Class of {classYear}</p>
+      </aside>
+      <div className={cx(styles.entryBody)}>
+        <header className={cx(typography.data)}>
+          <div>
+            <h3>{institution}</h3>
+            {degree && <p>{degree}</p>}
+          </div>
+        </header>
+        {props.children && (
+          <div className={cx(styles.description)}>{props.children}</div>
+        )}
+      </div>
     </div>
   );
 };
@@ -85,7 +93,7 @@ const Resume = (props) => {
       </section>
       <section>
         <h2>Skills</h2>
-        <ul className={cx(styles.skills)}>
+        <ul className={cx(styles.skills, typography.data)}>
           {skills.map((skill) => (
             <li key={skill}>{skill}</li>
           ))}

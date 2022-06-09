@@ -1,13 +1,18 @@
-.position {
+.entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2rem;
   margin-bottom: 2.5em;
   break-inside: avoid
 }
 
-.position header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0 1rem;
+.entry aside {
+  flex: 0 1 12em;
+}
+
+.entry .entryBody {
+  flex: 1 1 32em;
 }
 
 .position .role {
@@ -22,12 +27,11 @@
   opacity: .7;
   line-height: 1.4;
   font-size: 1em;
-  padding-left: 1rem;
 }
 
 .position .date {
-  font-style: italic;
   opacity: .7;
+  font-size: .8em;
 }
 
 .resume header {
@@ -46,8 +50,9 @@
 }
 
 .resume h2 {
-  font-size: 1.3em;
-  font-style: italic;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5em;
+  font-weight: 800;
   margin-top: 2.5rem;
 }
 
@@ -74,15 +79,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2ch 4ch;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: bold;
+  font-weight: 500;
   font-size: .9em;
   opacity: .7;
 }
 
 .when {
   opacity: .7;
-  font-style: italic;
+  font-size: .8em;
+  font-weight: 500;
+}
+
+.when p {
+  margin-top: 0;
 }
 
 @media print {

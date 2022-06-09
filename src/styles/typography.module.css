@@ -1,11 +1,35 @@
+@font-face {
+  font-family: 'Source Serif';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url('/static/fonts/SourceSerif4-Variable.ttf') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Source Serif';
+  font-weight: 100 900;
+  font-style: italic;
+  src: url('/static/fonts/SourceSerif4-Italic-Variable.ttf') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  src: url('/static/fonts/Inter-Variable.ttf') format('woff2-variations');
+}
+
 .text {
-	font-family: 'IBM Plex Serif', serif;
+  font-display: swap;
+	font-family: 'Source Serif', serif;
+  font-optical-sizing: auto;
 	font-size: 1em;
+  line-height: 1.6;
 }
 
 .data {
-	font-family: 'IBM Plex Mono', monospace;
-	font-size: .8rem;
+  font-display: swap;
+	font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
 }
 
 .title {
@@ -14,4 +38,8 @@
 
 .normal {
   font-size: 1em;
+}
+
+.keepTogether {
+  white-space: pre;
 }
