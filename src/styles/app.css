@@ -1,18 +1,18 @@
 :root {
-	--text-color: #000;
-	--page-color: #fff;
-	--link-color: #000;
-	--link-hover-color: #333;
-	--link-visited-color: #999;
+	--text-color: hsl(0, 0%, 10%);
+	--page-color: hsl(0, 0%, 90%);
+	--link-color: hsl(0, 0%, 20%);
+	--link-hover-color: hsl(0, 0%, 40%);
+	--link-visited-color: hsl(0, 0%, 40%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-  	--text-color: hsl(129, 100%, 70%);
-  	--page-color: hsl(134, 41%, 10%);
-  	--link-color: #fff;
-  	--link-hover-color: #198929;
-  	--link-visited-color: #198929;
+  	--text-color: hsl(0, 0%, 90%);
+  	--page-color: hsl(0, 0%, 10%);
+  	--link-color: hsl(0, 0%, 80%);
+  	--link-hover-color: hsl(0, 0%, 60%);
+  	--link-visited-color: hsl(0, 0%, 60%);
   }
 }
 
@@ -22,7 +22,7 @@
 
 html, body {
 	margin: 0;
-	font-size: 20px;
+	font-size: 16px;
 	color: var(--text-color);
 	background: var(--page-color);
   font-family: sans-serif;
