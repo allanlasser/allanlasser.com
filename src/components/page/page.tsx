@@ -4,8 +4,10 @@ import Link from "next/link";
 import useSmartquotes from "src/hooks/useSmartquotes";
 import typography from "src/styles/typography.module.css";
 import styles from "./page.module.css";
+import Head from "next/head";
 
 export interface PageProps {
+  htmlTitle?: string;
   title?: string;
 }
 
@@ -20,9 +22,19 @@ export const GitHub = (props: React.ComponentProps<"svg">) => (
 );
 
 const Page: React.FC<PageProps> = (props) => {
+  const { title, htmlTitle } = props;
   useSmartquotes();
   return (
     <div className={cx(styles.container, typography.text)}>
+      <Head>
+        {htmlTitle ? (
+          <title>{htmlTitle}</title>
+        ) : (
+          <title>{title && `${title} • `}Allan Lasser</title>
+        )}
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
+      </Head>
       <header className={cx(styles.header)}>
         <div>
           <h1>
@@ -54,7 +66,10 @@ const Page: React.FC<PageProps> = (props) => {
           </li>
         </ul>
       </header>
-      {props.children}
+      <main className={styles.main}>
+        {title && <h1 className={styles.title}>{title}</h1>}
+        {props.children}
+      </main>
     </div>
   );
 };

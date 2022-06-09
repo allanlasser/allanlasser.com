@@ -5,8 +5,10 @@ import Page from "src/components/page";
 import Image from "next/image";
 import typography from "src/styles/typography.module.css";
 import projectStyles from "src/styles/project.module.css";
+import pageStyles from "src/components/page/page.module.css";
 import Link from "next/link";
 import BlockContent from "src/components/block-content";
+import cx from "classnames";
 
 export interface ProjectPageProps {
   project: Schema.Project;
@@ -18,7 +20,9 @@ const ProjectPage: NextPage<ProjectPageProps> = (props) => {
     <Page>
       <article>
         <header>
-          <h1 className={projectStyles.title}>{project.title}</h1>
+          <h1 className={cx(pageStyles.title, projectStyles.title)}>
+            {project.title}
+          </h1>
           {project.link && (
             <Link href={project.link}>
               <a className={typography.data}>{project.link}</a>

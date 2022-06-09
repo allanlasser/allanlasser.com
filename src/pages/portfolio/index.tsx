@@ -15,9 +15,8 @@ const PortfolioPage: NextPage<PortfolioPageProps> = (props) => {
   const { projects, personalStatement } = props;
   console.log(personalStatement);
   return (
-    <Page>
+    <Page title='Portfolio'>
       <article>
-        <h1>Portfolio</h1>
         <BlockContent value={personalStatement} />
         <ul className={styles.projectList}>
           {projects.map((project) => (

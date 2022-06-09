@@ -15,6 +15,7 @@
 @font-face {
   font-family: 'Inter';
   font-weight: 100 900;
+  font-style: normal italic;
   src: url('/static/fonts/Inter-Variable.ttf') format('woff2-variations');
 }
 
