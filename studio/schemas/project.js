@@ -18,6 +18,11 @@ const project = {
       },
     },
     {
+      name: "link",
+      title: "Link",
+      type: "string",
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",

@@ -4,6 +4,8 @@ import { groq } from "next-sanity";
 import Sanity, { Schema, srcFor } from "src/providers/sanity";
 import Page from "src/components/page";
 import Image from "next/image";
+import typography from "src/styles/typography.module.css";
+import Link from "next/link";
 
 export interface ProjectPageProps {
   project: Schema.Project;
@@ -15,6 +17,11 @@ const ProjectPage: NextPage<ProjectPageProps> = (props) => {
     <Page>
       <article>
         <h1>{project.title}</h1>
+        {project.link && (
+          <Link href={project.link}>
+            <a className={typography.data}>{project.link}</a>
+          </Link>
+        )}
         <PortableText value={project.body} />
         {project.mainImage && (
           <Image

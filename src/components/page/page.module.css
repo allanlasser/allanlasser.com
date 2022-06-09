@@ -47,6 +47,7 @@
   display: flex;
   gap: 1rem;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .icon {

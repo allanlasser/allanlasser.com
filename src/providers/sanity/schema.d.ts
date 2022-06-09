@@ -82,6 +82,13 @@ export interface Project extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
+   * Link — `string`
+   *
+   *
+   */
+  link?: string;
+
+  /**
    * Main image — `image`
    *
    *
