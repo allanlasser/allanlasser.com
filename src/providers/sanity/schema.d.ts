@@ -98,6 +98,13 @@ export interface Project extends SanityDocument {
   title?: string;
 
   /**
+   * Description — `string`
+   *
+   *
+   */
+  description?: string;
+
+  /**
    * Slug — `slug`
    *
    *

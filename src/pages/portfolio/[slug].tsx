@@ -17,27 +17,14 @@ export interface ProjectPageProps {
 const ProjectPage: NextPage<ProjectPageProps> = (props) => {
   const { project } = props;
   return (
-    <Page>
+    <Page title={project.title}>
       <article>
         <header>
-          <h1 className={cx(pageStyles.title, projectStyles.title)}>
-            {project.title}
-          </h1>
           {project.link && (
             <Link href={project.link}>
               <a className={typography.data}>{project.link}</a>
             </Link>
           )}
-          <figure className={projectStyles.image}>
-            {project.mainImage && (
-              <Image
-                width={400}
-                height={300}
-                layout='responsive'
-                src={srcFor(project.mainImage).height(600).width(800).url()}
-              />
-            )}
-          </figure>
         </header>
         <main className={projectStyles.body}>
           <BlockContent value={project.body} />

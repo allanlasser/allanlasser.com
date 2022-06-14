@@ -47,13 +47,13 @@
 
 .resume h2 {
   font-family: 'Inter', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 800;
-  margin-top: 2.5rem;
+  margin: 3rem 0 1.5rem;
 }
 
 .resume h3 {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .education {

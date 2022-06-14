@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import { groq } from "next-sanity";
-import Sanity, { Schema } from "src/providers/sanity";
+import Sanity, { Schema, srcFor } from "src/providers/sanity";
+import Image from "next/image";
 import Page from "src/components/page";
 import styles from "src/styles/portfolio.module.css";
 import Link from "next/link";
@@ -20,10 +21,25 @@ const PortfolioPage: NextPage<PortfolioPageProps> = (props) => {
         <BlockContent value={personalStatement} />
         <ul className={styles.projectList}>
           {projects.map((project) => (
-            <li key={project.slug.current}>
+            <li key={project.slug.current} className={styles.projectItem}>
               <Link href={`/portfolio/${project.slug.current}`}>
                 <a className={styles.projectLink}>
-                  <h2>{project.title}</h2>
+                  <figure className={styles.projectImage}>
+                    {project.mainImage && (
+                      <Image
+                        alt=''
+                        layout='fill'
+                        src={srcFor(project.mainImage)
+                          .height(600)
+                          .width(600)
+                          .url()}
+                      />
+                    )}
+                  </figure>
+                  <h2 className={styles.projectTitle}>{project.title}</h2>
+                  <p className={styles.projectDescription}>
+                    {project.description}
+                  </p>
                 </a>
               </Link>
             </li>

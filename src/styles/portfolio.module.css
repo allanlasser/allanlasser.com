@@ -1,9 +1,47 @@
 .projectList {
+  right: 0;
+  margin: 3rem 0;
   list-style-type: none;
   padding-left: 0;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
 
-.projectLink h2 {
-  font-style: italic;
-  font-weight: 400;
+.projectItem {
+  flex: 0 0 20rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+.projectItem a {
+  text-decoration: none;
+}
+
+.projectTitle {
+  font-size: 1.2em;
+  font-family: 'Inter', sans-serif;
+  color: var(--link-color);
+  margin-bottom: 0;
+}
+
+.projectDescription {
+  margin: 0;
+}
+
+.projectImage {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  background-color: var(--color-gray-300);
+}
+
+@supports (aspect-ratio: 1 / 1) {
+  .projectImage {
+    height: auto;
+    padding-top: unset;
+    aspect-ratio: 1 / 1;
+  }
 }
