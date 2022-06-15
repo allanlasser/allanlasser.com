@@ -37,6 +37,29 @@ export type {
 };
 
 /**
+ * Portfolio
+ *
+ *
+ */
+export interface Portfolio extends SanityDocument {
+  _type: "portfolio";
+
+  /**
+   * Personal Statement — `blockContent`
+   *
+   *
+   */
+  personalStatement?: BlockContent;
+
+  /**
+   * projects — `array`
+   *
+   *
+   */
+  projects?: Array<SanityKeyedReference<Project>>;
+}
+
+/**
  * Resume
  *
  *
@@ -57,6 +80,62 @@ export interface Resume extends SanityDocument {
    *
    */
   skills?: Array<SanityKeyed<string>>;
+}
+
+/**
+ * Project
+ *
+ *
+ */
+export interface Project extends SanityDocument {
+  _type: "project";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `string`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Link — `string`
+   *
+   *
+   */
+  link?: string;
+
+  /**
+   * Main image — `image`
+   *
+   *
+   */
+  mainImage?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Body — `blockContent`
+   *
+   *
+   */
+  body?: BlockContent;
 }
 
 /**
@@ -235,4 +314,4 @@ export type Position = {
   endDate?: string;
 };
 
-export type Documents = Resume | Post | Author | Category;
+export type Documents = Portfolio | Resume | Project | Post | Author | Category;

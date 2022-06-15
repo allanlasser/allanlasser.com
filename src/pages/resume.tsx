@@ -11,7 +11,7 @@ export interface ResumePageProps {
 const ResumePage: NextPage<ResumePageProps> = (props) => {
   const { resume } = props;
   return (
-    <Page>
+    <Page title='Résumé'>
       <Resume {...resume} />
     </Page>
   );

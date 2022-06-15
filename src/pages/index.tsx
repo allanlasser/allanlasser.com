@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import { Bookmark, getRecentBookmarks } from "src/providers/pinboard";
 import { BookmarkList } from "src/components/bookmarks";
 import Page from "src/components/page";
@@ -10,12 +9,7 @@ interface HomePageProps {
 }
 
 const HomePage: NextPage<HomePageProps> = (props) => (
-  <Page title='Reading'>
-    <Head>
-      <title>Allan Lasser</title>
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
-    </Head>
+  <Page htmlTitle='Allan Lasser' title='Bookmarks'>
     <BookmarkList bookmarks={props.bookmarks} />
   </Page>
 );

@@ -4,6 +4,8 @@
 	--link-color: hsl(0, 0%, 20%);
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
+  --color-gray-300: hsl(0, 0%, 70%);
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +15,7 @@
   	--link-color: hsl(0, 0%, 80%);
   	--link-hover-color: hsl(0, 0%, 60%);
   	--link-visited-color: hsl(0, 0%, 60%);
+    --color-gray-300: hsl(0, 0%, 30%);
   }
 }
 
@@ -23,6 +26,7 @@
 html, body {
 	margin: 0;
 	font-size: 16px;
+  line-height: 1.4;
 	color: var(--text-color);
 	background: var(--page-color);
   font-family: sans-serif;
@@ -32,7 +36,8 @@ html, body {
 }
 
 a {
-	color: var(--link-color); 
+	color: var(--link-color);
+  text-decoration-color: var(--color-gray-300);
 }
 a:visited { color: var(--link-visited-color); }
 a:hover 	{ color: var(--link-hover-color); }

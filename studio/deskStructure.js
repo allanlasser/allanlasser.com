@@ -6,12 +6,20 @@ const structure = () =>
     .title("Content")
     .items([
       S.listItem()
+        .title("Portfolio")
+        .child(
+          S.document()
+            .schemaType("portfolio")
+            .documentId("portfolio")
+            .title("Portfolio")
+        ),
+      S.listItem()
         .title("Resume")
         .child(
           S.document().schemaType("resume").documentId("resume").title("Resume")
         ),
       ...S.documentTypeListItems().filter(
-        (listItem) => !["resume"].includes(listItem.getId())
+        (listItem) => !["resume", "portfolio"].includes(listItem.getId())
       ),
     ]);
 
