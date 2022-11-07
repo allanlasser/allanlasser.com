@@ -30,12 +30,12 @@ const PortfolioPage: NextPage<PortfolioPageProps> = (props) => {
                   {project.mainImage && (
                     <Image
                       alt=''
-                      layout='fill'
                       src={srcFor(project.mainImage)
                         .height(600)
                         .width(600)
                         .url()}
-                    />
+                      fill
+                      sizes="100vw" />
                   )}
                 </figure>
                 <h2 className={styles.projectTitle}>{project.title}</h2>
