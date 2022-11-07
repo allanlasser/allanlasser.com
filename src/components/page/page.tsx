@@ -38,22 +38,16 @@ const Page: React.FC<PageProps> = (props) => {
       <header className={cx(styles.header)}>
         <div>
           <h1>
-            <Link href='/'>
-              <a>Allan Lasser</a>
-            </Link>
+            <Link href='/'>Allan Lasser</Link>
           </h1>
           <p>Product Designer &amp; Web Developer</p>
         </div>
         <ul className={cx(styles.links)}>
           <li>
-            <Link href='/portfolio'>
-              <a>Portfolio</a>
-            </Link>
+            <Link href='/portfolio'>Portfolio</Link>
           </li>
           <li>
-            <Link href='/resume'>
-              <a>Résumé</a>
-            </Link>
+            <Link href='/resume'>Résumé</Link>
           </li>
           <li>
             <a

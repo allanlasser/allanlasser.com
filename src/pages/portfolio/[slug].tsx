@@ -21,8 +21,8 @@ const ProjectPage: NextPage<ProjectPageProps> = (props) => {
       <article>
         <header>
           {project.link && (
-            <Link href={project.link}>
-              <a className={typography.data}>{project.link}</a>
+            <Link href={project.link} className={typography.data}>
+              {project.link}
             </Link>
           )}
         </header>

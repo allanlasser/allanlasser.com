@@ -22,25 +22,26 @@ const PortfolioPage: NextPage<PortfolioPageProps> = (props) => {
         <ul className={styles.projectList}>
           {projects.map((project) => (
             <li key={project.slug.current} className={styles.projectItem}>
-              <Link href={`/portfolio/${project.slug.current}`}>
-                <a className={styles.projectLink}>
-                  <figure className={styles.projectImage}>
-                    {project.mainImage && (
-                      <Image
-                        alt=''
-                        layout='fill'
-                        src={srcFor(project.mainImage)
-                          .height(600)
-                          .width(600)
-                          .url()}
-                      />
-                    )}
-                  </figure>
-                  <h2 className={styles.projectTitle}>{project.title}</h2>
-                  <p className={styles.projectDescription}>
-                    {project.description}
-                  </p>
-                </a>
+              <Link
+                href={`/portfolio/${project.slug.current}`}
+                className={styles.projectLink}
+              >
+                <figure className={styles.projectImage}>
+                  {project.mainImage && (
+                    <Image
+                      alt=''
+                      layout='fill'
+                      src={srcFor(project.mainImage)
+                        .height(600)
+                        .width(600)
+                        .url()}
+                    />
+                  )}
+                </figure>
+                <h2 className={styles.projectTitle}>{project.title}</h2>
+                <p className={styles.projectDescription}>
+                  {project.description}
+                </p>
               </Link>
             </li>
           ))}
