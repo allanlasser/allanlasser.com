@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import { Bookmark, getRecentBookmarks } from "src/providers/pinboard";
 import { BookmarkList } from "src/components/bookmarks";
 import Page from "src/components/page";
-import typography from "src/styles/typography.module.css";
 
 interface HomePageProps {
   bookmarks: Bookmark[];

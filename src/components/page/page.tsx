@@ -21,17 +21,20 @@ export const GitHub = (props: React.ComponentProps<"svg">) => (
   </svg>
 );
 
+function getPageTitle({ title, htmlTitle }: PageProps) {
+  const defaultTitle = "Allan Lasser";
+  if (htmlTitle) return htmlTitle;
+  if (title) return `${title} • ${defaultTitle}`;
+  return defaultTitle;
+}
+
 const Page: React.FC<PageProps> = (props) => {
-  const { title, htmlTitle } = props;
+  const { title } = props;
   useSmartquotes();
   return (
     <div className={cx(styles.container, typography.text)}>
       <Head>
-        {htmlTitle ? (
-          <title>{htmlTitle}</title>
-        ) : (
-          <title>{title && `${title} • `}Allan Lasser</title>
-        )}
+        <title>{getPageTitle(props)}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
       </Head>
