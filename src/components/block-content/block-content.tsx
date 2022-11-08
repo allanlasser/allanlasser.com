@@ -1,3 +1,5 @@
+"use client";
+
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import Image from "next/image";
 import { Schema, srcFor } from "src/providers/sanity";

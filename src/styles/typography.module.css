@@ -1,13 +1,6 @@
-@font-face {
-  font-family: 'Inter';
-  font-weight: 100 900;
-  font-style: normal italic;
-  src: url('/static/fonts/Inter-Variable.ttf') format('woff2-variations');
-}
-
 .text {
   font-display: swap;
-	font-family: 'Inter', sans-serif;
+	font-family: var(--font-sans-serif);
   font-optical-sizing: auto;
 	font-size: 1em;
   font-weight: 400;
@@ -16,7 +9,7 @@
 
 .data {
   font-display: swap;
-	font-family: 'Inter', sans-serif;
+	font-family: var(--font-sans-serif);
   font-optical-sizing: auto;
 }
 
@@ -30,4 +23,10 @@
 
 .keepTogether {
   white-space: pre;
+}
+
+.bodyText {
+  max-width: 60ch;
+  line-height: 1.7;
+  font-family: var(--font-serif);
 }

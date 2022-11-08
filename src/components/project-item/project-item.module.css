@@ -1,35 +1,27 @@
-.projectList {
-  right: 0;
-  margin: 3rem 0;
-  list-style-type: none;
-  padding-left: 0;
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-}
-
 .projectItem {
-  flex: 0 0 20rem;
-  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans-serif);
   color: var(--text-color);
 }
 
-.projectItem a {
-  text-decoration: none;
-}
-
 .projectTitle {
+  flex: 0 0 auto;
   font-size: 1.2em;
-  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
+  font-family: var(--font-sans-serif);
   color: var(--link-color);
-  margin-bottom: 0;
+  margin: 1rem 0 .5rem;
 }
 
 .projectDescription {
+  flex: 0 0 auto;
   margin: 0;
+  font-size: .875em;
 }
 
 .projectImage {
+  flex: 1 1 20%;
   position: relative;
   margin: 0;
   width: 100%;

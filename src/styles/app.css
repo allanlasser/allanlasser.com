@@ -1,11 +1,13 @@
 :root {
-	--text-color: hsl(0, 0%, 10%);
-	--page-color: hsl(0, 0%, 90%);
+	--text-color: hsl(0, 0%, 20%);
+	--page-color: hsl(0, 0%, 100%);
 	--link-color: hsl(0, 0%, 20%);
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
+  --color-gray-100: hsl(0, 0%, 90%);
   --color-gray-300: hsl(0, 0%, 70%);
-  
+  /* --font-serif: 'Georgia', serif;
+  --font-sans-serif: 'Helvetica Neue', sans-serif; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +17,7 @@
   	--link-color: hsl(0, 0%, 80%);
   	--link-hover-color: hsl(0, 0%, 60%);
   	--link-visited-color: hsl(0, 0%, 60%);
+    --color-gray-100: hsl(0, 0%, 10%);
     --color-gray-300: hsl(0, 0%, 30%);
   }
 }
@@ -29,7 +32,7 @@ html, body {
   line-height: 1.4;
 	color: var(--text-color);
 	background: var(--page-color);
-  font-family: sans-serif;
+  font-family: var(--font-sans-serif);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
