@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 2rem;
+  list-style-type: none;
+  margin: 0 0 2rem 0;
+  padding: 0;
+}
+
+.projectListItem a {
+  text-decoration: none;
+  transition: opacity .1s linear;
+}
+
+.projectListItem a:hover {
+  text-decoration: none;
+  opacity: .5;
+}

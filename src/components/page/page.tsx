@@ -1,10 +1,9 @@
 import React from "react";
 import cx from "classnames";
+import Image from "next/image";
 import Link from "next/link";
-import useSmartquotes from "src/hooks/useSmartquotes";
 import typography from "src/styles/typography.module.css";
 import styles from "./page.module.css";
-import Head from "next/head";
 
 export interface PageProps {
   htmlTitle?: string;
@@ -22,51 +21,40 @@ export const GitHub = (props: React.ComponentProps<"svg">) => (
 );
 
 const Page: React.FC<PageProps> = (props) => {
-  const { title, htmlTitle } = props;
-  useSmartquotes();
+  const { title } = props;
   return (
-    <div className={cx(styles.container, typography.text)}>
-      <Head>
-        {htmlTitle ? (
-          <title>{htmlTitle}</title>
-        ) : (
-          <title>{title && `${title} • `}Allan Lasser</title>
-        )}
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
-      </Head>
-      <header className={cx(styles.header)}>
-        <div>
-          <h1>
-            <Link href='/'>
-              <a>Allan Lasser</a>
-            </Link>
-          </h1>
-          <p>Product Designer &amp; Web Developer</p>
+    <div className={cx(typography.text)}>
+      <header className={cx(styles["sticky-top"], styles.header)}>
+        <div className={cx(styles.container)}>
+          <Link href='/' className={cx(styles.avatar)}>
+            <Image alt='An avatar for Allan' src='/static/avatar.png' fill />
+          </Link>
+          <div className={cx(styles.masthead)}>
+            <h1>
+              <Link href='/'>Allan Lasser</Link>
+            </h1>
+            <p>makes web sites</p>
+          </div>
+          <ul className={cx(styles.links)}>
+            <li>
+              <Link href='/work'>Work</Link>
+            </li>
+            <li>
+              <Link href='/cv'>CV</Link>
+            </li>
+            <li>
+              <a
+                href='https://github.com/allanlasser/allanlasser.com'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <GitHub className={cx(styles.icon)} aria-label='GitHub' />
+              </a>
+            </li>
+          </ul>
         </div>
-        <ul className={cx(styles.links)}>
-          <li>
-            <Link href='/portfolio'>
-              <a>Portfolio</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/resume'>
-              <a>Résumé</a>
-            </Link>
-          </li>
-          <li>
-            <a
-              href='https://github.com/allanlasser/allanlasser.com'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <GitHub className={cx(styles.icon)} aria-label='GitHub' />
-            </a>
-          </li>
-        </ul>
       </header>
-      <main className={styles.main}>
+      <main className={cx(styles.container, styles.main)}>
         {title && <h1 className={styles.title}>{title}</h1>}
         {props.children}
       </main>

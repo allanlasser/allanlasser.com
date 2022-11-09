@@ -1,3 +1,5 @@
+"use client";
+
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import Image from "next/image";
 import { Schema, srcFor } from "src/providers/sanity";
@@ -7,7 +9,19 @@ const components: Partial<PortableTextReactComponents> = {
   types: {
     image: ({ value }) => {
       const src = srcFor(value).width(1200).height(900).url();
-      return <Image layout='responsive' width='2400' height='1800' src={src} />;
+      return (
+        <Image
+          alt=''
+          width='2400'
+          height='1800'
+          src={src}
+          sizes='100vw'
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
+      );
     },
   },
 };
