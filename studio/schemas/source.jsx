@@ -1,8 +1,17 @@
+import React from "react";
+import { Book, FileText, FileVideo } from "lucide-react";
+
 const SourceTypes = [
   { title: "Article", value: "article" },
   { title: "Book", value: "book" },
   { title: "Video", value: "video" },
 ];
+
+const SourceTypeIcons = {
+  book: Book,
+  article: FileText,
+  video: FileVideo,
+};
 
 const Source = {
   name: "source",
@@ -56,14 +65,15 @@ const Source = {
       title: "title",
       url: "url",
       author: "author",
-      image: "cover",
+      type: "type",
     },
     prepare(selection) {
-      const { title, url, author, image } = selection;
+      const { title, url, author, image, type } = selection;
+      const Icon = SourceTypeIcons[type];
       return {
         title,
         subtitle: `${author ?? url}`,
-        image: image ?? null,
+        media: <Icon strokeWidth={1.5} />,
       };
     },
   },

@@ -1,3 +1,6 @@
+import React from "react";
+import { Bookmark } from "lucide-react";
+
 const Note = {
   name: "note",
   title: "Note",
@@ -30,6 +33,7 @@ const Note = {
       return {
         title,
         subtitle: page ? `pg. ${page}` : null,
+        media: <Bookmark strokeWidth={1.5} />,
       };
     },
   },

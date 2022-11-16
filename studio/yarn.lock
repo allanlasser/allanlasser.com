@@ -6438,6 +6438,11 @@ lru-cache@^4.0.1, lru-cache@^4.0.2:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+lucide-react@^0.101.0:
+  version "0.101.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.101.0.tgz#0d5c00748c9c7f2a0e7e8b85acff9e5492c8fdcb"
+  integrity sha512-jziosG8Cvqk19et2srzNidxvewTsPiNM8fWc5WSzdeZX1GC8w9PZWG+oXwVU5yy/LWMBCjgVicrmtmp6wWxCDw==
+
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
