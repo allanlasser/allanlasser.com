@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, FileText, FileVideo } from "lucide-react";
+import { Book, File, FileText, FileVideo } from "lucide-react";
 
 const SourceTypes = [
   { title: "Article", value: "article" },
@@ -60,6 +60,9 @@ const Source = {
       },
     },
   ],
+  initialValue: {
+    type: "article",
+  },
   preview: {
     select: {
       title: "title",
@@ -68,8 +71,8 @@ const Source = {
       type: "type",
     },
     prepare(selection) {
-      const { title, url, author, image, type } = selection;
-      const Icon = SourceTypeIcons[type];
+      const { title, url, author, type } = selection;
+      const Icon = SourceTypeIcons[type] ?? File;
       return {
         title,
         subtitle: `${author ?? url}`,
