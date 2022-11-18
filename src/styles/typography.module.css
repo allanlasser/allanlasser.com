@@ -14,19 +14,44 @@
 }
 
 .title {
+  font-family: var(--font-sans-serif);
 	font-weight: bold;
 }
 
-.normal {
+.normalSize {
   font-size: 1em;
+}
+
+.smallSize {
+  font-size: .8em;
+}
+
+.normalWeight {
+  font-weight: 400;
+}
+
+.mediumWeight {
+  font-weight: 500;
 }
 
 .keepTogether {
   white-space: pre;
 }
 
+.noUnderline {
+  text-decoration: none;
+}
+
+.dim {
+  opacity: .7;
+}
+
 .bodyText {
-  max-width: 60ch;
   line-height: 1.7;
   font-family: var(--font-serif);
+  font-variant-numeric: oldstyle-nums;
+}
+
+.bodyText p:last-child {
+  margin-bottom: 0;
 }

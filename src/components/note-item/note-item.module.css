@@ -1,0 +1,68 @@
+.note {
+  margin: 3rem 0;
+}
+
+.source {
+  margin: .5rem 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+
+.sourceTitle {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+
+.sourceType {
+  display: inline-block;
+}
+
+.sourceType svg {
+  vertical-align: text-bottom;
+}
+
+.source h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.main {
+  margin: .7rem;
+}
+
+.main blockquote {
+  /* opacity: .9; */
+  /* font-size: .9em; */
+  margin-left: 0;
+  padding-left: 1.1rem;
+  border-left: 3px double var(--color-gray-200);
+  font-style: italic;
+}
+
+.footer {
+  margin: .5rem .3rem .5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  font-weight: 500;
+  opacity: .7;
+  font-variant-caps: all-small-caps;
+}
+
+.footer svg {
+  vertical-align: middle;
+}
+
+.footer a {
+  color: inherit;
+}
+
+.footer a:hover {
+  opacity: .7;
+}
+
+.time {
+  font-size: 1em;
+}

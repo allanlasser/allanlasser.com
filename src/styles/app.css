@@ -5,6 +5,7 @@
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
   --color-gray-100: hsl(0, 0%, 90%);
+  --color-gray-200: hsl(0, 0%, 80%);
   --color-gray-300: hsl(0, 0%, 70%);
   /* --font-serif: 'Georgia', serif;
   --font-sans-serif: 'Helvetica Neue', sans-serif; */
@@ -18,6 +19,7 @@
   	--link-hover-color: hsl(0, 0%, 60%);
   	--link-visited-color: hsl(0, 0%, 60%);
     --color-gray-100: hsl(0, 0%, 15%);
+    --color-gray-200: hsl(0, 0%, 22.5%);
     --color-gray-300: hsl(0, 0%, 30%);
   }
 }

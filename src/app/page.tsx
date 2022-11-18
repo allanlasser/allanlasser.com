@@ -1,21 +1,14 @@
-import { getRecentBookmarks } from "src/providers/pinboard";
-import { BookmarkList } from "src/components/bookmarks";
+import getNotes from "src/data/getNotes";
+import NoteList from "src/components/note-list/note-list";
 
 export default async function HomePage({ children }) {
-  const bookmarks = await getRecentBookmarks("Instapaper");
+  const notes = await getNotes();
   return (
     <>
-      <h1>Reading log</h1>
-      <BookmarkList bookmarks={bookmarks} />
+      <h1>Reading notes</h1>
+      <NoteList notes={notes} />
     </>
   );
 }
 
-// export async function getStaticProps() {
-//   return {
-//     props: {
-//       bookmarks:
-//     },
-//     revalidate: 3600,
-//   };
-// }
+export const revalidate = 3600;
