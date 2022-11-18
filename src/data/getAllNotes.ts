@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import Sanity from "src/providers/sanity";
 import { Note } from "src/types/note";
 
-const GET_NOTES = groq`*[_type == "note"] | order(_createdAt desc) {
+const GET_ALL_NOTES = groq`*[_type == "note"] | order(_createdAt desc) {
   _id,
   _createdAt,
   body,
@@ -16,6 +16,6 @@ const GET_NOTES = groq`*[_type == "note"] | order(_createdAt desc) {
 }
 `;
 
-export default async function getNotes() {
-  return Sanity.fetch<Note[]>(GET_NOTES);
+export default async function getAllNotes() {
+  return Sanity.fetch<Note[]>(GET_ALL_NOTES);
 }

@@ -33,7 +33,7 @@ const Page: React.FC<PageProps> = (props) => {
             <h1>
               <Link href='/'>Allan Lasser</Link>
             </h1>
-            <p>makes web sites</p>
+            <p>studying the text</p>
           </div>
           <ul className={cx(styles.links)}>
             <li>
