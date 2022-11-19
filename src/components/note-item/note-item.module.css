@@ -13,7 +13,7 @@
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  font-size: 1.2em;
+  font-size: 1.125em;
 }
 
 .sourceType {
@@ -26,7 +26,8 @@
 
 .source h2 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1em;
+  font-weight: 600;
   line-height: 1.4;
 }
 

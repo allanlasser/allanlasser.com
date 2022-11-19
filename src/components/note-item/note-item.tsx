@@ -36,7 +36,7 @@ function NoteSource({ source, page }: { source: Source; page: number }) {
         className={styles.sourceType}
         title={SourceTypeLabel[source.type] ?? "Link"}
       >
-        <Icon />
+        <Icon size={24} />
       </span>
       <span>{smartTitle}</span>
     </a>
@@ -46,9 +46,9 @@ function NoteSource({ source, page }: { source: Source; page: number }) {
         className={styles.sourceType}
         title={SourceTypeLabel[source.type] ?? "Link"}
       >
-        <Icon />
+        <Icon size={24} />
       </span>
-      <span className={styles.sourceTitle}>{smartTitle}</span>
+      <span>{smartTitle}</span>
     </span>
   );
   return (

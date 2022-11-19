@@ -45,6 +45,7 @@ html, body {
 a {
 	color: var(--link-color);
   text-decoration-color: var(--color-gray-300);
+  text-decoration-thickness: 2px;
 }
 a:visited { color: var(--link-visited-color); }
 a:hover 	{ color: var(--link-hover-color); }
