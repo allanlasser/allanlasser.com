@@ -1,12 +1,12 @@
 .note {
-  margin: 3rem 0;
+  margin: 0;
 }
 
 .source {
   margin: .5rem 0 0;
   display: flex;
   align-items: baseline;
-  gap: .5rem;
+  gap: 1rem;
 }
 
 .sourceTitle {
@@ -27,20 +27,27 @@
 .source h2 {
   margin: 0;
   font-size: 1rem;
+  line-height: 1.4;
 }
 
 .main {
-  margin: .7rem;
+  margin: .5rem;
 }
 
 .main blockquote {
-  /* opacity: .9; */
-  /* font-size: .9em; */
   margin: 1rem 0;
-  padding-left: 1.7rem;
-  border-left: 3px double var(--color-gray-200);
+  padding-left: 1.5rem;
+  /* border-top: 1px solid var(--highlight-color); */
+  border-left: .5em solid var(--highlight-color);
   font-style: italic;
-  font-size: .925em;
+  font-size: .95em;
+}
+
+.main blockquote em {
+  background-color: var(--highlight-color);
+  box-shadow: 0 0 0 4px var(--highlight-color);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .footer {
@@ -50,7 +57,6 @@
   gap: 1em;
   font-weight: 500;
   opacity: .7;
-  font-variant-caps: all-small-caps;
 }
 
 .footer svg {
@@ -66,5 +72,5 @@
 }
 
 .time {
-  font-size: 1em;
+  font-size: .8em;
 }

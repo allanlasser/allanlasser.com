@@ -1,6 +1,7 @@
 import { Note } from "src/types/note";
 import list from "src/styles/list.module.css";
 import NoteItem from "../note-item/note-item";
+import styles from "./note-list.module.css";
 
 export interface NoteListProps {
   notes: Note[];
@@ -16,7 +17,7 @@ export default function NoteList(props: NoteListProps) {
   return (
     <ul className={list.noStyle}>
       {notes.map((note) => (
-        <li key={note._id}>
+        <li key={note._id} className={styles.listItem}>
           <NoteItem {...note} />
         </li>
       ))}
