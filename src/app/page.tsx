@@ -10,5 +10,3 @@ export default async function HomePage({ children }) {
     </>
   );
 }
-
-export const revalidate = 600;
