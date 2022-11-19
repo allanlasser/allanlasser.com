@@ -12,7 +12,8 @@
 .sourceTitle {
   display: flex;
   align-items: baseline;
-  gap: .5rem;
+  gap: 1rem;
+  font-size: 1.2em;
 }
 
 .sourceType {
@@ -35,10 +36,11 @@
 .main blockquote {
   /* opacity: .9; */
   /* font-size: .9em; */
-  margin-left: 0;
-  padding-left: 1.1rem;
+  margin: 1rem 0;
+  padding-left: 1.7rem;
   border-left: 3px double var(--color-gray-200);
   font-style: italic;
+  font-size: .925em;
 }
 
 .footer {
