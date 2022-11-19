@@ -1,10 +1,7 @@
-import { groq } from "next-sanity";
-import Sanity, { Schema } from "src/providers/sanity";
+import getProject from "src/data/getProject";
 
 export default async function PortfolioProjectHead({ params }) {
-  const { slug } = params;
-  const PROJECT_QUERY = groq`*[_type == "project" && slug.current == "${slug}"][0]`;
-  const project = await Sanity.fetch<Schema.Project>(PROJECT_QUERY);
+  const project = await getProject(params.slug);
   const title = `Allan Lasser: Work: ${project.title}`;
   return (
     <>

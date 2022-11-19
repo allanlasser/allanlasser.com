@@ -1,7 +1,13 @@
 .container {
 	max-width: 48em;
 	margin: 0 auto;
-	padding: 1rem;
+	padding: 1rem .5rem;
+}
+
+@media (min-width: 30rem) {
+  .container {
+    padding: 1rem;
+  }
 }
 
 .avatar {
@@ -24,6 +30,10 @@
   gap: 0 1rem;
 }
 
+.masthead h1 {
+  margin: 0;
+}
+
 .title {
   font-family: var(--font-sans-serif);
   margin: 6rem 0 3rem;
@@ -42,7 +52,7 @@
   background: var(--page-color);
   width: 100vw;
   font-family: var(--font-sans-serif);
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   z-index: 10;
   border-bottom: 1px solid var(--color-gray-100);
 }
@@ -52,8 +62,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
+  padding: .5rem;
+}
+
+.header img {
+  display: block;
 }
 
 .header h1 {

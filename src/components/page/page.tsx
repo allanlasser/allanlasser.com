@@ -24,7 +24,7 @@ const Page: React.FC<PageProps> = (props) => {
   const { title } = props;
   return (
     <div className={cx(typography.text)}>
-      <header className={cx(styles["sticky-top"], styles.header)}>
+      <header className={cx(styles.header)}>
         <div className={cx(styles.container)}>
           <Link href='/' className={cx(styles.avatar)}>
             <Image alt='An avatar for Allan' src='/static/avatar.png' fill />
@@ -33,7 +33,7 @@ const Page: React.FC<PageProps> = (props) => {
             <h1>
               <Link href='/'>Allan Lasser</Link>
             </h1>
-            <p>makes web sites</p>
+            <p>studying the text</p>
           </div>
           <ul className={cx(styles.links)}>
             <li>

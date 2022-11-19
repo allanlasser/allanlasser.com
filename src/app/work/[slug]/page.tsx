@@ -1,19 +1,13 @@
 import cx from "classnames";
 import Link from "next/link";
-import { groq } from "next-sanity";
-import Sanity, { Schema } from "src/providers/sanity";
 import typography from "src/styles/typography.module.css";
 import projectStyles from "src/styles/project.module.css";
 import BlockContent from "src/components/block-content";
-
-export interface ProjectPageProps {
-  project: Schema.Project;
-}
+import getProject from "src/data/getProject";
+import getAllProjects from "src/data/getAllProjects";
 
 export default async function PortfolioProject({ params }) {
-  const { slug } = params;
-  const PROJECT_QUERY = groq`*[_type == "project" && slug.current == "${slug}"][0]`;
-  const project = await Sanity.fetch<Schema.Project>(PROJECT_QUERY);
+  const project = await getProject(params.slug);
   return (
     <article>
       <header>
@@ -31,20 +25,8 @@ export default async function PortfolioProject({ params }) {
 }
 
 export async function generateStaticParams() {
-  const query = groq`*[_type == "project"]`;
-  const projects = await Sanity.fetch<Schema.Project[]>(query);
+  const projects = await getAllProjects();
   return projects.map((project) => ({ slug: project.slug.current }));
 }
 
-// export const getStaticProps: GetStaticProps<ProjectPageProps> = async (
-//   context
-// ) => {
-//   const { slug } = context.params;
-
-//   return {
-//     props: {
-//       project,
-//     },
-//     revalidate: 3600,
-//   };
-// };
+export const revalidate = 3600;
