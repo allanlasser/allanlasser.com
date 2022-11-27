@@ -9,6 +9,7 @@ export const sanityConfig = {
   dataset: process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2022-01-01",
   useCdn: env !== "development", // `false` if you want to ensure fresh data
+  token: process.env.SANITY_EDITOR_TOKEN,
 };
 
 let client: SanityClient;
