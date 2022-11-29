@@ -8,6 +8,8 @@
   --color-gray-100: hsl(0, 0%, 90%);
   --color-gray-200: hsl(0, 11%, 18%);
   --color-gray-300: hsl(0, 0%, 70%);
+  --color-gray-600: hsl(0, 0%, 40%);
+  --color-gray-700: hsl(0, 0%, 30%);
   /* --font-serif: 'Georgia', serif;
   --font-sans-serif: 'Helvetica Neue', sans-serif; */
 }
@@ -23,6 +25,8 @@
     --color-gray-100: hsl(0, 0%, 15%);
     --color-gray-200: hsl(0, 0%, 22.5%);
     --color-gray-300: hsl(0, 0%, 30%);
+    --color-gray-600: hsl(0, 0%, 60%);
+    --color-gray-700: hsl(0, 0%, 70%);
   }
 }
 

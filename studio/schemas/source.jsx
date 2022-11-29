@@ -33,6 +33,16 @@ const Source = {
       type: "string",
     },
     {
+      name: "subtitle",
+      title: "Subtitle",
+      type: "string",
+    },
+    {
+      name: "author",
+      title: "Author",
+      type: "string",
+    },
+    {
       name: "url",
       title: "URL",
       type: "url",
@@ -41,12 +51,6 @@ const Source = {
     {
       name: "isbn",
       title: "ISBN",
-      type: "string",
-      hidden: ({ document }) => document?.type !== "book",
-    },
-    {
-      name: "author",
-      title: "Author",
       type: "string",
       hidden: ({ document }) => document?.type !== "book",
     },

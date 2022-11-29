@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import typography from "src/styles/typography.module.css";
 import styles from "./page.module.css";
+import Status from "../status";
 
 export interface PageProps {
   htmlTitle?: string;
@@ -20,7 +21,7 @@ export const GitHub = (props: React.ComponentProps<"svg">) => (
   </svg>
 );
 
-const Page: React.FC<PageProps> = (props) => {
+export default function Page(props: React.PropsWithChildren<PageProps>) {
   const { title } = props;
   return (
     <div className={cx(typography.text)}>
@@ -33,7 +34,8 @@ const Page: React.FC<PageProps> = (props) => {
             <h1>
               <Link href='/'>Allan Lasser</Link>
             </h1>
-            <p>studying the text</p>
+            {/** @ts-expect-error Server Component */}
+            <Status />
           </div>
           <ul className={cx(styles.links)}>
             <li>
@@ -60,6 +62,4 @@ const Page: React.FC<PageProps> = (props) => {
       </main>
     </div>
   );
-};
-
-export default Page;
+}

@@ -1,0 +1,56 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.grid .section {
+  flex: 1 1 16rem;
+}
+
+.section header {
+  border-bottom: 1px solid var(--color-gray-100);
+  font-size: .8em;
+  color: var(--color-gray-600);
+}
+
+.book {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0 1rem;
+}
+
+.book p, .book figure {
+  margin: 0;
+}
+
+.bookCover {
+  flex: 0 1 auto;
+  display: block;
+  border: 1px solid var(--color-gray-100);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bookCover img {
+  display: block;
+}
+
+.bookDetails {
+  flex: 1 1 8rem;
+  margin: .5rem 0 0;
+}
+
+.bookTitle {
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.bookSubtitle {
+  display: none;
+  font-weight: 400;
+  font-size: .925em;
+}
