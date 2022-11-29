@@ -6,6 +6,7 @@ import {
   Briefcase,
   LayoutGrid,
   Scroll,
+  Home,
 } from "lucide-react";
 import S from "@sanity/desk-tool/structure-builder";
 
@@ -13,6 +14,16 @@ const structure = () =>
   S.list()
     .title("Content")
     .items([
+      S.listItem()
+        .title("Homepage")
+        .icon(Home)
+        .child(
+          S.document()
+            .schemaType("homepage")
+            .documentId("homepage")
+            .title("Homepage")
+        ),
+      S.divider(),
       S.listItem()
         .title("Posts")
         .icon(Pencil)
@@ -49,6 +60,7 @@ const structure = () =>
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
+            "homepage",
             "resume",
             "portfolio",
             "project",
