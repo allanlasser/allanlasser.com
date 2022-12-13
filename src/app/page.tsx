@@ -8,7 +8,7 @@ export default async function HomePage({ children }) {
     <>
       {/** @ts-expect-error Server Component */}
       <Reading />
-      <h1>Notes</h1>
+      <h1 style={{fontSize: '1.6rem'}}>Notes</h1>
       <NoteList notes={notes} />
     </>
   );
