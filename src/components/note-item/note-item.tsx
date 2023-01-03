@@ -10,6 +10,7 @@ import {
   FileText,
   FileVideo,
   Link as LinkIcon,
+  Podcast,
 } from "lucide-react";
 import Link from "next/link";
 import smartquotes from "smartquotes";
@@ -18,6 +19,7 @@ const SourceTypeIcons = {
   book: Book,
   article: FileText,
   video: FileVideo,
+  podcast: Podcast,
 };
 
 const SourceTypeLabel = {
@@ -26,7 +28,7 @@ const SourceTypeLabel = {
   video: "Video",
 };
 
-function NoteSource({ source, page }: { source: Source; page: number }) {
+function NoteSource({ source, page }: { source: Source; page: string }) {
   const Icon = SourceTypeIcons[source.type] ?? File;
   const smartTitle = smartquotes(source.title);
   const url = source.url ? new URL(source.url) : null;
@@ -67,29 +69,25 @@ function NoteSource({ source, page }: { source: Source; page: number }) {
           {url.hostname.replace("www.", "")}
         </a>
       )}
-      {page && (
-        <span
-          className={cx(
-            typography.smallSize,
-            typography.mediumWeight,
-            typography.noUnderline,
-            typography.dim
-          )}
-        >
-          pg. {page}
-        </span>
-      )}
     </figure>
   );
 }
 
-export default function NoteItem(note: Note) {
+export default function NoteItem({
+  note,
+  omitSource,
+}: {
+  note: Note;
+  omitSource?: boolean;
+}) {
   const date = new Date(note._createdAt);
   return (
     <article id={note._id} className={styles.note}>
-      <header className={cx(styles.header)}>
-        <NoteSource source={note.source} page={note.page} />
-      </header>
+      {!omitSource && (
+        <header className={cx(styles.header)}>
+          <NoteSource source={note.source} page={note.page} />
+        </header>
+      )}
       <main className={cx(styles.main, typography.bodyText)}>
         <ReactMarkdown>{smartquotes(note.body)}</ReactMarkdown>
       </main>
@@ -101,6 +99,17 @@ export default function NoteItem(note: Note) {
         >
           <LinkIcon size={14} />
         </Link>
+        {note.page && (
+          <span
+            className={cx(
+              typography.smallSize,
+              typography.mediumWeight,
+              typography.noUnderline
+            )}
+          >
+            pg. {note.page}
+          </span>
+        )}
         <time
           className={cx(styles.time)}
           dateTime={note._createdAt}

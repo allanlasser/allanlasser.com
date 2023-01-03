@@ -5,6 +5,7 @@ import styles from "./note-list.module.css";
 
 export interface NoteListProps {
   notes: Note[];
+  omitSource?: boolean;
 }
 
 /**
@@ -13,12 +14,12 @@ export interface NoteListProps {
  *  recent note appearing at the top of the list.
  */
 export default function NoteList(props: NoteListProps) {
-  const { notes } = props;
+  const { notes, omitSource } = props;
   return (
     <ul className={list.noStyle}>
       {notes.map((note) => (
         <li key={note._id} className={styles.listItem}>
-          <NoteItem {...note} />
+          <NoteItem note={note} omitSource={omitSource} />
         </li>
       ))}
     </ul>

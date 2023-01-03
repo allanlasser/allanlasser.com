@@ -39,6 +39,9 @@ export default function Page(props: React.PropsWithChildren<PageProps>) {
           </div>
           <ul className={cx(styles.links)}>
             <li>
+              <Link href='/library'>Library</Link>
+            </li>
+            <li>
               <Link href='/work'>Work</Link>
             </li>
             <li>
