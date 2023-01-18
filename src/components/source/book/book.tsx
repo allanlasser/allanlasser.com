@@ -7,10 +7,14 @@ export interface BookProps {
   subtitle?: string;
   author?: string;
   imageUrl?: string;
+  isbn?: string;
+  url?: string;
+  large?: boolean;
 }
 
 export default function Book(props: BookProps) {
-  const { title, subtitle, author, imageUrl } = props;
+  const { title, subtitle, author, imageUrl, isbn, large } = props;
+  const imageSize = large ? [200, 300] : [50, 75];
   return (
     <div className={styles.book}>
       {imageUrl && (
@@ -18,9 +22,13 @@ export default function Book(props: BookProps) {
           {imageUrl && (
             <Image
               alt={`The cover of the book ${title}`}
-              src={srcFor(imageUrl).width(200).height(300).crop("center").url()}
-              width={50}
-              height={75}
+              src={srcFor(imageUrl)
+                .width(imageSize[0] * 2)
+                .height(imageSize[1] * 2)
+                .crop("center")
+                .url()}
+              width={imageSize[0]}
+              height={imageSize[1]}
             />
           )}
         </figure>
@@ -29,7 +37,28 @@ export default function Book(props: BookProps) {
         <p className={styles.bookTitle}>{title}</p>
         {subtitle && <p className={styles.bookSubtitle}>{subtitle}</p>}
         {author && <p className={styles.bookAuthor}>{author}</p>}
+        <dl className={styles.bookMeta}>
+          {isbn && (
+            <>
+              <dt>ISBN</dt>
+              <dd className={styles.bookIsbn}>{isbn}</dd>
+            </>
+          )}
+        </dl>
       </div>
+    </div>
+  );
+}
+
+export interface LargeBookProps extends BookProps {
+  isbn?: string;
+  url?: string;
+}
+
+export function LargeBook(props: LargeBookProps) {
+  return (
+    <div className={styles.largeBook}>
+      <Book {...props} large />
     </div>
   );
 }

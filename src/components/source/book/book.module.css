@@ -2,7 +2,6 @@
   margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   gap: 0 1rem;
 }
 
@@ -23,6 +22,9 @@
 }
 
 .bookDetails {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   flex: 1 1 8rem;
   margin: .5rem 0 0;
 }
@@ -37,4 +39,53 @@
   display: none;
   font-weight: 400;
   font-size: .925em;
+}
+
+.bookAuthor {
+  font-weight: 400;
+}
+
+.bookMeta {
+  display: none;
+  align-items: flex-end;
+  flex: 1 1 auto;
+  font-size: .875em;
+  margin: 3em 0 0;
+}
+
+.bookMeta dt {
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.bookMeta dd {
+  font-weight: 400;
+  font-family: var(--font-mono);
+}
+
+.largeBook {
+  margin-bottom: 3rem;
+}
+
+.largeBook .book {
+  gap: 0 2rem;
+}
+
+.largeBook .bookCover {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px var(--color-gray);
+}
+
+.largeBook .bookMeta {
+  display: flex;
+}
+
+.largeBook .bookTitle {
+  font-size: 1.75em;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.largeBook .bookAuthor {
+  font-size: 1.5em;
 }

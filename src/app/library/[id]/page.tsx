@@ -2,7 +2,7 @@ import getAllBooks from "src/data/getAllBooks";
 import getSource from "src/data/getSource";
 import getSourceNotes from "src/data/getSourceNotes";
 import NoteList from "src/components/note-list";
-import Book from "src/components/source/book";
+import { LargeBook } from "src/components/source/book";
 import orderNotesByPage from "src/utils/orderNotesByPage";
 
 export default async function SourcePage({ params }) {
@@ -10,7 +10,7 @@ export default async function SourcePage({ params }) {
   const notes = await getSourceNotes(params.id);
   return (
     <div>
-      <Book {...source} />
+      <LargeBook {...source} />
       {notes.length > 0 && (
         <>
           <h1 style={{ fontSize: "1.4rem" }}>Notes &amp; Highlights</h1>
