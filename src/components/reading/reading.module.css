@@ -13,3 +13,13 @@
   font-size: .8em;
   color: var(--color-gray-600);
 }
+
+.section a {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .1s ease-in-out;
+}
+
+.section a:hover {
+  opacity: .5;
+}
