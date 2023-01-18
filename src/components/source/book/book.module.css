@@ -76,6 +76,10 @@
   box-shadow: 0 2px 4px var(--color-gray);
 }
 
+.largeBook .bookDetails {
+  margin: 2em 0;
+}
+
 .largeBook .bookMeta {
   display: flex;
 }

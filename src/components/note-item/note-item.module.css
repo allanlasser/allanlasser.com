@@ -57,7 +57,10 @@
   align-items: baseline;
   gap: 1em;
   font-weight: 500;
+  font-size: .925em;
+  letter-spacing: -.05ch;
   opacity: .7;
+  font-family: var(--font-mono);
 }
 
 .footer svg {
