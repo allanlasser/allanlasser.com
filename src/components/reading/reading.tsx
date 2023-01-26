@@ -15,10 +15,10 @@ export default async function Status({
       {reading && (
         <div className={styles.section}>
           <header>Currently Reading</header>
+
           {reading.map((book) => (
-            <Link href={`/library/${book._id}`} key={book._id}>
-              <Book {...book} />
-            </Link>
+            /* @ts-expect-error Server Component */
+            <Book {...book} key={book._id} link />
           ))}
         </div>
       )}
@@ -26,9 +26,8 @@ export default async function Status({
         <div className={styles.section}>
           <header>Recently Read</header>
           {read.map((book) => (
-            <Link href={`/library/${book._id}`} key={book._id}>
-              <Book {...book} />
-            </Link>
+            /* @ts-expect-error Server Component */
+            <Book {...book} key={book._id} link />
           ))}
         </div>
       )}
