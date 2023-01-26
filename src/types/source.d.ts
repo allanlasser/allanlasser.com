@@ -7,5 +7,7 @@ export interface Source {
   url: string | null;
   isbn: string | null;
   title: string | null;
+  subtitle: string | null;
   author: string | null;
+  imageUrl?: string | null;
 }

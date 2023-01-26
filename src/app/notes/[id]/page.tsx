@@ -4,7 +4,7 @@ import getAllNotes from "src/data/getAllNotes";
 
 export default async function NotePage({ params }) {
   const note = await getNote(params.id);
-  return <NoteItem {...note} />;
+  return <NoteItem note={note} />;
 }
 
 export async function generateStaticParams() {

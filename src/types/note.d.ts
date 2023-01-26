@@ -4,6 +4,6 @@ export interface Note {
   _id: string;
   _createdAt: string;
   body: string;
-  page: number | null;
+  page: string | null;
   source: Source;
 }

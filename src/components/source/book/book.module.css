@@ -1,0 +1,111 @@
+.book {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0 1rem;
+}
+
+.book p, .book figure {
+  margin: 0;
+}
+
+.bookCover {
+  flex: 0 1 auto;
+  display: block;
+  border: 1px solid var(--color-gray-100);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bookCover img {
+  display: block;
+}
+
+.bookDetails {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 8rem;
+  margin: .5rem 0 0;
+}
+
+.bookTitle {
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.bookSubtitle {
+  display: none;
+  font-weight: 400;
+  font-size: .925em;
+}
+
+.bookAuthor {
+  font-weight: 400;
+}
+
+.bookMeta {
+  display: none;
+  flex: 1 1 auto;
+  font-size: .75em;
+  margin: 3em 0 0;
+}
+
+.bookMeta dt {
+  font-weight: 700;
+  font-family: var(--font-mono);
+  page-break-after: avoid;
+  text-align: right;
+}
+
+.bookMeta dd {
+  font-weight: 400;
+  font-family: var(--font-mono);
+  margin-inline-start: 0;
+  page-break-before: avoid;
+}
+
+.largeBook {
+  margin-bottom: 3rem;
+}
+
+.largeBook .book {
+  gap: 0 2rem;
+}
+
+.largeBook .bookCover {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px var(--color-gray);
+}
+
+.largeBook .bookDetails {
+  margin: 2em 0;
+}
+
+.largeBook .bookMeta {
+  display: grid;
+  gap: 1em 2em;
+  grid-template-columns: auto 1fr;
+}
+
+.largeBook .bookTitle {
+  font-size: 1.75em;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.largeBook .bookAuthor {
+  font-size: 1.5em;
+}
+
+.bookLink {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .1s ease-in-out;
+}
+
+.bookLink:hover {
+  opacity: .5;
+}
