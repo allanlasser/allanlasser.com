@@ -2,6 +2,7 @@
   margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 0 1rem;
 }
 
@@ -47,20 +48,23 @@
 
 .bookMeta {
   display: none;
-  align-items: flex-end;
   flex: 1 1 auto;
-  font-size: .875em;
+  font-size: .75em;
   margin: 3em 0 0;
 }
 
 .bookMeta dt {
   font-weight: 700;
   font-family: var(--font-mono);
+  page-break-after: avoid;
+  text-align: right;
 }
 
 .bookMeta dd {
   font-weight: 400;
   font-family: var(--font-mono);
+  margin-inline-start: 0;
+  page-break-before: avoid;
 }
 
 .largeBook {
@@ -81,7 +85,9 @@
 }
 
 .largeBook .bookMeta {
-  display: flex;
+  display: grid;
+  gap: 1em 2em;
+  grid-template-columns: auto 1fr;
 }
 
 .largeBook .bookTitle {
@@ -92,4 +98,14 @@
 
 .largeBook .bookAuthor {
   font-size: 1.5em;
+}
+
+.bookLink {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .1s ease-in-out;
+}
+
+.bookLink:hover {
+  opacity: .5;
 }
