@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import Sanity from "src/providers/sanity";
 import { Source } from "src/types/source";
 
-const GET_ALL_BOOKS = groq`*[_type == "source" && type == "book"] | order(_createdAt desc){
+const GET_ALL_SOURCES = groq`*[_type == "source"] | order(_createdAt desc){
   _id,
   _createdAt,
   type,
@@ -15,6 +15,6 @@ const GET_ALL_BOOKS = groq`*[_type == "source" && type == "book"] | order(_creat
 }
 `;
 
-export default async function getAllBooks() {
-  return Sanity.fetch<Source[]>(GET_ALL_BOOKS);
+export default async function getAllSources() {
+  return Sanity.fetch<Source[]>(GET_ALL_SOURCES);
 }

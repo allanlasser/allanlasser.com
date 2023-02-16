@@ -1,6 +1,7 @@
 import { Source, SourceType } from "src/types/source";
 import client from "src/providers/sanity";
 import { Note } from "src/types/note";
+import createSource from "./createSource";
 
 export interface CreateNoteArgs {
   body: string;
@@ -19,10 +20,7 @@ export interface CreateNoteResponse {
 }
 
 export default async function createNote(args: CreateNoteArgs) {
-  const source = await client.create({
-    _type: "source",
-    ...args.source,
-  });
+  const source = await createSource(args.source);
   const note = await client.create({
     _type: "note",
     body: args.body,
