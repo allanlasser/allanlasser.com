@@ -9,7 +9,7 @@ export default function ProjectItem({ project }: { project: Schema.Project }) {
         {project.mainImage && (
           <Image
             alt=''
-            src={srcFor(project.mainImage).height(600).width(600).url()}
+            src={srcFor(project.mainImage).height(600).width(600).url() ?? ""}
             fill
             sizes='100vw'
           />

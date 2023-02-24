@@ -28,7 +28,13 @@ const SourceTypeLabel = {
   video: "Video",
 };
 
-function NoteSource({ source, page }: { source: Source; page: string }) {
+function NoteSource({
+  source,
+  page,
+}: {
+  source: Source;
+  page?: string | null;
+}) {
   const Icon = SourceTypeIcons[source.type] ?? File;
   const smartTitle = smartquotes(source.title);
   const url = source.url ? new URL(source.url) : null;
