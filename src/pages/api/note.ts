@@ -37,7 +37,7 @@ export default async function handler(
     const { id } = req.query;
     let data: Note | Note[];
     if (id) {
-      const idArray = [].concat(id);
+      const idArray = ([] as string[]).concat(id);
       if (idArray.length === 1) {
         data = await getNote(idArray[0]);
       } else {

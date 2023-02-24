@@ -4,6 +4,31 @@ import getSourceNotes from "src/data/getSourceNotes";
 import NoteList from "src/components/note-list";
 import { LargeBook } from "src/components/source/book";
 import orderNotesByPage from "src/utils/orderNotesByPage";
+import { Metadata } from "next";
+import { srcFor } from "src/providers/sanity";
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const source = await getSource(params.id);
+  return {
+    title: source.title,
+    openGraph: {
+      images: source.imageUrl
+        ? [
+            {
+              url:
+                srcFor(source.imageUrl)
+                  .width(200)
+                  .height(300)
+                  .crop("center")
+                  .url() ?? "",
+              width: 200,
+              height: 300,
+            },
+          ]
+        : [],
+    },
+  };
+}
 
 export default async function SourcePage({ params }) {
   const source = await getSource(params.id);

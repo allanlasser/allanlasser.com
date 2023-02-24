@@ -14,7 +14,7 @@ const components: Partial<PortableTextReactComponents> = {
           alt=''
           width='2400'
           height='1800'
-          src={src}
+          src={src ?? ""}
           sizes='100vw'
           style={{
             width: "100%",

@@ -1,7 +1,12 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import Book from "src/components/source/book";
 import getAllBooks from "src/data/getAllBooks";
 import listStyles from "src/styles/list.module.css";
+
+export const metadata: Metadata = {
+  title: "Library",
+  description: "A collection of Allan's read books",
+};
 
 export default async function Library() {
   const books = await getAllBooks();

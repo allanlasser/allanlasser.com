@@ -12,9 +12,9 @@ export default function ProjectList({ projects }: ProjectListProps) {
     <div className={styles.container}>
       <ul className={styles.projectList}>
         {projects.map((project) => (
-          <li key={project.slug.current} className={styles.projectListItem}>
+          <li key={project.slug?.current} className={styles.projectListItem}>
             <Link
-              href={`/work/${project.slug.current}`}
+              href={`/work/${project.slug?.current}`}
               className={styles.projectLink}
             >
               <ProjectItem project={project} />

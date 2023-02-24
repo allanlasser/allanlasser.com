@@ -6,12 +6,12 @@ import styles from "./book.module.css";
 
 export interface BookProps {
   _id: string;
-  title: string;
-  subtitle?: string;
-  author?: string;
-  imageUrl?: string;
-  isbn?: string;
-  url?: string;
+  title: string | null;
+  subtitle?: string | null;
+  author?: string | null;
+  imageUrl?: string | null;
+  isbn?: string | null;
+  url?: string | null;
   large?: boolean;
   link?: boolean;
 }
@@ -27,11 +27,13 @@ export default async function Book(props: BookProps) {
           {imageUrl && (
             <Image
               alt={`The cover of the book ${title}`}
-              src={srcFor(imageUrl)
-                .width(imageSize[0] * 2)
-                .height(imageSize[1] * 2)
-                .crop("center")
-                .url()}
+              src={
+                srcFor(imageUrl)
+                  .width(imageSize[0] * 2)
+                  .height(imageSize[1] * 2)
+                  .crop("center")
+                  .url() ?? ""
+              }
               width={imageSize[0]}
               height={imageSize[1]}
             />
@@ -83,8 +85,8 @@ export default async function Book(props: BookProps) {
 }
 
 export interface LargeBookProps extends BookProps {
-  isbn?: string;
-  url?: string;
+  isbn?: string | null;
+  url?: string | null;
 }
 
 export function LargeBook(props: LargeBookProps) {

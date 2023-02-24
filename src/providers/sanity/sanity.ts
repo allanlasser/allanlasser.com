@@ -13,6 +13,7 @@ export const sanityConfig = {
 };
 
 let client: SanityClient;
+// @ts-expect-error client is a singleton
 if (!client) {
   client = sanityClient(sanityConfig);
 }

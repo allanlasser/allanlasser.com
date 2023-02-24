@@ -15,7 +15,7 @@ function isRoman(page: number | string) {
 export default function orderNotesByPage(notes: Note[]): Note[] {
   const [roman, arabic] = notes.reduce<[Note[], Note[]]>(
     ([roman, arabic], note) => {
-      if (isRoman(note.page)) {
+      if (note.page && isRoman(note.page)) {
         return [[...roman, note], arabic];
       } else {
         return [roman, [...arabic, note]];
@@ -23,12 +23,13 @@ export default function orderNotesByPage(notes: Note[]): Note[] {
     },
     [[], []]
   );
-  const sortedRoman = roman.sort(
-    (a, b) =>
-      deromanize(a.page.toUpperCase()) - deromanize(b.page.toUpperCase())
-  );
-  const sortedArabic = arabic.sort(
-    (a, b) => parseInt(a.page) - parseInt(b.page)
-  );
+  const sortedRoman = roman.sort((a, b) => {
+    if (!a.page || !b.page) return 0;
+    return deromanize(a.page.toUpperCase()) - deromanize(b.page.toUpperCase());
+  });
+  const sortedArabic = arabic.sort((a, b) => {
+    if (!a.page || !b.page) return 0;
+    return parseInt(a.page) - parseInt(b.page);
+  });
   return [...sortedRoman, ...sortedArabic];
 }

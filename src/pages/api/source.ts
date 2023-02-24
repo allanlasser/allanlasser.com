@@ -37,7 +37,7 @@ export default async function handler(
     const { id } = req.query;
     let data: Source | Source[];
     if (id) {
-      const idArray = [].concat(id);
+      const idArray = ([] as string[]).concat(id);
       if (idArray.length === 1) {
         data = await getSource(idArray[0]);
       } else {
