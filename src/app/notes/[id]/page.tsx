@@ -3,6 +3,7 @@ import NoteItem from "src/components/note-item/note-item";
 import getAllNotes from "src/data/getAllNotes";
 import { Metadata } from "next";
 import { srcFor } from "src/providers/sanity";
+import { Note } from "src/types/note";
 
 export default async function NotePage({ params }) {
   const note = await getNote(params.id);
@@ -14,12 +15,26 @@ export async function generateStaticParams() {
   return notes.map((note) => ({ id: note._id }));
 }
 
+function getNoteTitle(note: Note) {
+  let title;
+  if (note.source?.title) {
+    title = note.source.title;
+  } else {
+    title = new Date(note._createdAt).toLocaleString([], {
+      dateStyle: "long",
+      timeStyle: "short",
+    });
+  }
+  return `Note on ${title}`;
+}
+
 export async function generateMetadata({ params }): Promise<Metadata> {
   const note = await getNote(params.id);
+  const title = getNoteTitle(note);
   return {
-    title: `A note on "${note.source.title}"`,
+    title,
     openGraph: {
-      images: note.source.imageUrl
+      images: note.source?.imageUrl
         ? [
             {
               url:

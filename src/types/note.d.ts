@@ -5,5 +5,5 @@ export interface Note {
   _createdAt: string;
   body: string;
   page: string | null;
-  source: Source;
+  source: Source | null;
 }
