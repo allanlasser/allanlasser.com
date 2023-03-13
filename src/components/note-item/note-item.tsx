@@ -89,7 +89,7 @@ export default function NoteItem({
   const date = new Date(note._createdAt);
   return (
     <article id={note._id} className={styles.note}>
-      {!omitSource && (
+      {!omitSource && note.source && (
         <header className={cx(styles.header)}>
           <NoteSource source={note.source} page={note.page} />
         </header>
