@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import cx from "classnames";
 import Book from "src/components/source/book";
 import getAllBooks from "src/data/getAllBooks";
 import listStyles from "src/styles/list.module.css";
+import libraryStyles from "src/styles/library.module.css";
 
 export const metadata: Metadata = {
   title: "Library",
@@ -11,14 +13,7 @@ export const metadata: Metadata = {
 export default async function Library() {
   const books = await getAllBooks();
   return (
-    <ul
-      className={listStyles.noStyle}
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(16rem, 1fr))",
-        gap: "0 1em",
-      }}
-    >
+    <ul className={cx(listStyles.noStyle, libraryStyles.grid)}>
       {books.map((book) => {
         return (
           <li key={book._id}>
