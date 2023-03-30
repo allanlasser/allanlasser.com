@@ -3,20 +3,7 @@ import smartquotes from "smartquotes";
 import getAllNotes from "src/data/getAllNotes";
 import getNoteTitle from "src/data/getNoteTitle";
 import markdownToHtml from "./markdownToHtml";
-
-function getSiteUrl() {
-  let protocol = "https";
-  let domain = process.env.SITE_URL;
-  switch (process.env.VERCEL_ENV) {
-    case "preview":
-      domain = process.env.VERCEL_URL;
-      break;
-    case "development":
-      protocol = "http";
-      break;
-  }
-  return `${protocol}://${domain}`;
-}
+import getSiteUrl from "./getSiteUrl";
 
 export default async function generateFeed() {
   const notes = await getAllNotes();
