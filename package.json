@@ -7,6 +7,7 @@
     "@portabletext/react": "^1.0.6",
     "@sanity/client": "^2.23.2",
     "classnames": "^2.2.6",
+    "feed": "^4.2.2",
     "isomorphic-fetch": "^2.2.1",
     "lucide-react": "^0.101.0",
     "next": "^13.2.0",
@@ -16,8 +17,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
+    "rehype-sanitize": "^5.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
     "romans": "^2.0.8",
-    "smartquotes": "^2.3.1"
+    "smartquotes": "^2.3.1",
+    "unified": "^10.1.2"
   },
   "scripts": {
     "dev": "concurrently \"next dev\" \"cd studio && sanity start\"",
