@@ -36,6 +36,7 @@ const blockContent = {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Code", value: "code" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -64,7 +65,15 @@ const blockContent = {
     // as a block type.
     {
       type: "image",
+      title: "Image",
       options: { hotspot: true },
+    },
+    {
+      type: "code",
+      title: "Code Block",
+      options: {
+        withFilename: true,
+      },
     },
   ],
 };
