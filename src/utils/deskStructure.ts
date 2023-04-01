@@ -1,4 +1,3 @@
-// /deskStructure.js
 import {
   Library,
   Bookmark,
@@ -8,10 +7,10 @@ import {
   Scroll,
   Home,
 } from "lucide-react";
-import S from "@sanity/desk-tool/structure-builder";
+import type { StructureBuilder } from "sanity/desk";
 
-const structure = () =>
-  S.list()
+export default function deskStructure(S: StructureBuilder) {
+  return S.list()
     .title("Content")
     .items([
       S.listItem()
@@ -23,24 +22,6 @@ const structure = () =>
             .documentId("homepage")
             .title("Homepage")
         ),
-      S.divider(),
-      S.listItem()
-        .title("Posts")
-        .icon(Pencil)
-        .child(S.documentList().title("Posts").filter('_type == "post"')),
-      S.listItem()
-        .title("Notes")
-        .icon(Bookmark)
-        .child(S.documentList().title("Notes").filter('_type == "note"')),
-      S.listItem()
-        .title("Library")
-        .icon(Library)
-        .child(S.documentList().title("Sources").filter('_type == "source"')),
-      S.divider(),
-      S.listItem()
-        .title("Projects")
-        .icon(Briefcase)
-        .child(S.documentList().title("Projects").filter('_type == "project"')),
       S.listItem()
         .title("Portfolio")
         .icon(LayoutGrid)
@@ -57,9 +38,28 @@ const structure = () =>
           S.document().schemaType("resume").documentId("resume").title("Resume")
         ),
       S.divider(),
-      ...S.documentTypeListItems().filter(
-        (listItem) =>
-          ![
+      S.listItem()
+        .title("Library")
+        .icon(Library)
+        .child(S.documentList().title("Sources").filter('_type == "source"')),
+      S.listItem()
+        .title("Notes")
+        .icon(Bookmark)
+        .child(S.documentList().title("Notes").filter('_type == "note"')),
+      S.listItem()
+        .title("Posts")
+        .icon(Pencil)
+        .child(S.documentList().title("Posts").filter('_type == "post"')),
+      S.listItem()
+        .title("Projects")
+        .icon(Briefcase)
+        .child(S.documentList().title("Projects").filter('_type == "project"')),
+      S.divider(),
+      ...S.documentTypeListItems().filter((listItem) => {
+        const id = listItem.getId();
+        return !(
+          id &&
+          [
             "homepage",
             "resume",
             "portfolio",
@@ -67,8 +67,8 @@ const structure = () =>
             "post",
             "note",
             "source",
-          ].includes(listItem.getId())
-      ),
+          ].includes(id)
+        );
+      }),
     ]);
-
-export default structure;
+}

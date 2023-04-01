@@ -2,7 +2,6 @@ const portfolio = {
   name: "portfolio",
   title: "Portfolio",
   type: "document",
-  __experimental_actions: ["create", "update", /*'delete',*/ "publish"],
   fields: [
     {
       name: "personalStatement",

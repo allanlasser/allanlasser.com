@@ -1,16 +1,18 @@
 import React from "react";
-import { Book, File, FileText, FileVideo } from "lucide-react";
+import { Book, File, FileText, FileVideo, Podcast } from "lucide-react";
 
 const SourceTypes = [
   { title: "Article", value: "article" },
   { title: "Book", value: "book" },
   { title: "Video", value: "video" },
+  { title: "Podcast", value: "podcast" },
 ];
 
 const SourceTypeIcons = {
   book: Book,
   article: FileText,
   video: FileVideo,
+  podcast: Podcast,
 };
 
 const Source = {
@@ -62,6 +64,12 @@ const Source = {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: "collection",
+      title: "Collection",
+      type: "reference",
+      to: { type: "source" },
     },
   ],
   initialValue: {

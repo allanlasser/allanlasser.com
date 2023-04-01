@@ -15,7 +15,6 @@ const resume = {
   name: "resume",
   title: "Resume",
   type: "document",
-  __experimental_actions: ["create", "update", /*'delete',*/ "publish"],
   fields: [
     {
       name: "history",

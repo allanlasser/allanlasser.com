@@ -2,7 +2,6 @@ const homepage = {
   name: "homepage",
   title: "Homepage",
   type: "document",
-  __experimental_actions: ["create", "update", /*'delete',*/ "publish"],
   fields: [
     {
       name: "status",
