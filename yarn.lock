@@ -1084,15 +1084,15 @@
     split2 "^4.1.0"
     throttle-debounce "^5.0.0"
 
-"@sanity/icons@2", "@sanity/icons@^2.1.0", "@sanity/icons@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-2.2.2.tgz#678386dcd07ac481e456afd07f29be3c86c54c15"
-  integrity sha512-+Ks6LeYe44kjZSfcWFWj0zQRP48N3JisrZ9ia44QwG11y6bO9Wk8bfhu5o23FkyYrREu9CzQ0U+slSV7YsvcuQ==
-
 "@sanity/icons@^1.3":
   version "1.3.10"
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-1.3.10.tgz#df934a94ae6669fe6b15515d800afb221cba0498"
   integrity sha512-5wVG/vIiGuGrSmq+Bl3PY7XDgQrGv0fyHdJI64FSulnr2wH3NMqZ6C59UFxnrZ93sr7kOt0zQFoNv2lkPBi0Cg==
+
+"@sanity/icons@^2.1.0", "@sanity/icons@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-2.2.2.tgz#678386dcd07ac481e456afd07f29be3c86c54c15"
+  integrity sha512-+Ks6LeYe44kjZSfcWFWj0zQRP48N3JisrZ9ia44QwG11y6bO9Wk8bfhu5o23FkyYrREu9CzQ0U+slSV7YsvcuQ==
 
 "@sanity/image-url@^1.0.2":
   version "1.0.2"
@@ -1211,7 +1211,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/timed-out/-/timed-out-4.0.2.tgz#c9f61f9a1609baa1eb3e4235a24ea2a775022cdf"
   integrity sha512-NBDKGj14g9Z+bopIvZcQKWCzJq5JSrdmzRR1CS+iyA3Gm8SnIWBfZa7I3mTg2X6Nu8LQXG0EPKXdOGozLS4i3w==
 
-"@sanity/types@3", "@sanity/types@3.8.2":
+"@sanity/types@3", "@sanity/types@3.8.2", "@sanity/types@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-3.8.2.tgz#95ff3154773442a7cd9a3cb4224163cf00a279db"
   integrity sha512-4v/d8hd64znAqaPsyeS6GbSXEyj2n8triElgYkoKErv6vcy+RepGZBwVpz+q5y2XXVwKPIc1Pvwxr1ARAV8S7w==
@@ -1219,7 +1219,7 @@
     "@sanity/client" "^5.2.0"
     "@types/react" "^18.0.25"
 
-"@sanity/ui@1", "@sanity/ui@^1.0.0", "@sanity/ui@^1.3.0":
+"@sanity/ui@^1.0.0", "@sanity/ui@^1.3.0", "@sanity/ui@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-1.3.1.tgz#27329aed95f6465fd4892e6e81cf6c275a42f8f9"
   integrity sha512-0xiFa5fBJp6flwqo9EO1C/dmOIvMTULoIlytooxFhK9D+T0hNGBa/u81G4v4lRiEKRJVOhF/1vlOaIIj0FXneg==
@@ -2473,7 +2473,7 @@ duplexify@^4.0.0:
     readable-stream "^3.1.1"
     stream-shift "^1.0.0"
 
-easymde@2:
+easymde@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/easymde/-/easymde-2.18.0.tgz#ff1397d07329b1a7b9187d2d0c20766fa16b3b1b"
   integrity sha512-IxVVUxNWIoXLeqtBU4BLc+eS/ScYhT1Dcb6yF5Wchoj1iXAV+TIIDWx+NCaZhY7RcSHqDPKllbYq7nwGKILnoA==
@@ -4700,7 +4700,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next-sanity@4.1.6:
+next-sanity@^4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/next-sanity/-/next-sanity-4.1.6.tgz#e4aba26b5f4a3dd6a97912c22f1bf98811748122"
   integrity sha512-0vnmVGEvJECW9lyLPXqs4/VrhhNSZV4w0IwKmGPiAcavzY3sp8c7kKHzEu0uvTBCi3HBMrQpwRcv7mQMFvJVpw==
@@ -4710,7 +4710,7 @@ next-sanity@4.1.6:
     "@sanity/webhook" "2"
     groq "3"
 
-next@13:
+next@^13.2.4:
   version "13.2.4"
   resolved "https://registry.yarnpkg.com/next/-/next-13.2.4.tgz#2363330392b0f7da02ab41301f60857ffa7f67d6"
   integrity sha512-g1I30317cThkEpvzfXujf0O4wtaQHtDCLhlivwlTJ885Ld+eOgcz7r3TGQzeU+cSRoNHtD8tsJgzxVdYojFssw==
@@ -5362,7 +5362,7 @@ react-style-proptype@^3.2.2:
   dependencies:
     prop-types "^15.5.4"
 
-react@18:
+react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -5646,7 +5646,7 @@ sanity-plugin-markdown@^4.1.0:
     "@sanity/ui" "^1.0.0"
     react-simplemde-editor "^5.2.0"
 
-sanity@3:
+sanity@^3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/sanity/-/sanity-3.8.2.tgz#ba9924c5c095c174c880f3d97c37450d3b5867e3"
   integrity sha512-kC1c+a5bWtjmZUZxw8OrzIhZ9YrjZEkto2vqv1Mbg8eMZZ79gnW57F90NdBOWY3tVwN43VOqJfHpFUURTg2ULA==
