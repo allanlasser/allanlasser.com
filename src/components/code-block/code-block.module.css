@@ -1,0 +1,17 @@
+.codeBlock {
+  margin: 0;
+  line-height: 1.4;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  overflow: hidden;
+}
+
+.codeBlock pre {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .codeBlock {
+    border: 1px solid rgba(255, 255, 255, .1);
+  }
+}

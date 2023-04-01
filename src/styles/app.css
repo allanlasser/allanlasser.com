@@ -5,6 +5,7 @@
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
   --highlight-color: hsla(143, 59%, 73%, 70%);
+  --color-gray-50: hsl(0, 0%, 95%);
   --color-gray-100: hsl(0, 0%, 90%);
   --color-gray-200: hsl(0, 11%, 18%);
   --color-gray-300: hsl(0, 0%, 70%);
@@ -22,6 +23,7 @@
   	--link-hover-color: hsl(0, 0%, 60%);
   	--link-visited-color: hsl(0, 0%, 60%);
     --highlight-color: hsla(143, 59%, 27%, 70%);
+    --color-gray-50: hsl(0, 0%, 10%);
     --color-gray-100: hsl(0, 0%, 15%);
     --color-gray-200: hsl(0, 0%, 22.5%);
     --color-gray-300: hsl(0, 0%, 30%);
@@ -54,3 +56,17 @@ a {
 a:visited { color: var(--link-visited-color); }
 a:hover 	{ color: var(--link-hover-color); }
 
+code {
+  font-family: var(--font-mono);
+  font-size: .85em;
+  font-weight: 500;
+  background-color: var(--color-gray-50);
+  padding: .1em .2em;
+  border-radius: 4px;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}

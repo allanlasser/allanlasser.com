@@ -4,6 +4,7 @@ import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import Image from "next/image";
 import { Schema, srcFor } from "src/providers/sanity";
 import styles from "./block-content.module.css";
+import CodeBlock from "src/components/code-block";
 
 const components: Partial<PortableTextReactComponents> = {
   types: {
@@ -23,6 +24,9 @@ const components: Partial<PortableTextReactComponents> = {
         />
       );
     },
+    code: ({ value }) => (
+      <CodeBlock language={value.language} code={value.code} />
+    ),
   },
 };
 
