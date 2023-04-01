@@ -48,9 +48,11 @@ const blockContent = {
                 title: "URL",
                 name: "href",
                 type: "url",
-                validation: Rule => Rule.uri({
-                  scheme: ['http', 'https', 'mailto', 'tel']
-                })
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: true,
+                    scheme: ["http", "https", "mailto", "tel"],
+                  }),
               },
             ],
           },
