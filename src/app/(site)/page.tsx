@@ -1,34 +1,11 @@
-import getAllNotes from "src/data/getAllNotes";
+import getNotesAndPosts from "src/data/getNotesAndPosts";
 import NoteItem from "src/components/note-item";
-import Reading from "src/components/reading";
-import getPublishedPosts from "src/data/getPublishedPosts";
-import list from "src/styles/list.module.css";
-import { Note } from "src/types/note";
-import { Post } from "src/types/post";
 import PostItem from "src/components/post";
-import { containsOrEqualsElement } from "@sanity/ui";
-
-function getDateToCompare(item: Note | Post) {
-  let date: Date;
-  switch (item._type) {
-    case "note":
-      date = new Date(item._createdAt);
-      break;
-    case "post":
-      date = new Date(item.publishedAt);
-      break;
-  }
-  return date;
-}
+import Reading from "src/components/reading";
+import list from "src/styles/list.module.css";
 
 export default async function HomePage() {
-  const notes = await getAllNotes();
-  const posts = await getPublishedPosts();
-  const notesAndPosts: Array<Note | Post> = [...notes, ...posts].sort((a, b) => {
-    const aDate = getDateToCompare(a);
-    const bDate = getDateToCompare(b);
-    return bDate.getTime() - aDate.getTime()
-  })
+  const notesAndPosts = await getNotesAndPosts();
 
   return (
     <>
