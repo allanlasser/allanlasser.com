@@ -35,22 +35,6 @@
   margin: .5rem;
 }
 
-.main blockquote {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-  /* border-top: 1px solid var(--highlight-color); */
-  border-left: .5em solid var(--highlight-color);
-  font-style: italic;
-  font-size: .95em;
-}
-
-.main blockquote em {
-  background-color: var(--highlight-color);
-  box-shadow: 0 0 0 4px var(--highlight-color);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
 .footer {
   margin: .5rem .3rem .5rem;
   display: flex;

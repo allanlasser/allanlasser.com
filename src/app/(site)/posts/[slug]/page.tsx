@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Post from "src/components/post";
 import getPost from "src/data/getPost";
-import getAllPosts from "src/data/getAllPosts";
+import getPublishedPosts from "src/data/getPublishedPosts";
 
 export default async function PostPage({ params }) {
   const post = await getPost(params.slug);
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = await getPublishedPosts();
   return posts.map((post) => ({ slug: post.slug.current }));
 }
 
