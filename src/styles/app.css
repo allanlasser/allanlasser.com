@@ -7,10 +7,14 @@
   --highlight-color: hsla(143, 59%, 73%, 70%);
   --color-gray-50: hsl(0, 0%, 95%);
   --color-gray-100: hsl(0, 0%, 90%);
-  --color-gray-200: hsl(0, 11%, 18%);
+  --color-gray-200: hsl(0, 0%, 80%);
   --color-gray-300: hsl(0, 0%, 70%);
+  --color-gray-400: hsl(0, 0%, 60%);
+  --color-gray-500: hsl(0, 0%, 50%);
   --color-gray-600: hsl(0, 0%, 40%);
   --color-gray-700: hsl(0, 0%, 30%);
+  --color-gray-800: hsl(0, 0%, 20%);
+  --color-gray-900: hsl(0, 0%, 10%);
   /* --font-serif: 'Georgia', serif;
   --font-sans-serif: 'Helvetica Neue', sans-serif; */
 }
@@ -27,8 +31,12 @@
     --color-gray-100: hsl(0, 0%, 15%);
     --color-gray-200: hsl(0, 0%, 22.5%);
     --color-gray-300: hsl(0, 0%, 30%);
+    --color-gray-400: hsl(0, 0%, 40%);
+    --color-gray-500: hsl(0, 0%, 50%);
     --color-gray-600: hsl(0, 0%, 60%);
     --color-gray-700: hsl(0, 0%, 70%);
+    --color-gray-800: hsl(0, 0%, 80%);
+    --color-gray-900: hsl(0, 0%, 90%);
   }
 }
 

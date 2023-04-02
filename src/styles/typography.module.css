@@ -52,6 +52,41 @@
   font-variant-numeric: oldstyle-nums;
 }
 
+.bodyText h1, 
+.bodyText h2, 
+.bodyText h3,
+.bodyText h4,
+.bodyText h5, 
+.bodyText h6 {
+  margin: 1.5em 0 1rem 0;
+  font-family: var(--font-sans-serif);
+  line-height: 1.2;
+} 
+
+.bodyText h1 {
+  font-size: 1.75em;
+}
+
+.bodyText h2 {
+  font-size: 1.5em;
+}
+
+.bodyText h3 {
+  font-size: 1.25em;
+}
+
+.bodyText h4 {
+  font-size: 1.125em;
+}
+
+.bodyText p {
+  margin: 1rem 0;
+}
+
 .bodyText p:last-child {
   margin-bottom: 0;
+}
+
+.bodyText li {
+  margin: .5rem 0;
 }
