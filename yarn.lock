@@ -1099,7 +1099,7 @@
     nanoid "^3.1.12"
     rxjs "^7.0.0"
 
-"@sanity/block-tools@3.8.2":
+"@sanity/block-tools@3.8.2", "@sanity/block-tools@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@sanity/block-tools/-/block-tools-3.8.2.tgz#6109abd9ad2054b3b85c4c29cfa25210b62ff7c0"
   integrity sha512-yQKOFOfNfmKfXGTsDxRrk9Eh9HepZ7qabk8rQOfopwpgFqbhnFeBukY7f6B2vLpZ+rTu27bPh5U+3no1G+iyqA==
@@ -5685,6 +5685,16 @@ regexpp@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
+
+rehype-parse@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/rehype-parse/-/rehype-parse-8.0.4.tgz#3d17c9ff16ddfef6bbcc8e6a25a99467b482d688"
+  integrity sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    hast-util-from-parse5 "^7.0.0"
+    parse5 "^6.0.0"
+    unified "^10.0.0"
 
 rehype-sanitize@^5.0.1:
   version "5.0.1"

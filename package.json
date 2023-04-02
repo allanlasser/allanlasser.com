@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@portabletext/react": "^2.0.2",
+    "@sanity/block-tools": "^3.8.2",
     "@sanity/client": "^2.23.2",
     "@sanity/code-input": "^4.1.0",
     "@sanity/icons": "^2.2.2",
@@ -26,6 +27,7 @@
     "react-markdown": "^8.0.3",
     "react-refractor": "^2.1.7",
     "refractor": "^4.8.1",
+    "rehype-parse": "^8.0.4",
     "rehype-sanitize": "^5.0.1",
     "rehype-stringify": "^9.0.3",
     "remark-parse": "^10.0.1",
