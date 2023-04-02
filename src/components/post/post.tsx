@@ -5,11 +5,11 @@ import styles from "./post.module.css";
 import Link from "next/link";
 
 export default function Post({ post, link }: { post: Post, link?: boolean }) {
-  const publishedAt = new Date(post.publishedAt);
+  const publishedAt = post.publishedAt ? new Date(post.publishedAt) : undefined;
   const header = (
     <header className={styles.header}>
       <hr className={styles.divider} />
-      {post.publishedAt && <time
+      {publishedAt ? <time
         dateTime={publishedAt.toISOString()}
         title={publishedAt.toISOString()}
         className={styles.publishedAt}
@@ -20,7 +20,7 @@ export default function Post({ post, link }: { post: Post, link?: boolean }) {
           month: "long",
           day: "numeric",
         })}
-      </time>}
+      </time> : <span className={styles.publishedAt}>Draft</span>}
       <h1 className={styles.title}>{post.title}</h1>
     </header>
   )
