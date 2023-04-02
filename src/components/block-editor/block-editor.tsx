@@ -28,7 +28,6 @@ const handlePaste: OnPasteFn = async (input) => {
   if (hasCodeType && safeHtml) {
     console.log({ safeHtml });
     const blocks = htmlToBlocks(safeHtml, schemaTypes.portableText, {
-      parseHtml: (html) => new DOMParser().parseFromString(html, "text/html"),
       rules: [
         {
           deserialize(el, next, block) {
@@ -45,7 +44,6 @@ const handlePaste: OnPasteFn = async (input) => {
             ) {
               return undefined;
             }
-            console.log(el);
             const code = el.childNodes[0];
             const childNodes =
               code && code.nodeName.toLowerCase() === "code"
@@ -53,8 +51,7 @@ const handlePaste: OnPasteFn = async (input) => {
                 : el.childNodes;
             let text = "";
             childNodes.forEach((node) => {
-              console.log(node.textContent);
-              text += `${node.textContent}\n`;
+              text += node.textContent;
             });
             /**
              * Return this as an own block (via block helper function),
