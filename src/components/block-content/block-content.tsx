@@ -25,7 +25,11 @@ const components: Partial<PortableTextReactComponents> = {
       );
     },
     code: ({ value }) => (
-      <CodeBlock language={value.language} code={value.code} />
+      <CodeBlock
+        title={value.filename}
+        language={value.language}
+        code={value.code}
+      />
     ),
   },
 };

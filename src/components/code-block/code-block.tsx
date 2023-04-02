@@ -24,6 +24,9 @@ export interface CodeBlockProps {
 export default function CodeBlock(props: CodeBlockProps) {
   return (
     <figure className={styles.codeBlock}>
+      {props.title && (
+        <figcaption className={styles.title}>{props.title}</figcaption>
+      )}
       <Refractor language={props.language} value={props.code} />
     </figure>
   );
