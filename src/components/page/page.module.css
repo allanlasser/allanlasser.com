@@ -149,7 +149,5 @@ main.container {
   .header .links {
     flex-direction: row;
     align-items: center;
-    padding-bottom: .875rem;
-    border-bottom: 2px double var(--color-gray-300);
   }
 }

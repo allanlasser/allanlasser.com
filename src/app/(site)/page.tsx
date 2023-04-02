@@ -1,15 +1,26 @@
-import getAllNotes from "src/data/getAllNotes";
-import NoteList from "src/components/note-list/note-list";
+import getNotesAndPosts from "src/data/getNotesAndPosts";
+import NoteItem from "src/components/note-item";
+import PostItem from "src/components/post";
 import Reading from "src/components/reading";
+import list from "src/styles/list.module.css";
 
 export default async function HomePage() {
-  const notes = await getAllNotes();
+  const notesAndPosts = await getNotesAndPosts();
+
   return (
     <>
       {/** @ts-expect-error Server Component */}
       <Reading />
-      <h1 style={{ fontSize: "1.6rem" }}>Notes &amp; Highlights</h1>
-      <NoteList notes={notes} />
+      <ul className={list.noStyle}>
+      {notesAndPosts.map((item) => {
+        const component = item._type === "note" ? <NoteItem note={item} /> : <PostItem post={item} link />;
+        return (
+          <li key={item._id} className={list.listItem}>
+            {component}
+          </li>
+        );
+      })}
+    </ul>
     </>
   );
 }

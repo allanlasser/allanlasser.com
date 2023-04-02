@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
+import { codeInput } from "@sanity/code-input";
 import { markdownSchema } from "sanity-plugin-markdown";
 import schemas from "src/schemas/schema";
 import deskStructure from "src/utils/deskStructure";
@@ -21,6 +22,7 @@ export default defineConfig({
     }),
     visionTool(),
     markdownSchema(),
+    codeInput(),
   ],
   schema: {
     types: schemas,

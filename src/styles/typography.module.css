@@ -52,6 +52,57 @@
   font-variant-numeric: oldstyle-nums;
 }
 
+.bodyText h1, 
+.bodyText h2, 
+.bodyText h3,
+.bodyText h4,
+.bodyText h5, 
+.bodyText h6 {
+  margin: 1.5em 0 1rem 0;
+  font-family: var(--font-sans-serif);
+  line-height: 1.2;
+} 
+
+.bodyText h1 {
+  font-size: 1.75em;
+}
+
+.bodyText h2 {
+  font-size: 1.5em;
+}
+
+.bodyText h3 {
+  font-size: 1.25em;
+}
+
+.bodyText h4 {
+  font-size: 1.125em;
+}
+
+.bodyText p {
+  margin: 1rem 0;
+}
+
 .bodyText p:last-child {
   margin-bottom: 0;
+}
+
+.bodyText li {
+  margin: .5rem 0;
+}
+
+.bodyText blockquote {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  /* border-top: 1px solid var(--highlight-color); */
+  border-left: .5em solid var(--highlight-color);
+  font-style: italic;
+  font-size: .95em;
+}
+
+.bodyText blockquote em {
+  background-color: var(--highlight-color);
+  box-shadow: 0 0 0 4px var(--highlight-color);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }

@@ -1,3 +1,5 @@
+import BlockEditor from "src/components/block-editor";
+
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -12,6 +14,9 @@ const blockContent = {
   title: "Block Content",
   name: "blockContent",
   type: "array",
+  components: {
+    input: BlockEditor,
+  },
   of: [
     {
       title: "Block",
@@ -36,6 +41,7 @@ const blockContent = {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Code", value: "code" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -64,7 +70,15 @@ const blockContent = {
     // as a block type.
     {
       type: "image",
+      title: "Image",
       options: { hotspot: true },
+    },
+    {
+      type: "code",
+      title: "Code Block",
+      options: {
+        withFilename: true,
+      },
     },
   ],
 };

@@ -274,6 +274,12 @@ export type BlockContent = Array<
       crop?: SanityImageCrop;
       hotspot?: SanityImageHotspot;
     }>
+  | SanityKeyed<{
+      _type: "code";
+      code: string;
+      filename?: string;
+      language: string;
+    }>
 >;
 
 export type Position = {

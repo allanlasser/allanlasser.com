@@ -4,6 +4,7 @@ import { Note } from "src/types/note";
 
 const GET_ALL_NOTES = groq`*[_type == "note"] | order(_createdAt desc) {
   _id,
+  _type,
   _createdAt,
   body,
   page,
