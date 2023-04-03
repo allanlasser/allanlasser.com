@@ -39,7 +39,7 @@ export default function deskStructure(S: StructureBuilder) {
         ),
       S.divider(),
       S.listItem()
-        .title("Library")
+        .title("Shelf")
         .icon(Library)
         .child(S.documentList().title("Sources").filter('_type == "source"')),
       S.listItem()

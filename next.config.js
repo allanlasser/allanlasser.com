@@ -9,4 +9,13 @@ module.exports = {
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/library/:id',
+        destination: '/shelf/:id',
+        permanent: true,
+      },
+    ]
+  },
 };

@@ -30,8 +30,8 @@ export default async function handler(
     // return the link the page in the studio
     res.status(200).json({
       message: "Source successfully created",
-      liveUrl: `https://allanlasser.com/library/${source._id}`,
-      studioUrl: `https://allanlasser.com/studio/desk/library;${source._id}`,
+      liveUrl: `https://allanlasser.com/shelf/${source._id}`,
+      studioUrl: `https://allanlasser.com/studio/desk/shelf;${source._id}`,
     });
   } else if (req.method === "GET") {
     const { id } = req.query;

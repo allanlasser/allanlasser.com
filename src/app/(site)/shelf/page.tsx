@@ -6,8 +6,8 @@ import listStyles from "src/styles/list.module.css";
 import libraryStyles from "src/styles/library.module.css";
 
 export const metadata: Metadata = {
-  title: "Library",
-  description: "A collection of Allan's read books",
+  title: "Shelf",
+  description: "Collected sources",
 };
 
 export default async function Library() {
@@ -18,7 +18,7 @@ export default async function Library() {
         return (
           <li key={book._id}>
             {/* @ts-expect-error Server Component */}
-            <Book {...book} link />
+            <Book {...book} link size="medium" />
           </li>
         );
       })}
