@@ -1,1 +1,1 @@
-export { default, LargeBook } from "./book";
+export { default } from "./book";
