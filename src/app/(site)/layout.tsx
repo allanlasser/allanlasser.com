@@ -8,13 +8,16 @@ import getSiteUrl from "src/utils/getSiteUrl";
 
 const inter = Inter({
   variable: "--font-sans-serif",
+  subsets: ["latin"]
 });
 const sourceSerif = Source_Serif_4({
   variable: "--font-serif",
   style: ["normal", "italic"],
+  subsets: ["latin"]
 });
 const firaCode = Fira_Code({
   variable: "--font-mono",
+  subsets: ["latin"]
 });
 
 export const metadata: Metadata = {
