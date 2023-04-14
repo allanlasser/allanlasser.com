@@ -26,7 +26,6 @@ const handlePaste: OnPasteFn = async (input) => {
     .map(({ name }) => name)
     .includes("code");
   if (hasCodeType && safeHtml) {
-    console.log({ safeHtml });
     const blocks = htmlToBlocks(safeHtml, schemaTypes.portableText, {
       rules: [
         {
