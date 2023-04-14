@@ -32,9 +32,11 @@ export const Mastodon = (props: React.ComponentProps<"svg">) => (
 
 export default function Page(props: React.PropsWithChildren<PageProps>) {
   const { title } = props;
+  const isDev = process.env.NODE_ENV === 'development';
   return (
     <div className={cx(typography.text)}>
       <header className={cx(styles.header)}>
+        {isDev && <div className={styles.envBanner}>Dev Mode</div>}
         <div className={cx(styles.container)}>
           <div className={cx(styles.identity)}>
             <Link href='/' className={cx(styles.avatar)}>
