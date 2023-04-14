@@ -1,4 +1,4 @@
-import sanityClient, { SanityClient } from "@sanity/client";
+import { createClient, SanityClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
 const env = process.env.NODE_ENV || "development";
@@ -15,7 +15,7 @@ export const sanityConfig = {
 let client: SanityClient;
 // @ts-expect-error client is a singleton
 if (!client) {
-  client = sanityClient(sanityConfig);
+  client = createClient(sanityConfig);
 }
 const builder = imageUrlBuilder(client);
 
