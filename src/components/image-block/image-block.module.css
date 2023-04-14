@@ -2,23 +2,39 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  gap: 2rem;
+  margin: 2rem 0;
   font-family: var(--font-sans-serif);
 }
 
 .left {
   flex-direction: row;
+  text-align: left;
 }
 
 .right {
   flex-direction: row-reverse;
+  text-align: right;
 }
 
 .center {
   flex-direction: column;
+  align-items: center;
+  text-align: center;  
 }
 
 .sourceLink {
   text-decoration: none;;
+}
+
+.imageBlockImage {
+  flex: 1 1 auto;
+}
+
+.imageBlockImage img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .imageBlockCredit {

@@ -113,10 +113,10 @@ const blockContent = {
               { title: 'Center', value: 'center' },
               { title: 'Right', value: 'right' },
             ],
-            default: 'left'
           },
+          initialValue: 'left'
         },
-      ]
+      ],
     },
     {
       type: "code",

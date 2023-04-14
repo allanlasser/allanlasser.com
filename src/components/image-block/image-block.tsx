@@ -5,6 +5,8 @@ import styles from './image-block.module.css';
 
 export interface ImageBlockProps {
   src: string;
+  width?: number;
+  height?: number;
   alt?: string;
   title?: string;
   author?: string;
@@ -22,21 +24,17 @@ function SourceLink({source, children}: React.PropsWithChildren<{source?: string
 }
 
 export default function ImageBlock(props: ImageBlockProps) {
-  const {src, alt, title, author, credit, caption, source, alignment} = props;
+  const {src, width, height, alt, title, author, credit, caption, source, alignment} = props;
   return (
     <figure className={cx(styles.imageBlock, styles[alignment ?? 'left'])}>
-      <Image
+      <div className={styles.imageBlockImage}><Image
         alt={alt ?? ''}
         title={title}
-        width='2400'
-        height='1800'
+        width={width}
+        height={height}
         src={src ?? ""}
         sizes='100vw'
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-      />
+      /></div>
       {(title || caption || author) && (
         <figcaption className={styles.imageBlockCaption}>
           {title && <div className={styles.title}>{title}</div>}
