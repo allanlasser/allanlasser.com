@@ -72,6 +72,51 @@ const blockContent = {
       type: "image",
       title: "Image",
       options: { hotspot: true },
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'author',
+          type: 'string',
+          title: 'Author',
+        },
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+        },
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+        },
+        {
+          name: 'credit',
+          type: 'string',
+          title: 'Credit',
+        },
+        {
+          name: 'source',
+          type: 'url',
+          title: 'Source',
+        },
+        {
+          name: 'alignment',
+          type: 'string',
+          title: 'Alignment',
+          options: {
+            list: [
+              { title: 'Left', value: 'left' },
+              { title: 'Center', value: 'center' },
+              { title: 'Right', value: 'right' },
+            ],
+          },
+          initialValue: 'left'
+        },
+      ],
     },
     {
       type: "code",

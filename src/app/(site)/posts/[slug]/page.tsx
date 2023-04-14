@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Post from "src/components/post";
 import getPost from "src/data/getPost";
-import getPublishedPosts from "src/data/getPublishedPosts";
+import {getPublishedPosts} from "src/data/getPosts";
 
 export default async function PostPage({ params }) {
   const post = await getPost(params.slug);

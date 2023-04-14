@@ -76,13 +76,14 @@
 }
 
 .large.book {
-  gap: 0 3rem;
+  gap: 3rem;
 }
 
 .large .bookCover {
   flex-basis: 16rem;
   border-radius: 4px;
   box-shadow: 0 2px 4px var(--color-gray);
+  min-height: 16rem;
 }
 
 .large .bookDetails {

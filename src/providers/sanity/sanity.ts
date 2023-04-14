@@ -23,4 +23,20 @@ export function srcFor(source) {
   return builder.image(source);
 }
 
+function decodeAssetId(id?: string) {
+  const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/;
+  const [, assetId, dimensions, format] = id ? pattern.exec(id) ?? [] : [];
+  const [height, width] = dimensions?.split("x").map(v => parseInt(v, 10)) ?? [];
+  return {
+    assetId,
+    dimensions: { width, height },
+    format,
+  }
+}
+
+export function dimensionsFor(source) {
+  const {dimensions} = decodeAssetId(source.asset._ref);
+  return dimensions;
+}
+
 export default client;

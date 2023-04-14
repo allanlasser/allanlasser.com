@@ -1,5 +1,5 @@
 import getAllNotes from "./getAllNotes";
-import getPublishedPosts from "src/data/getPublishedPosts";
+import {getAllPosts, getPublishedPosts} from "src/data/getPosts";
 import { Note } from "src/types/note";
 import { Post } from "src/types/post";
 
@@ -17,8 +17,9 @@ function getDateToCompare(item: Note | Post) {
 }
 
 export default async function getNotesAndPosts(): Promise<Array<Note | Post>> {
+  const isDev = process.env.NODE_ENV === 'development';
   const notes = await getAllNotes();
-  const posts = await getPublishedPosts();
+  const posts = isDev ? await getAllPosts() : await getPublishedPosts();
   const notesAndPosts: Array<Note | Post> = [...notes, ...posts].sort((a, b) => {
     const aDate = getDateToCompare(a);
     const bDate = getDateToCompare(b);
