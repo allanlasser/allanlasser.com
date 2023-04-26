@@ -1,6 +1,7 @@
 import cx from "classnames";
 import { Metadata } from "next";
 import { Inter, Source_Serif_4, Fira_Code } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
 import Page from "src/components/page";
 import "src/styles/app.css";
 import "src/styles/typography.module.css";
@@ -46,6 +47,7 @@ export default function RootLayout({
     >
       <body>
         <Page>{children}</Page>
+        <Analytics />
       </body>
     </html>
   );
