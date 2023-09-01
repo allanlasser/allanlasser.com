@@ -18,6 +18,15 @@ const Post = {
       },
     },
     {
+      name: "layout",
+      title: "Layout",
+      type: "string",
+      initialValue: "essay",
+      options: {
+        list: ["essay", "gallery"],
+      },
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",

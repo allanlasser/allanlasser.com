@@ -7,6 +7,7 @@ export interface Post {
   _updatedAt: string;
   publishedAt: string;
   title: string;
+  layout: "essay" | "gallery" | string;
   slug: {
     _type: "slug";
     current: string;

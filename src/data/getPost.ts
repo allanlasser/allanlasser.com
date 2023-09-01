@@ -10,6 +10,7 @@ export default async function getPost(slug: string) {
     publishedAt,
     title,
     slug,
+    layout,
     body
   }`;
   return await Sanity.fetch<Post>(GET_POST_QUERY);

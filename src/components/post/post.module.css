@@ -54,3 +54,7 @@
     font-size: 3em;
   }
 }
+
+.gallery img {
+  width: 100%;
+}
