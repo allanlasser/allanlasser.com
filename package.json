@@ -43,6 +43,7 @@
     "romans": "^2.0.8",
     "sanity": "^3.10.0",
     "sanity-plugin-markdown": "^4.1.0",
+    "sanity-plugin-media": "^2.2.2",
     "smartquotes": "^2.3.2",
     "styled-components": "^5.3.10",
     "unified": "^10.1.2"
