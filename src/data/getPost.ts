@@ -10,7 +10,24 @@ export default async function getPost(slug: string) {
     publishedAt,
     title,
     slug,
-    body
+    layout,
+    body[] {
+      _type != 'reference' => @,
+      _type == 'reference' => @->{
+        _type != 'album' => @,
+        _type == 'album' => {
+          _type,
+          _id,
+          title,
+          images[] {
+            "_id": asset->_id,
+            "title": asset->title,
+            "alt": asset->altText,
+            "src": asset->url
+          }
+        }
+      }
+    }
   }`;
   return await Sanity.fetch<Post>(GET_POST_QUERY);
 }

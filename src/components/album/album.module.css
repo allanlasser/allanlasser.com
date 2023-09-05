@@ -1,0 +1,44 @@
+.heightShim {
+  width: 100%;
+  max-width: min(80vw, calc(48rem - 1rem));
+  height: auto;
+  aspect-ratio: 3/2;
+}
+
+.album.horizontal {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 0;
+  padding: 0 max(.5rem, calc((100vw - (48em - 1rem))/2));
+  gap: 1em;
+  width: 100vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-padding: max(.5rem, calc((100vw - (48em - 1rem))/2));
+}
+
+.album.horizontal .image {
+  min-width: min(80vw, calc(48rem - 1rem));
+  scroll-snap-align: start;
+}
+
+.image {
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+@media (min-width: 30rem) {
+  .album.horizontal {
+    padding: 0 max(1rem, calc((100vw - (48em - 2rem))/2));
+    scroll-padding: max(1rem, calc((100vw - (48em - 2rem))/2));
+  }
+  .album.horizontal .image {
+    min-width: min(80vw, calc(48rem - 2rem));
+  }
+}
