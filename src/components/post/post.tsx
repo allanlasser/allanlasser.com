@@ -8,7 +8,6 @@ import cx from "classnames";
 export default function Post({ post, link }: { post: Post; link?: boolean }) {
   const publishedAt = post.publishedAt ? new Date(post.publishedAt) : undefined;
   const layout = post.layout;
-  console.log(layout);
   const header = (
     <header className={styles.header}>
       <hr className={styles.divider} />

@@ -6,6 +6,7 @@ import project from "./project";
 import note from "./note";
 import source from "./source";
 import homepage from "./homepage";
+import album from "./album";
 
 const schemas = [
   note,
@@ -13,6 +14,7 @@ const schemas = [
   portfolio,
   resume,
   project,
+  album,
   post,
   homepage,
   blockContent,

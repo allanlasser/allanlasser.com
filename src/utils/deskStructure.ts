@@ -6,6 +6,7 @@ import {
   LayoutGrid,
   Scroll,
   Home,
+  Image,
 } from "lucide-react";
 import type { StructureBuilder } from "sanity/desk";
 
@@ -23,20 +24,17 @@ export default function deskStructure(S: StructureBuilder) {
             .title("Homepage")
         ),
       S.listItem()
-        .title("Portfolio")
-        .icon(LayoutGrid)
-        .child(
-          S.document()
-            .schemaType("portfolio")
-            .documentId("portfolio")
-            .title("Portfolio")
-        ),
+        .title("Posts")
+        .icon(Pencil)
+        .child(S.documentList().title("Posts").filter('_type == "post"')),
       S.listItem()
-        .title("Resume")
-        .icon(Scroll)
-        .child(
-          S.document().schemaType("resume").documentId("resume").title("Resume")
-        ),
+        .title("Projects")
+        .icon(Briefcase)
+        .child(S.documentList().title("Projects").filter('_type == "project"')),
+      S.listItem()
+        .title("Albums")
+        .icon(Image)
+        .child(S.documentList().title("Albums").filter('_type == "album"')),
       S.divider(),
       S.listItem()
         .title("Shelf")
@@ -46,14 +44,22 @@ export default function deskStructure(S: StructureBuilder) {
         .title("Notes")
         .icon(Bookmark)
         .child(S.documentList().title("Notes").filter('_type == "note"')),
+      S.divider(),
       S.listItem()
-        .title("Posts")
-        .icon(Pencil)
-        .child(S.documentList().title("Posts").filter('_type == "post"')),
+        .title("Resume")
+        .icon(Scroll)
+        .child(
+          S.document().schemaType("resume").documentId("resume").title("Resume")
+        ),
       S.listItem()
-        .title("Projects")
-        .icon(Briefcase)
-        .child(S.documentList().title("Projects").filter('_type == "project"')),
+        .title("Portfolio")
+        .icon(LayoutGrid)
+        .child(
+          S.document()
+            .schemaType("portfolio")
+            .documentId("portfolio")
+            .title("Portfolio")
+        ),
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) => {
         const id = listItem.getId();
@@ -67,6 +73,7 @@ export default function deskStructure(S: StructureBuilder) {
             "post",
             "note",
             "source",
+            "album",
           ].includes(id)
         );
       }),

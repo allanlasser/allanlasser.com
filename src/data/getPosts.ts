@@ -10,7 +10,23 @@ const GET_PUBLISHED_POSTS = groq`*[_type == "post" && defined(publishedAt)] | or
   publishedAt,
   title,
   slug,
-  body
+  body[] {
+    _type != 'reference' => @,
+    _type == 'reference' => @->{
+      _type != 'album' => @,
+      _type == 'album' => {
+        _type,
+        _id,
+        title,
+        images[] {
+          "_id": asset->_id,
+          "title": asset->title,
+          "alt": asset->altText,
+          "src": asset->url
+        }
+      }
+    }
+  }
 }
 `;
 
@@ -26,7 +42,23 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
   publishedAt,
   title,
   slug,
-  body
+  body[] {
+    _type != 'reference' => @,
+    _type == 'reference' => @->{
+      _type != 'album' => @,
+      _type == 'album' => {
+        _type,
+        _id,
+        title,
+        images[] {
+          "_id": asset->_id,
+          "title": asset->title,
+          "alt": asset->altText,
+          "src": asset->url
+        }
+      }
+    }
+  }
 }
 `;
 

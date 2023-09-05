@@ -1,3 +1,4 @@
+import { ExternalLink, Image } from "lucide-react";
 import BlockEditor from "src/components/block-editor";
 
 /**
@@ -71,52 +72,59 @@ const blockContent = {
     {
       type: "image",
       title: "Image",
+      icon: Image,
       options: { hotspot: true },
       fields: [
         {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
+          name: "title",
+          type: "string",
+          title: "Title",
         },
         {
-          name: 'author',
-          type: 'string',
-          title: 'Author',
+          name: "author",
+          type: "string",
+          title: "Author",
         },
         {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
         },
         {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
+          name: "caption",
+          type: "string",
+          title: "Caption",
         },
         {
-          name: 'credit',
-          type: 'string',
-          title: 'Credit',
+          name: "credit",
+          type: "string",
+          title: "Credit",
         },
         {
-          name: 'source',
-          type: 'url',
-          title: 'Source',
+          name: "source",
+          type: "url",
+          title: "Source",
         },
         {
-          name: 'alignment',
-          type: 'string',
-          title: 'Alignment',
+          name: "alignment",
+          type: "string",
+          title: "Alignment",
           options: {
             list: [
-              { title: 'Left', value: 'left' },
-              { title: 'Center', value: 'center' },
-              { title: 'Right', value: 'right' },
+              { title: "Left", value: "left" },
+              { title: "Center", value: "center" },
+              { title: "Right", value: "right" },
             ],
           },
-          initialValue: 'left'
         },
       ],
+    },
+    {
+      name: "reference",
+      title: "Reference",
+      type: "reference",
+      icon: ExternalLink,
+      to: [{ type: "album" }, { type: "note" }],
     },
     {
       type: "code",
