@@ -13,13 +13,15 @@ export default function Album({ images }: { images: AlbumImage[] }) {
   return (
     <>
       <div className={cx(styles.album, styles.horizontal)}>
-        {images.map((image) => (
+        {images.map((image, idx) => (
           <figure className={styles.image} key={image._id}>
             <Image
               src={image.src}
               title={image.title ?? ""}
               alt={image.alt ?? ""}
               fill
+              sizes='(max-width: 768px) 90vw, (max-width: 1200px) 50vw'
+              priority={idx < 2}
             />
           </figure>
         ))}
