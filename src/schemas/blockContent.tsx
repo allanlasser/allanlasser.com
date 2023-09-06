@@ -1,4 +1,4 @@
-import { ExternalLink, Image } from "lucide-react";
+import { ExternalLink, ImageIcon } from "lucide-react";
 import BlockEditor from "src/components/block-editor";
 
 /**
@@ -34,7 +34,10 @@ const blockContent = {
         { title: "H4", value: "h4" },
         { title: "Quote", value: "blockquote" },
       ],
-      lists: [{ title: "Bullet", value: "bullet" }],
+      lists: [
+        { title: "Bullet", value: "bullet" },
+        { title: "Numbered", value: "number" },
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -72,7 +75,7 @@ const blockContent = {
     {
       type: "image",
       title: "Image",
-      icon: Image,
+      icon: <ImageIcon size={20} strokeWidth={1.5} />,
       options: { hotspot: true },
       fields: [
         {
@@ -123,7 +126,7 @@ const blockContent = {
       name: "reference",
       title: "Reference",
       type: "reference",
-      icon: ExternalLink,
+      icon: <ExternalLink size={20} strokeWidth={1.5} />,
       to: [{ type: "album" }, { type: "note" }],
     },
     {
