@@ -41,7 +41,7 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "romans": "^2.0.8",
-    "sanity": "^3.10.0",
+    "sanity": "^3.16.4",
     "sanity-plugin-markdown": "^4.1.0",
     "sanity-plugin-media": "^2.2.2",
     "smartquotes": "^2.3.2",
