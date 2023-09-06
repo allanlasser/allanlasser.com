@@ -7,6 +7,7 @@ import {
   Scroll,
   Home,
   Image,
+  Building2,
 } from "lucide-react";
 import type { StructureBuilder } from "sanity/desk";
 
@@ -23,14 +24,11 @@ export default function deskStructure(S: StructureBuilder) {
             .documentId("homepage")
             .title("Homepage")
         ),
+      S.divider(),
       S.listItem()
         .title("Posts")
         .icon(Pencil)
         .child(S.documentList().title("Posts").filter('_type == "post"')),
-      S.listItem()
-        .title("Projects")
-        .icon(Briefcase)
-        .child(S.documentList().title("Projects").filter('_type == "project"')),
       S.listItem()
         .title("Albums")
         .icon(Image)
@@ -46,11 +44,15 @@ export default function deskStructure(S: StructureBuilder) {
         .child(S.documentList().title("Notes").filter('_type == "note"')),
       S.divider(),
       S.listItem()
-        .title("Resume")
-        .icon(Scroll)
+        .title("Companies")
+        .icon(Building2)
         .child(
-          S.document().schemaType("resume").documentId("resume").title("Resume")
+          S.documentList().title("Companies").filter('_type == "company"')
         ),
+      S.listItem()
+        .title("Projects")
+        .icon(Briefcase)
+        .child(S.documentList().title("Projects").filter('_type == "project"')),
       S.listItem()
         .title("Portfolio")
         .icon(LayoutGrid)
@@ -59,6 +61,12 @@ export default function deskStructure(S: StructureBuilder) {
             .schemaType("portfolio")
             .documentId("portfolio")
             .title("Portfolio")
+        ),
+      S.listItem()
+        .title("Resume")
+        .icon(Scroll)
+        .child(
+          S.document().schemaType("resume").documentId("resume").title("Resume")
         ),
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) => {
@@ -74,6 +82,7 @@ export default function deskStructure(S: StructureBuilder) {
             "note",
             "source",
             "album",
+            "company",
           ].includes(id)
         );
       }),

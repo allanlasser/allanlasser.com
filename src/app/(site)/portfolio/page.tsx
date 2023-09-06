@@ -13,10 +13,10 @@ export default async function PortfolioRoot() {
   const { projects, personalStatement } = await getPortfolio();
   return (
     <article>
-      <ProjectList projects={projects} />
       <div className={typography.bodyText}>
         <BlockContent value={personalStatement} />
       </div>
+      <ProjectList projects={projects} />
     </article>
   );
 }
