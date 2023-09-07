@@ -1,8 +1,4 @@
-import {
-  PortableTextBlock,
-  PortableTextInput,
-  PortableTextInputProps,
-} from "sanity";
+import { PortableTextInput, PortableTextInputProps, TypedObject } from "sanity";
 import type { OnPasteFn } from "@sanity/portable-text-editor";
 import { htmlToBlocks } from "@sanity/block-tools";
 import { unified } from "unified";
@@ -65,7 +61,7 @@ const handlePaste: OnPasteFn = async (input) => {
       ],
     });
     return {
-      insert: blocks as PortableTextBlock[],
+      insert: blocks as TypedObject[],
       path,
     };
   }
