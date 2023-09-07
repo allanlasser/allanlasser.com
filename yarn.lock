@@ -1465,18 +1465,10 @@
     nanoid "^3.1.12"
     rxjs "^7.0.0"
 
-"@sanity/block-tools@3.16.4":
+"@sanity/block-tools@3.16.4", "@sanity/block-tools@^3.16.4":
   version "3.16.4"
   resolved "https://registry.yarnpkg.com/@sanity/block-tools/-/block-tools-3.16.4.tgz#234a55340d6956255098ca52cea7af6de0eac9eb"
   integrity sha512-Zbux4MepXzFfIkgViwVv1upqQuYt3P9ak8JQGHUQVIeNguj6GYTSf4q+6u1kx0Lw6cJl765bH529qIJifs8Cng==
-  dependencies:
-    get-random-values-esm "^1.0.0"
-    lodash "^4.17.21"
-
-"@sanity/block-tools@^3.10.0":
-  version "3.10.0"
-  resolved "https://registry.npmjs.org/@sanity/block-tools/-/block-tools-3.10.0.tgz"
-  integrity sha512-oyOuQ42rfQ6RhIDO1+rxm0KRI5PYnNpZbaSOscfGNLhg61XsWr4uomvvf4F/yYZmkga0CYrKmho9Hkb1q/XqYg==
   dependencies:
     get-random-values-esm "^1.0.0"
     lodash "^4.17.21"
@@ -1518,7 +1510,7 @@
     get-it "^8.1"
     rxjs "7"
 
-"@sanity/client@^6.0.0", "@sanity/client@^6.0.1":
+"@sanity/client@^6.0.0":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-6.0.1.tgz"
   integrity sha512-q2Mi79ttJxoUjZG3LGlfIFoYfMUxra9tRaPbfmQRVJQ2I/TiVGvuE6yt38fgox796wpeZvYeuYH8L7Ms79IXYg==
@@ -1527,7 +1519,7 @@
     get-it "^8.1.0"
     rxjs "^7.0.0"
 
-"@sanity/client@^6.4.9":
+"@sanity/client@^6.4.11", "@sanity/client@^6.4.9":
   version "6.4.11"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-6.4.11.tgz#a3c6bf17eabf7356216ff98095fcf8baff082c25"
   integrity sha512-A8s5odg9b8ioamKDdfrfsp5rHsE8J+BOpknw6eRtIHF5BBkNGAYdS78NdS1m3R+llHotdpyS/X2+la4YgzU5/w==
@@ -1536,10 +1528,10 @@
     get-it "^8.4.3"
     rxjs "^7.0.0"
 
-"@sanity/code-input@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@sanity/code-input/-/code-input-4.1.0.tgz"
-  integrity sha512-Zox7rCVj7OBCYtpQloV6Fw2MamcmEu8GTTZTQMaTcD27ySvuQ5yvpvAolXToakjb2o08hlwK5svKjFlSRfjjcQ==
+"@sanity/code-input@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@sanity/code-input/-/code-input-4.1.1.tgz#06c5c3d86b6343954f032769c52351a104864590"
+  integrity sha512-dw1FiHEt9CPuh+Q4YTIdQnH2+RUXYSlXSeoKlfj1rPwIZ/nFYum2ANncHwn35h83QfwsJLFpPHTnOzRpKQR/uw==
   dependencies:
     "@codemirror/autocomplete" "^6.1.0"
     "@codemirror/commands" "^6.0.1"
@@ -1629,9 +1621,14 @@
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.3.10.tgz"
   integrity sha512-5wVG/vIiGuGrSmq+Bl3PY7XDgQrGv0fyHdJI64FSulnr2wH3NMqZ6C59UFxnrZ93sr7kOt0zQFoNv2lkPBi0Cg==
 
-"@sanity/icons@^2.0.0", "@sanity/icons@^2.3.0", "@sanity/icons@^2.3.1", "@sanity/icons@^2.4.0", "@sanity/icons@^2.4.1":
+"@sanity/icons@^2.0.0", "@sanity/icons@^2.4.0":
   version "2.4.1"
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-2.4.1.tgz"
+  integrity sha512-/yxcIT0k1RxStI/pP/oHM44fHI6Oxiygf0jPcdV06Ce0xfFo+51UEqJSfE8hQ3fh+uFkat8ZZObZjq5v1ceJzw==
+
+"@sanity/icons@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-2.4.1.tgz#34ce2c5b58f53c7369ff926b651ea57c4e3c0a8c"
   integrity sha512-/yxcIT0k1RxStI/pP/oHM44fHI6Oxiygf0jPcdV06Ce0xfFo+51UEqJSfE8hQ3fh+uFkat8ZZObZjq5v1ceJzw==
 
 "@sanity/image-url@^1.0.2":
@@ -1727,7 +1724,7 @@
     lodash "^4.17.21"
     object-inspect "^1.6.0"
 
-"@sanity/types@3", "@sanity/types@^3.10.0":
+"@sanity/types@3":
   version "3.10.0"
   resolved "https://registry.npmjs.org/@sanity/types/-/types-3.10.0.tgz"
   integrity sha512-rsJ6awocrduX/4ZCa38nCM9Zwa8teh/CtB44oRbU4yT/mbsYM/NJUDVt+aIA+AizpIYBaeHtSf+3W3BbpTmqZg==
@@ -1735,7 +1732,7 @@
     "@sanity/client" "^5.2.0"
     "@types/react" "^18.0.25"
 
-"@sanity/types@3.16.4":
+"@sanity/types@3.16.4", "@sanity/types@^3.16.4":
   version "3.16.4"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-3.16.4.tgz#a17f5e18cebdddc528bc865bec85152c0ea3244f"
   integrity sha512-hucdBktsM9dPtKNQmAKeBF2pVa81YZ2oJ5+IQbRsnzEKRl5UJEGb6HQ9u/qHr/0Sg4WJzi+RrjltOO7HqZ+rHg==
@@ -1743,7 +1740,7 @@
     "@sanity/client" "^6.4.9"
     "@types/react" "^18.0.25"
 
-"@sanity/ui@^1.0.0", "@sanity/ui@^1.3.0", "@sanity/ui@^1.3.3", "@sanity/ui@^1.7.0":
+"@sanity/ui@^1.0.0", "@sanity/ui@^1.7.0":
   version "1.7.11"
   resolved "https://registry.npmjs.org/@sanity/ui/-/ui-1.7.11.tgz"
   integrity sha512-N9zICg3NbgyfzM/cboqTj2Ik0I+T49LFADQzLtOCqQCT/RypbBE1sB2MrD+LWaiB6lfzqM1rns4v4yD2IlOvDg==
@@ -1755,7 +1752,7 @@
     framer-motion "^10.16.1"
     react-refractor "^2.1.7"
 
-"@sanity/ui@^1.7.2":
+"@sanity/ui@^1.7.2", "@sanity/ui@^1.8.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-1.8.2.tgz#70f0c55e3bdd04b662d3cd84af168d4e27adfc2c"
   integrity sha512-XWtVdIG1PWBEiNPcObRfXsX/EPhiPCHMmfdn+frPIVLTLnoQnNju3W9UQAWec+BwjXBCpPtfc36AoiQSDUkxzw==
@@ -1784,10 +1781,10 @@
     "@types/uuid" "^8.0.0"
     uuid "^8.0.0"
 
-"@sanity/vision@^3.10.0":
-  version "3.10.0"
-  resolved "https://registry.npmjs.org/@sanity/vision/-/vision-3.10.0.tgz"
-  integrity sha512-Muja3bOcvfgo5Mbg/ES2wDt+cYkXYRW3QvD0HVvRFJVjwSwT0P9rLw0Eip8lyxobQ70DR8nHvH3WET9wXk/TtA==
+"@sanity/vision@^3.16.4":
+  version "3.16.4"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-3.16.4.tgz#5d5bac44becfa90e22975b060e91d74327ca3146"
+  integrity sha512-3iV9TyhIeZUoiWMckFYotJBAsFFn7tuHoQMz3nZP+YZRdY1C5hC5h8yFQp22KHSW6tivhOza0g9Z2pfhsfWQtw==
   dependencies:
     "@codemirror/autocomplete" "^6.1.0"
     "@codemirror/commands" "^6.0.1"
@@ -1800,8 +1797,8 @@
     "@rexxars/react-json-inspector" "^8.0.1"
     "@rexxars/react-split-pane" "^0.1.93"
     "@sanity/color" "^2.1.20"
-    "@sanity/icons" "^2.3.0"
-    "@sanity/ui" "^1.3.0"
+    "@sanity/icons" "^2.4.0"
+    "@sanity/ui" "^1.7.2"
     "@uiw/react-codemirror" "^4.11.4"
     hashlru "^2.3.0"
     is-hotkey "^0.1.6"
