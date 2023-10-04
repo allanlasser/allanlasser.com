@@ -1,7 +1,7 @@
 .projectItem {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   color: var(--text-color);
 }
 
@@ -9,7 +9,7 @@
   flex: 0 0 auto;
   font-size: 1.2em;
   line-height: 1.4;
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   color: var(--link-color);
   margin: 1rem 0 .5rem;
 }

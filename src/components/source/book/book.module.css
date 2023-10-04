@@ -31,7 +31,7 @@
 }
 
 .bookTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   font-weight: 600;
   line-height: 1.2;
   color: var(--text-color);
@@ -45,8 +45,9 @@
 
 .bookAuthor {
   font-weight: 400;
-  font-family: var(--font-serif);
+  font-family: var(--font-serif, var(--fallback-font-serif));
   font-style: italic;
+  font-size: 0.9em;
   line-height: 1.3;
 }
 
@@ -59,14 +60,14 @@
 
 .bookMeta dt {
   font-weight: 700;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, var(--fallback-font-mono));
   page-break-after: avoid;
   text-align: right;
 }
 
 .bookMeta dd {
   font-weight: 400;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, var(--fallback-font-mono));
   margin-inline-start: 0;
   page-break-before: avoid;
 }

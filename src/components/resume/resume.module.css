@@ -46,7 +46,7 @@
 }
 
 .resume h2 {
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   font-size: 1.2em;
   font-weight: 800;
   margin: 3rem 0 1.5rem;
