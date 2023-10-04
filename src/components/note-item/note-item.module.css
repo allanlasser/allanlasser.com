@@ -44,7 +44,7 @@
   font-size: .925em;
   letter-spacing: -.05ch;
   opacity: .7;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, var(--fallback-font-mono));
 }
 
 .footer svg {

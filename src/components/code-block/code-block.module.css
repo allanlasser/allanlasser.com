@@ -11,7 +11,7 @@
 }
 
 .title {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, var(--fallback-font-mono));
   font-size: .75em;
   font-weight: 500;
   padding: .5rem 0;

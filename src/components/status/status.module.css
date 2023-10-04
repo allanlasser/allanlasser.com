@@ -1,5 +1,5 @@
 .status {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif, var(--fallback-font-serif));
   font-style: italic;
 }
 

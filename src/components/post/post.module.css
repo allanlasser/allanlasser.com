@@ -41,7 +41,7 @@
 
 .title {
   flex: 1 1 100%;
-  /* font-family: var(--font-serif); */
+  /* font-family: var(--font-serif, var(--fallback-font-serif)); */
   order: 2;
   font-weight: 800;
   font-size: 2em;

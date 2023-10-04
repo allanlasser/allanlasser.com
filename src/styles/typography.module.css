@@ -1,6 +1,6 @@
 .text {
   font-display: swap;
-	font-family: var(--font-sans-serif);
+	font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   font-optical-sizing: auto;
 	font-size: 1em;
   font-weight: 400;
@@ -9,12 +9,12 @@
 
 .data {
   font-display: swap;
-	font-family: var(--font-sans-serif);
+	font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   font-optical-sizing: auto;
 }
 
 .title {
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
 	font-weight: bold;
 }
 
@@ -48,7 +48,7 @@
 
 .bodyText {
   line-height: 1.7;
-  font-family: var(--font-serif);
+  font-family: var(--font-serif, var(--fallback-font-serif));
   font-variant-numeric: oldstyle-nums;
 }
 
@@ -59,7 +59,7 @@
 .bodyText h5, 
 .bodyText h6 {
   margin: 1.5em 0 1rem 0;
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   line-height: 1.2;
 } 
 

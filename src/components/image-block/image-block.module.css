@@ -4,7 +4,7 @@
   align-items: flex-end;
   gap: 2rem;
   margin: 2rem 0;
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
 }
 
 .left {

@@ -15,8 +15,11 @@
   --color-gray-700: hsl(0, 0%, 30%);
   --color-gray-800: hsl(0, 0%, 20%);
   --color-gray-900: hsl(0, 0%, 10%);
-  /* --font-serif: 'Georgia', serif;
-  --font-sans-serif: 'Helvetica Neue', sans-serif; */
+  /* --font-serif, --font-sans-serif, --font-mono are set by Next.js,
+    but fallback values are set as a variable in case something goes sideways. */
+  --fallback-font-sans-serif: 'Helvetica Neue', sans-serif;
+  --fallback-font-serif: Georgia;
+  --fallback-font-mono: Monaco;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,7 +53,7 @@ html, body {
   line-height: 1.4;
 	color: var(--text-color);
 	background: var(--page-color);
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,7 +68,7 @@ a:visited { color: var(--link-visited-color); }
 a:hover 	{ color: var(--link-hover-color); }
 
 code {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, var(--fallback-font-mono));
   font-size: .85em;
   font-weight: 500;
   background-color: var(--color-gray-50);
