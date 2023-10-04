@@ -2,3 +2,9 @@
   font-family: var(--font-serif);
   font-style: italic;
 }
+
+@media print {
+  .status {
+    display: none;
+  }
+}

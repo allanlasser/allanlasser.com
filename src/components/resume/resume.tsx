@@ -8,6 +8,7 @@ export type PositionProps = Position;
 
 const Position = (props) => {
   const { role, company, description, startDate, endDate } = props;
+  console.log(role, company, description, startDate, endDate);
   return (
     <section className={cx(styles.entry, styles.position)}>
       <aside className={cx(styles.when, typography.data)}>
@@ -21,7 +22,9 @@ const Position = (props) => {
         <header className={cx(typography.data)}>
           <div>
             <h3 className={cx(styles.role)}>{role}</h3>
-            <p className={cx(styles.company, typography.data)}>{company}</p>
+            <p className={cx(styles.company, typography.data)}>
+              {company.name}
+            </p>
           </div>
         </header>
         <p className={cx(styles.description)}>{description}</p>
@@ -56,6 +59,7 @@ export type ResumeProps = Resume;
 
 const Resume = (props) => {
   const { history, skills } = props;
+  console.log(JSON.stringify(history, null, 2));
   return (
     <article className={cx(styles.resume)}>
       <section>
