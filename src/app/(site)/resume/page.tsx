@@ -8,7 +8,7 @@ export default async function ResumePage() {
 }
 
 export const metadata: Metadata = {
-  title: "CV",
+  title: "Résumé",
 };
 
 export const revalidate = 3600;

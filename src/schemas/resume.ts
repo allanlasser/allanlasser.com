@@ -4,7 +4,12 @@ export const position = {
   type: "object",
   fields: [
     { name: "role", type: "string", title: "Role" },
-    { name: "company", type: "string", title: "Company" },
+    {
+      name: "company",
+      title: "Company",
+      type: "reference",
+      to: [{ type: "company" }],
+    },
     { name: "description", type: "text", title: "Description" },
     { name: "startDate", type: "string", title: "From" },
     { name: "endDate", type: "string", title: "Until" },

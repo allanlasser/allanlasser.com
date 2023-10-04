@@ -14,7 +14,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
         {projects.map((project) => (
           <li key={project.slug?.current} className={styles.projectListItem}>
             <Link
-              href={`/work/${project.slug?.current}`}
+              href={`/portfolio/${project.slug?.current}`}
               className={styles.projectLink}
             >
               <ProjectItem project={project} />

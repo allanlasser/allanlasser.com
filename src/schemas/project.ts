@@ -9,11 +9,6 @@ const project = {
       type: "string",
     },
     {
-      name: "description",
-      title: "Description",
-      type: "string",
-    },
-    {
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -21,6 +16,27 @@ const project = {
         source: "title",
         maxLength: 96,
       },
+    },
+    {
+      name: "year",
+      title: "Year",
+      type: "number",
+    },
+    {
+      name: "company",
+      title: "Company",
+      type: "reference",
+      to: [{ type: "company" }],
+    },
+    {
+      name: "role",
+      title: "Role",
+      type: "string",
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "string",
     },
     {
       name: "link",
@@ -45,6 +61,7 @@ const project = {
   preview: {
     select: {
       title: "title",
+      media: "mainImage",
     },
   },
 };
