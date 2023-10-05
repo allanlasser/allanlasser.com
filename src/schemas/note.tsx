@@ -20,7 +20,7 @@ const Note = {
     {
       name: "page",
       title: "Page",
-      type: "number",
+      type: "string",
     },
   ],
   preview: {
