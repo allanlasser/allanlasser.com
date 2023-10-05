@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Schema, srcFor } from "src/providers/sanity";
+import * as Schema from "src/providers/sanity/schema";
+import { srcFor } from "src/providers/sanity";
 import styles from "./project-item.module.css";
 
 export default function ProjectItem({ project }: { project: Schema.Project }) {

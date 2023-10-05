@@ -1,4 +1,4 @@
-import { Schema } from "src/providers/sanity";
+import * as Schema from "src/providers/sanity/schema";
 
 export interface Post {
   _type: "post";

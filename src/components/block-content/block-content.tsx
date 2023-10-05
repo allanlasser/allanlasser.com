@@ -1,7 +1,8 @@
 "use client";
 
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
-import { Schema, srcFor, dimensionsFor } from "src/providers/sanity";
+import * as Schema from "src/providers/sanity/schema";
+import { srcFor, dimensionsFor } from "src/providers/sanity";
 import styles from "./block-content.module.css";
 import CodeBlock from "src/components/code-block";
 import ImageBlock from "../image-block";

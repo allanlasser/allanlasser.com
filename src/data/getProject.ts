@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
-import Sanity, { Schema } from "src/providers/sanity";
+import Sanity from "src/providers/sanity";
+import * as Schema from "src/providers/sanity/schema";
 import blockContent from "./fragments/blockContent";
 
 export default async function getProject(slug: string) {
