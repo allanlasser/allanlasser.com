@@ -1,15 +1,13 @@
-import React from "react";
-import Link from "next/link";
-import getHomepage from "src/data/getHomepage";
+import { Source } from "src/types/source";
 import Book from "src/components/source/book";
 import styles from "./reading.module.css";
 
 export const revalidate = 43200;
 
-export default async function Status({
-  children,
-}: React.PropsWithChildren<{}>) {
-  const { reading, read } = await getHomepage();
+export default function Status({
+  reading,
+  read,
+}: React.PropsWithChildren<{ reading: Source[]; read: Source[] }>) {
   return (
     <div className={styles.grid}>
       {reading && (

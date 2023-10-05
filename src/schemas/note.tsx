@@ -7,6 +7,11 @@ const Note = {
   type: "document",
   fields: [
     {
+      name: "title",
+      title: "Title",
+      type: "string",
+    },
+    {
       name: "body",
       title: "Body",
       type: "markdown",
@@ -25,14 +30,19 @@ const Note = {
   ],
   preview: {
     select: {
-      title: "source.title",
+      title: "title",
+      sourceTitle: "source.title",
       page: "page",
     },
     prepare(selection) {
-      const { title, page } = selection;
+      const { title, sourceTitle, page } = selection;
+      let subtitle = page ? `pg. ${page}` : "";
+      if (title && sourceTitle) {
+        subtitle = `${sourceTitle}${page ? `, ${subtitle}` : ""}`;
+      }
       return {
-        title,
-        subtitle: page ? `pg. ${page}` : null,
+        title: title ?? sourceTitle ?? "Untitled",
+        subtitle,
         media: <Bookmark strokeWidth={1.5} />,
       };
     },
