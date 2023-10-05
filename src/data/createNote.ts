@@ -4,6 +4,7 @@ import { Note } from "src/types/note";
 import createSource from "./createSource";
 
 export interface CreateNoteArgs {
+  title?: string;
   body: string;
   page?: number;
   source: {
@@ -23,6 +24,7 @@ export default async function createNote(args: CreateNoteArgs) {
   const source = await createSource(args.source);
   const note = await client.create({
     _type: "note",
+    title: args.title,
     body: args.body,
     page: args.page,
     source: source

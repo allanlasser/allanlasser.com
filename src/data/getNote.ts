@@ -6,6 +6,7 @@ export default async function getNote(id: string) {
   const GET_NOTE = groq`*[_type == "note" && _id == "${id}"][0] {
     _id,
     _createdAt,
+    title,
     body,
     page,
     source -> {
