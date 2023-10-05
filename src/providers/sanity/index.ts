@@ -1,4 +1,4 @@
-import * as Schema from "./schema";
+import * as SanitySchema from "./schema.d";
 
 export { default, srcFor, dimensionsFor } from "./sanity";
-export import Schema = Schema;
+export const Schema = SanitySchema;
