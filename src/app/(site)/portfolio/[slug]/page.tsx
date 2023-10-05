@@ -10,7 +10,6 @@ import getAllProjects from "src/data/getAllProjects";
 
 export default async function PortfolioProject({ params }) {
   const project = await getProject(params.slug);
-  console.log(JSON.stringify(project, null, 2));
   return (
     <article>
       <header>

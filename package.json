@@ -24,8 +24,8 @@
     "feed": "^4.2.2",
     "isomorphic-fetch": "^3.0.0",
     "lucide-react": "^0.274.0",
-    "next": "^13.4.0",
-    "next-sanity": "^4.1.7",
+    "next": "^13.5.4",
+    "next-sanity": "^5.5.5",
     "prop-types": "^15.8.1",
     "qs": "^6.11.1",
     "react": "^18.2.0",
@@ -40,7 +40,7 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "romans": "^2.0.8",
-    "sanity": "^3.16.4",
+    "sanity": "^3.17.0",
     "sanity-plugin-markdown": "^4.1.0",
     "sanity-plugin-media": "^2.2.2",
     "smartquotes": "^2.3.2",
@@ -61,7 +61,7 @@
     "@types/react": "^18.2.5",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.39.0",
-    "eslint-config-next": "^13.4.0",
+    "eslint-config-next": "^13.5.4",
     "typescript": "^5.0.4"
   }
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Schema } from "src/providers/sanity";
+import * as Schema from "src/providers/sanity/schema";
 import ProjectItem from "../project-item";
 import styles from "./project-list.module.css";
 
