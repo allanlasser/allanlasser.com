@@ -5,6 +5,7 @@
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
   --highlight-color: hsla(143, 59%, 73%, 70%);
+  --error-color: hsl(10, 80%, 50%);
   --color-gray-50: hsl(0, 0%, 95%);
   --color-gray-100: hsl(0, 0%, 90%);
   --color-gray-200: hsl(0, 0%, 80%);
