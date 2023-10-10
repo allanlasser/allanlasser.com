@@ -16,7 +16,6 @@ const routeMap = {
 
 export default function getPermalink(object: PermalinkableObject) {
   const siteURL = getSiteUrl();
-  console.log({ siteURL });
   return `${siteURL}/${routeMap[object._type]}/${
     object.slug?.current ?? object._id
   }`;

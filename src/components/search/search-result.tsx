@@ -11,7 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import getPermalink from "src/utils/getPermalink";
-import { type SearchResult } from "./search.actions";
+import { type SearchResult } from "src/data/search";
 import styles from "./search.module.css";
 
 function getTypeIcon(type: string): LucideIcon {
@@ -28,7 +28,7 @@ function getTypeIcon(type: string): LucideIcon {
 
 interface SearchResultItemProps {
   result: SearchResult;
-  onClick: (event: MouseEvent) => void;
+  onClick?: (event: MouseEvent) => void;
 }
 
 export default function SearchResultItem({

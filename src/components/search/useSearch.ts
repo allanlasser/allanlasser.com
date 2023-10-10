@@ -1,64 +1,88 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { experimental_useFormState as useFormState } from "react-dom";
-import useClickOutside from "src/hooks/useClickOutside";
-import { search as searchAction, type SearchAction } from "./search.actions";
+"use client";
 
-const initialSearchState: SearchAction = {};
+import { redirect, usePathname, useRouter } from "next/navigation";
+import {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { search, SearchResponse } from "src/data/search";
 
-export default function useSearch() {
+export default function useSearch(
+  initialQuery?: string,
+  initialResponse?: SearchResponse
+) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const [query, setQuery] = useState(initialQuery ?? "");
+  const [response, setResponse] = useState(initialResponse);
+
   const formRef = useRef<HTMLFormElement>(null);
-  const resultsRef = useRef(null);
-  const [showResults, setShowResults] = useState(false);
-  const [{ results, error }, formAction] = useFormState(
-    searchAction,
-    initialSearchState
+  const prevQuery = useRef<string>(query);
+
+  const redirectToSearchPage = useCallback(
+    (event: KeyboardEvent) => {
+      console.log(event.key, pathname);
+      if (event.key === "Enter" && pathname !== "/search") {
+        router.push(`/search?query=${query}`);
+      }
+    },
+    [query, pathname, router]
   );
 
-  const getQuery = useCallback(() => {
-    const formData = formRef.current ? new FormData(formRef.current) : null;
-    return formData?.get("query");
-  }, [formRef]);
-
-  const query = useMemo(getQuery, [getQuery]);
-
-  const isSufficientlyComplexQuery = useCallback(() => {
-    const query = getQuery();
-    const sufficientlyComplexQuery = query && query.length > 2;
-    return Boolean(sufficientlyComplexQuery);
-  }, [getQuery]);
+  const runSearch = useCallback(
+    async (event?: SubmitEvent) => {
+      event?.preventDefault();
+      if (query !== prevQuery.current) {
+        if (!query) {
+          setResponse({});
+        } else {
+          setResponse(await search(query));
+        }
+      }
+      prevQuery.current = query;
+    },
+    [query]
+  );
 
   useEffect(() => {
-    setShowResults(
-      isSufficientlyComplexQuery() && (Boolean(results) || Boolean(error))
-    );
-  }, [results, error, isSufficientlyComplexQuery]);
+    const form = formRef.current;
+    form?.addEventListener("submit", runSearch);
+    const timeout = setTimeout(runSearch, 250);
+    return () => {
+      form?.removeEventListener("submit", runSearch);
+      clearTimeout(timeout);
+    };
+  }, [runSearch]);
 
-  function hideResults() {
-    setShowResults(false);
-  }
+  useEffect(() => {
+    const form = formRef.current;
+    form?.addEventListener("keydown", redirectToSearchPage);
+    return () => {
+      form?.addEventListener("keydown", redirectToSearchPage);
+    };
+  }, [redirectToSearchPage]);
 
-  const onInputFocus = useCallback(() => {
-    if (isSufficientlyComplexQuery() && results?.length) {
-      setShowResults(true);
-    }
-  }, [results, isSufficientlyComplexQuery]);
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.currentTarget.value;
+    setQuery(value);
+  };
 
-  const onResultClick = useCallback(() => {
-    hideResults();
+  const resetForm = useCallback(() => {
     formRef.current?.reset();
+    setQuery("");
   }, [formRef]);
-
-  useClickOutside(resultsRef, hideResults);
 
   return {
     formRef,
-    resultsRef,
-    showResults,
-    formAction,
     query,
-    results,
-    error,
-    onInputFocus,
-    onResultClick,
+    response,
+    onInputChange,
+    resetForm,
+    prevQuery: prevQuery.current,
   };
 }
