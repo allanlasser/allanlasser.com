@@ -3,9 +3,6 @@ module.exports = {
   images: {
     domains: ["cdn.sanity.io"],
   },
-  experimental: {
-    serverActions: true,
-  },
   async redirects() {
     return [
       {
