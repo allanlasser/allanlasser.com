@@ -72,17 +72,11 @@ export default function useSearch(
     setQuery(value);
   };
 
-  const resetForm = useCallback(() => {
-    formRef.current?.reset();
-    setQuery("");
-  }, [formRef]);
-
   return {
     formRef,
     query,
     response,
     onInputChange,
-    resetForm,
     prevQuery: prevQuery.current,
   };
 }
