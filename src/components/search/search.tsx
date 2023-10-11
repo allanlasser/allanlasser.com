@@ -22,7 +22,9 @@ function useSearchResults(
   float?: boolean
 ) {
   const resultsRef = useRef(null);
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(
+    Boolean(response.results || response.error)
+  );
 
   const isSufficientlyComplexQuery = useCallback(() => {
     const sufficientlyComplexQuery = query && query.length > 2;
@@ -116,15 +118,14 @@ export default function SearchInput(props: SearchInputProps) {
           onClick={() => setShowResults(Boolean((query && results) || error))}
         />
       </form>
-      <div
-        ref={resultsRef}
-        className={cx(
-          { [styles.visible]: showResults, [styles.float]: floatResults },
-          styles.results
-        )}
-      >
-        {resultList}
-      </div>
+      {showResults && (
+        <div
+          ref={resultsRef}
+          className={cx({ [styles.float]: floatResults }, styles.results)}
+        >
+          {resultList}
+        </div>
+      )}
     </div>
   );
 }
