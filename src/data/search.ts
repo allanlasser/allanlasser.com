@@ -5,7 +5,7 @@ import { BlockContent } from "src/providers/sanity/schema";
 const TYPES = ["post", "note", "source"];
 
 const SEARCH = groq`
-  *[(title match $query || subtitle match $query || author match $query || body match $query || body[].children[].text match $query) && _type in $types] {
+  *[(title match $query || subtitle match $query || author match $query || body match $query || body[].children[].text match $query) && _type in $types] | score(boost(_type == "post", 1), _type == "source" ) | order(_score desc) {
     _id,
     _type,
     type,
