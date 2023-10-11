@@ -1,22 +1,17 @@
 "use client";
 
-import { redirect, usePathname, useRouter } from "next/navigation";
-import {
-  ChangeEvent,
-  FormEvent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { SearchResponse } from "src/data/search";
 
 export default function useSearch(
   initialQuery?: string,
   initialResponse?: SearchResponse
 ) {
-  const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const queryParam = searchParams?.get("query");
 
   const [query, setQuery] = useState(initialQuery ?? "");
   const [response, setResponse] = useState(initialResponse);
@@ -24,6 +19,11 @@ export default function useSearch(
   const formRef = useRef<HTMLFormElement>(null);
   const prevQuery = useRef<string>(query);
 
+  useEffect(() => {
+    if (queryParam && queryParam !== prevQuery.current) {
+      setQuery(queryParam);
+    }
+  }, [queryParam]);
 
   const runSearch = useCallback(async () => {
     if (query !== prevQuery.current) {
@@ -44,14 +44,16 @@ export default function useSearch(
   }, [query]);
 
   useEffect(() => {
-    const form = formRef.current;
-    form?.addEventListener("submit", runSearch);
-    const timeout = setTimeout(runSearch, 250);
+    const timeout = setTimeout(() => {
+      if (query && query.length > 2) {
+        router.push(`?query=${query}`);
+      }
+    }, 750);
     return () => {
-      form?.removeEventListener("submit", runSearch);
       clearTimeout(timeout);
     };
-  }, [runSearch]);
+  }, [query, router]);
+
   const onSubmit = useCallback(
     async (event?: SubmitEvent) => {
       event?.preventDefault();
