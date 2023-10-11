@@ -3,12 +3,14 @@ import NoteItem from "src/components/note-item";
 import PostItem from "src/components/post";
 import Reading from "src/components/reading";
 import list from "src/styles/list.module.css";
+import Search from "src/components/search";
 
 export default async function HomePage() {
   const { reading, read } = await getHomepage();
   const notesAndPosts = await getNotesAndPosts();
   return (
     <>
+      <Search floatResults />
       <Reading reading={reading} read={read} />
       <ul className={list.noStyle}>
         {notesAndPosts.map((item) => {
