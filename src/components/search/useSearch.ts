@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { search, SearchResponse } from "src/data/search";
+import { SearchResponse } from "src/data/search";
 
 export default function useSearch(
   initialQuery?: string,
@@ -24,30 +24,24 @@ export default function useSearch(
   const formRef = useRef<HTMLFormElement>(null);
   const prevQuery = useRef<string>(query);
 
-  const redirectToSearchPage = useCallback(
-    (event: KeyboardEvent) => {
-      console.log(event.key, pathname);
-      if (event.key === "Enter" && pathname !== "/search") {
-        router.push(`/search?query=${query}`);
-      }
-    },
-    [query, pathname, router]
-  );
 
-  const runSearch = useCallback(
-    async (event?: SubmitEvent) => {
-      event?.preventDefault();
-      if (query !== prevQuery.current) {
-        if (!query) {
-          setResponse({});
-        } else {
-          setResponse(await search(query));
+  const runSearch = useCallback(async () => {
+    if (query !== prevQuery.current) {
+      if (!query) {
+        setResponse({});
+      } else {
+        try {
+          const response: SearchResponse = await (
+            await fetch(`/api/search?query=${query}`)
+          ).json();
+          setResponse(response);
+        } catch (e) {
+          setResponse({ error: String(e) });
         }
       }
-      prevQuery.current = query;
-    },
-    [query]
-  );
+    }
+    prevQuery.current = query;
+  }, [query]);
 
   useEffect(() => {
     const form = formRef.current;
@@ -58,14 +52,24 @@ export default function useSearch(
       clearTimeout(timeout);
     };
   }, [runSearch]);
+  const onSubmit = useCallback(
+    async (event?: SubmitEvent) => {
+      event?.preventDefault();
+      runSearch();
+      router.push(`/search?query=${query}`);
+    },
+    [runSearch, router, query]
+  );
 
   useEffect(() => {
     const form = formRef.current;
-    form?.addEventListener("keydown", redirectToSearchPage);
+    form?.addEventListener("submit", onSubmit);
+    const timeout = setTimeout(runSearch, 250);
     return () => {
-      form?.addEventListener("keydown", redirectToSearchPage);
+      form?.removeEventListener("submit", onSubmit);
+      clearTimeout(timeout);
     };
-  }, [redirectToSearchPage]);
+  }, [runSearch, onSubmit]);
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
