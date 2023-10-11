@@ -53,16 +53,11 @@
 }
 
 .results {
-  display: none;
   margin: 1em 0;
   padding: .5em;
   border: 1px solid var(--color-gray-200);
   border-radius: .5em;
   background-color: var(--page-color);
-}
-
-.results.visible {
-  display: block;
 }
 
 .resultList {

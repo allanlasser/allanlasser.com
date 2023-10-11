@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import cx from "classnames";
 import { Search } from "lucide-react";
 import useSearch from "./useSearch";
@@ -22,7 +29,9 @@ function useSearchResults(
   float?: boolean
 ) {
   const resultsRef = useRef(null);
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(
+    Boolean(response.results || response.error)
+  );
 
   const isSufficientlyComplexQuery = useCallback(() => {
     const sufficientlyComplexQuery = query && query.length > 2;
@@ -55,7 +64,7 @@ export default function SearchInput(props: SearchInputProps) {
     floatResults,
   } = props;
 
-  const { formRef, query, response, onInputChange, prevQuery } = useSearch(
+  const { formRef, query, response, prevQuery, setQuery } = useSearch(
     initialQuery,
     initialSearchResponse
   );
@@ -90,6 +99,11 @@ export default function SearchInput(props: SearchInputProps) {
     }
   }, [prevQuery, results, error]);
 
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.currentTarget.value;
+    setQuery(value);
+  };
+
   return (
     <div className={cx(styles.container, className)}>
       <form
@@ -116,15 +130,14 @@ export default function SearchInput(props: SearchInputProps) {
           onClick={() => setShowResults(Boolean((query && results) || error))}
         />
       </form>
-      <div
-        ref={resultsRef}
-        className={cx(
-          { [styles.visible]: showResults, [styles.float]: floatResults },
-          styles.results
-        )}
-      >
-        {resultList}
-      </div>
+      {showResults && (
+        <div
+          ref={resultsRef}
+          className={cx({ [styles.float]: floatResults }, styles.results)}
+        >
+          {resultList}
+        </div>
+      )}
     </div>
   );
 }

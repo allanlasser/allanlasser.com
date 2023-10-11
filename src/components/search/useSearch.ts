@@ -1,22 +1,15 @@
 "use client";
 
-import { redirect, usePathname, useRouter } from "next/navigation";
-import {
-  ChangeEvent,
-  FormEvent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { search, SearchResponse } from "src/data/search";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { SearchResponse } from "src/data/search";
 
 export default function useSearch(
   initialQuery?: string,
   initialResponse?: SearchResponse
 ) {
-  const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [query, setQuery] = useState(initialQuery ?? "");
   const [response, setResponse] = useState(initialResponse);
@@ -24,65 +17,66 @@ export default function useSearch(
   const formRef = useRef<HTMLFormElement>(null);
   const prevQuery = useRef<string>(query);
 
-  const redirectToSearchPage = useCallback(
-    (event: KeyboardEvent) => {
-      console.log(event.key, pathname);
-      if (event.key === "Enter" && pathname !== "/search") {
-        router.push(`/search?query=${query}`);
-      }
-    },
-    [query, pathname, router]
-  );
+  const queryParam = searchParams?.get("query");
+  useEffect(() => {
+    if (queryParam && queryParam !== prevQuery.current) {
+      setQuery(queryParam);
+    }
+  }, [queryParam]);
 
-  const runSearch = useCallback(
-    async (event?: SubmitEvent) => {
-      event?.preventDefault();
-      if (query !== prevQuery.current) {
-        if (!query) {
-          setResponse({});
-        } else {
-          setResponse(await search(query));
+  const runSearch = useCallback(async () => {
+    if (query !== prevQuery.current) {
+      if (!query) {
+        setResponse({});
+      } else {
+        try {
+          const response: SearchResponse = await (
+            await fetch(`/api/search?query=${query}`)
+          ).json();
+          setResponse(response);
+        } catch (e) {
+          setResponse({ error: String(e) });
         }
       }
-      prevQuery.current = query;
+    }
+    prevQuery.current = query;
+  }, [query]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (query && query.length > 2) {
+        router.push(`?query=${query}`);
+      }
+    }, 750);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [query, router]);
+
+  const onSubmit = useCallback(
+    async (event?: SubmitEvent) => {
+      event?.preventDefault();
+      runSearch();
+      router.push(`/search?query=${query}`);
     },
-    [query]
+    [runSearch, router, query]
   );
 
   useEffect(() => {
     const form = formRef.current;
-    form?.addEventListener("submit", runSearch);
+    form?.addEventListener("submit", onSubmit);
     const timeout = setTimeout(runSearch, 250);
     return () => {
-      form?.removeEventListener("submit", runSearch);
+      form?.removeEventListener("submit", onSubmit);
       clearTimeout(timeout);
     };
-  }, [runSearch]);
-
-  useEffect(() => {
-    const form = formRef.current;
-    form?.addEventListener("keydown", redirectToSearchPage);
-    return () => {
-      form?.addEventListener("keydown", redirectToSearchPage);
-    };
-  }, [redirectToSearchPage]);
-
-  const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.currentTarget.value;
-    setQuery(value);
-  };
-
-  const resetForm = useCallback(() => {
-    formRef.current?.reset();
-    setQuery("");
-  }, [formRef]);
+  }, [runSearch, onSubmit]);
 
   return {
     formRef,
     query,
     response,
-    onInputChange,
-    resetForm,
     prevQuery: prevQuery.current,
+    setQuery,
   };
 }
