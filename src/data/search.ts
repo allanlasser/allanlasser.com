@@ -50,6 +50,7 @@ export interface SearchResponse {
 }
 
 export async function search(query: string): Promise<SearchResponse> {
+  if (query.length < 2) return {};
   try {
     const results = await Sanity.fetch<
       SearchResult[],
