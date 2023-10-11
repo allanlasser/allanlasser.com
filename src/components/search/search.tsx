@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import cx from "classnames";
 import { Search } from "lucide-react";
 import useSearch from "./useSearch";
@@ -57,7 +64,7 @@ export default function SearchInput(props: SearchInputProps) {
     floatResults,
   } = props;
 
-  const { formRef, query, response, onInputChange, prevQuery } = useSearch(
+  const { formRef, query, response, prevQuery, setQuery } = useSearch(
     initialQuery,
     initialSearchResponse
   );
@@ -91,6 +98,11 @@ export default function SearchInput(props: SearchInputProps) {
       );
     }
   }, [prevQuery, results, error]);
+
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.currentTarget.value;
+    setQuery(value);
+  };
 
   return (
     <div className={cx(styles.container, className)}>
