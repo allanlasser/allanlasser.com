@@ -1,15 +1,23 @@
-import { createClient, SanityClient } from "@sanity/client";
+import {
+  ClientConfig,
+  ClientPerspective,
+  createClient,
+  SanityClient,
+} from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || "production";
+const perspective = (process.env.SANITY_PERSPECTIVE ||
+  "published") as ClientPerspective;
 
-export const sanityConfig = {
+export const sanityConfig: ClientConfig = {
   projectId:
     process.env.SANITY_PROJECT || process.env.NEXT_PUBLIC_SANITY_PROJECT,
   dataset: process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2022-01-01",
-  useCdn: env !== "development", // `false` if you want to ensure fresh data
-  token: process.env.SANITY_EDITOR_TOKEN,
+  perspective,
+  useCdn: env !== "development" && perspective !== "previewDrafts", // `false` if you want to ensure fresh data
+  token: process.env.SANITY_TOKEN,
 };
 
 let client: SanityClient;
@@ -26,16 +34,17 @@ export function srcFor(source) {
 function decodeAssetId(id?: string) {
   const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/;
   const [, assetId, dimensions, format] = id ? pattern.exec(id) ?? [] : [];
-  const [height, width] = dimensions?.split("x").map(v => parseInt(v, 10)) ?? [];
+  const [height, width] =
+    dimensions?.split("x").map((v) => parseInt(v, 10)) ?? [];
   return {
     assetId,
     dimensions: { width, height },
     format,
-  }
+  };
 }
 
 export function dimensionsFor(source) {
-  const {dimensions} = decodeAssetId(source.asset._ref);
+  const { dimensions } = decodeAssetId(source.asset._ref);
   return dimensions;
 }
 
