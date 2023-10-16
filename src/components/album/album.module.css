@@ -1,8 +1,13 @@
+.container {
+  --album-aspect-ratio: calc(3/2);
+  --album-height: min(calc(100vh - (2 * var(--layout-padding-h))), calc(var(--layout-max-width) * (1/var(--album-aspect-ratio))), calc(100vw * (1/var(--album-aspect-ratio))));
+  --album-image-max-width: min(calc(100vw - (2 * var(--layout-padding-h))), calc(var(--layout-max-width) - (2 * var(--layout-padding-h))));
+  --album-scroll-padding: max(var(--layout-padding-h), calc((100vw - var(--album-image-max-width))/2));
+}
+
 .heightShim {
   width: 100%;
-  max-width: min(80vw, calc(48rem - 1rem));
-  height: auto;
-  aspect-ratio: 3/2;
+  height: var(--album-height);
 }
 
 .album.horizontal {
@@ -10,36 +15,34 @@
   flex-direction: row;
   position: absolute;
   left: 0;
-  padding: 0 max(.5rem, calc((100vw - (48em - 1rem))/2));
-  gap: 1em;
+  padding: 0 var(--album-scroll-padding);
+  gap: var(--layout-padding-h);
   width: 100vw;
+  height: var(--album-height);
   overflow-x: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  scroll-padding: max(.5rem, calc((100vw - (48em - 1rem))/2));
+  scroll-padding: var(--album-scroll-padding);
 }
 
-.album.horizontal .image {
-  min-width: min(80vw, calc(48rem - 1rem));
+.imageFrame {
+  margin: 0;
+  height: auto;
+  max-width: var(--album-image-max-width);
+}
+
+.album.horizontal .imageFrame {
   scroll-snap-align: start;
 }
 
 .image {
-  margin: 0;
-  position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3/2;
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: 100%; 
+  object-fit: cover;
+  border: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
   border-radius: .25em;
   overflow: hidden;
-}
-
-@media (min-width: 30rem) {
-  .album.horizontal {
-    padding: 0 max(1rem, calc((100vw - (48em - 2rem))/2));
-    scroll-padding: max(1rem, calc((100vw - (48em - 2rem))/2));
-  }
-  .album.horizontal .image {
-    min-width: min(80vw, calc(48rem - 2rem));
-  }
 }

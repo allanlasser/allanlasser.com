@@ -7,6 +7,7 @@ _type == 'reference' => @->{
     _id,
     title,
     images[] {
+      asset,
       "_id": asset->_id,
       "title": asset->title,
       "alt": asset->altText,
