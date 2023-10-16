@@ -83,6 +83,7 @@ export default function deskStructure(S: StructureBuilder) {
             "source",
             "album",
             "company",
+            "media.tag",
           ].includes(id)
         );
       }),
