@@ -23,7 +23,7 @@ function AlbumImage({
   const src = srcFor(image).width(width).height(height).url();
   return (
     <figure
-      className={styles.imageFrame}
+      className={styles.imageFigure}
       key={image._id}
       style={{ aspectRatio: width / height }}
     >
@@ -49,7 +49,6 @@ export default function Album({ images }: { images: AlbumImage[] }) {
           <AlbumImage key={image._id} image={image} priority={idx < 3} />
         ))}
       </div>
-      <div className={styles.heightShim} />
     </div>
   );
 }
