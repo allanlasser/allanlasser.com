@@ -25,7 +25,7 @@ function AlbumImage({
     <figure
       className={styles.imageFigure}
       key={image._id}
-      style={{ aspectRatio: width / height }}
+      style={{ aspectRatio: `${width} / ${height}` }}
     >
       <Image
         className={styles.image}
@@ -49,6 +49,7 @@ export default function Album({ images }: { images: AlbumImage[] }) {
           <AlbumImage key={image._id} image={image} priority={idx < 3} />
         ))}
       </div>
+      <div className={cx(styles.shim)} />
     </div>
   );
 }

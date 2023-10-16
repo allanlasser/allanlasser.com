@@ -5,22 +5,11 @@
   --album-scroll-padding: max(var(--layout-padding-h), calc((100vw - var(--album-image-max-width))/2));
 }
 
-.heightShim {
-  width: 100%;
-  height: var(--album-height);
-}
-
-.album {
-  display: flex;
-  flex-direction: column;
-  gap: var(--layout-padding-h);
-}
-
 .imageFigure {
-  margin: 0;
+  display: block;
+  margin: 0 0 var(--layout-padding-h);
   height: auto;
   max-width: var(--album-image-max-width);
-  min-width: 100%;
 }
 
 .image {
@@ -35,21 +24,27 @@
 }
 
 .horizontal.album {
-  flex-direction: row;
+  white-space: nowrap;
+  overflow-y: hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  /*
   position: absolute;
   width: 100vw;
   left: 0;
   scroll-padding: var(--album-scroll-padding);
   padding: 0 var(--album-scroll-padding);
   height: var(--album-height);
-  */
+}
+
+.horizontal.album + .shim {
+  height: var(--album-height);
 }
 
 .horizontal.album .imageFigure {
+  display: inline-block;
   scroll-snap-align: start;
+  height: 100%;
+  margin: 0 var(--layout-padding-h) 0 0;
 }
 
