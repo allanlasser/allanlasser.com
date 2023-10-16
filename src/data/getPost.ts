@@ -20,6 +20,7 @@ export default async function getPost(slug: string) {
           _id,
           title,
           images[] {
+            asset,
             "_id": asset->_id,
             "title": asset->title,
             "alt": asset->altText,

@@ -19,6 +19,7 @@ const GET_PUBLISHED_POSTS = groq`*[_type == "post" && defined(publishedAt)] | or
         _id,
         title,
         images[] {
+          asset,
           "_id": asset->_id,
           "title": asset->title,
           "alt": asset->altText,
@@ -51,6 +52,7 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
         _id,
         title,
         images[] {
+          asset,
           "_id": asset->_id,
           "title": asset->title,
           "alt": asset->altText,
