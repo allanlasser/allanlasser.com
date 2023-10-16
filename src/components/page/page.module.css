@@ -1,7 +1,7 @@
 .container {
-  max-width: 48em;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 1rem .5rem;
+  padding: 1rem var(--layout-padding-h);
 }
 
 .title {
@@ -38,12 +38,6 @@ main.container {
 
 .searchBar {
   width: 100%;
-}
-
-@media (min-width: 30rem) {
-  .container {
-    padding: 1rem;
-  }
 }
 
 @media print {

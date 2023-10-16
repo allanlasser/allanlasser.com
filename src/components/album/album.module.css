@@ -1,45 +1,50 @@
-.heightShim {
-  width: 100%;
-  max-width: min(80vw, calc(48rem - 1rem));
+.container {
+  --album-aspect-ratio: calc(3/2);
+  --album-height: min(calc(100vh - (2 * var(--layout-padding-h))), calc(var(--layout-max-width) * (1/var(--album-aspect-ratio))), calc(100vw * (1/var(--album-aspect-ratio))));
+  --album-image-max-width: min(calc(100vw - (2 * var(--layout-padding-h))), calc(var(--layout-max-width) - (2 * var(--layout-padding-h))));
+  --album-scroll-padding: max(var(--layout-padding-h), calc((100vw - var(--album-image-max-width))/2));
+}
+
+.imageFigure {
+  display: block;
+  margin: 0 0 var(--layout-padding-h);
   height: auto;
-  aspect-ratio: 3/2;
-}
-
-.album.horizontal {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  left: 0;
-  padding: 0 max(.5rem, calc((100vw - (48em - 1rem))/2));
-  gap: 1em;
-  width: 100vw;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scroll-padding: max(.5rem, calc((100vw - (48em - 1rem))/2));
-}
-
-.album.horizontal .image {
-  min-width: min(80vw, calc(48rem - 1rem));
-  scroll-snap-align: start;
+  max-width: var(--album-image-max-width);
 }
 
 .image {
-  margin: 0;
-  position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3/2;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%; 
+  border: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
   border-radius: .25em;
   overflow: hidden;
 }
 
-@media (min-width: 30rem) {
-  .album.horizontal {
-    padding: 0 max(1rem, calc((100vw - (48em - 2rem))/2));
-    scroll-padding: max(1rem, calc((100vw - (48em - 2rem))/2));
-  }
-  .album.horizontal .image {
-    min-width: min(80vw, calc(48rem - 2rem));
-  }
+.horizontal.album {
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  scroll-padding: var(--album-scroll-padding);
+  padding: 0 var(--album-scroll-padding);
+  height: var(--album-height);
 }
+
+.horizontal.album + .shim {
+  height: var(--album-height);
+}
+
+.horizontal.album .imageFigure {
+  display: inline-block;
+  scroll-snap-align: start;
+  height: 100%;
+  margin: 0 var(--layout-padding-h) 0 0;
+}
+

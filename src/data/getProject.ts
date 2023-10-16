@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import Sanity from "src/providers/sanity";
-import * as Schema from "src/providers/sanity/schema";
 import blockContent from "./fragments/blockContent";
+import type { Project } from "src/types/project";
 
 export default async function getProject(slug: string) {
   const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
@@ -23,5 +23,5 @@ export default async function getProject(slug: string) {
     role,
     body[] { ${blockContent} }
   }`;
-  return await Sanity.fetch<Schema.Project>(PROJECT_QUERY, { slug });
+  return await Sanity.fetch<Project>(PROJECT_QUERY, { slug });
 }

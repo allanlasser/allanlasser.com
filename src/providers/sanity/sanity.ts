@@ -34,7 +34,7 @@ export function srcFor(source) {
 function decodeAssetId(id?: string) {
   const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/;
   const [, assetId, dimensions, format] = id ? pattern.exec(id) ?? [] : [];
-  const [height, width] =
+  const [width, height] =
     dimensions?.split("x").map((v) => parseInt(v, 10)) ?? [];
   return {
     assetId,
