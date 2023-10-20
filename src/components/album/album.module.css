@@ -48,3 +48,6 @@
   margin: 0 var(--layout-padding-h) 0 0;
 }
 
+.horizontal.album .imageFigure:last-child {
+  margin: 0;
+}
