@@ -69,6 +69,19 @@ const Resume = (props) => {
       <section>
         <h2>Education</h2>
         <Education
+          institution='Oregon State University'
+          degree='Permaculture Design Certificate'
+          classYear={2023}
+        >
+          <p>
+            I completed the 10-week online Permaculture Design program from
+            Oregon State, where I earned a 100% grade and a certificate from the
+            Permaculture Institute of North America. In the program I learned
+            the elements and ethics of permaculture, site analysis techniques,
+            and approaches to regenerative landscape design.
+          </p>
+        </Education>
+        <Education
           institution='Boston University'
           degree='Bachelor of Arts, Computer Science and American Studies'
           classYear={2014}
