@@ -79,11 +79,11 @@
   font-size: 1.125em;
 }
 
-.bodyText p {
+.bodyText > p {
   margin: 1rem 0;
 }
 
-.bodyText p:last-child {
+.bodyText > p:last-child {
   margin-bottom: 0;
 }
 
