@@ -6,17 +6,12 @@ import Reading from "src/components/reading";
 import list from "src/styles/list.module.css";
 import Search from "src/components/search";
 
-export default async function HomePage({ searchParams }) {
-  const { query } = searchParams;
-  let searchResponse: SearchResponse = {};
-  if (query) {
-    searchResponse = await search(query);
-  }
+export default async function HomePage() {
   const { reading, read } = await getHomepage();
   const notesAndPosts = await getNotesAndPosts();
   return (
     <>
-      <Search query={query} searchResponse={searchResponse} floatResults />
+      <Search floatResults />
       <Reading reading={reading} read={read} />
       <ul className={list.noStyle}>
         {notesAndPosts.map((item) => {

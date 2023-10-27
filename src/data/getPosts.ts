@@ -35,7 +35,7 @@ export async function getPublishedPosts() {
   return Sanity.fetch<Post[]>(GET_PUBLISHED_POSTS);
 }
 
-const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !defined(*[_id == "drafts." + ^._id][0]))] | order(select(defined(publishedAt) => 1,  0) desc, publishedAt desc) {
+const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !defined(*[_id == "drafts." + ^._id][0]))] | order(select(defined(publishedAt) => 1,  0) desc, publishedAt desc)[0...5] {
   _id,
   _type,
   _createdAt,
