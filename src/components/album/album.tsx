@@ -4,6 +4,8 @@ import styles from "./album.module.css";
 import { srcFor, dimensionsFor } from "src/providers/sanity";
 import { SanityImageAsset, SanityReference } from "src/providers/sanity/schema";
 
+const IMAGE_MAX = 1800;
+
 interface AlbumImage {
   asset: SanityReference<SanityImageAsset>;
   _id: string;
@@ -20,7 +22,16 @@ function AlbumImage({
   priority?: boolean;
 }) {
   const { width, height } = dimensionsFor(image);
-  const src = srcFor(image).width(width).height(height).url();
+  const aspectRatio = width / height;
+  let maxWidth, maxHeight;
+  if (width > height) {
+    maxWidth = IMAGE_MAX;
+    maxHeight = Math.round(maxWidth / aspectRatio);
+  } else {
+    maxHeight = IMAGE_MAX;
+    maxWidth = Math.round(maxHeight * aspectRatio);
+  }
+  const src = srcFor(image).width(maxWidth).height(maxHeight).url();
   return (
     <figure
       className={styles.imageFigure}
@@ -32,8 +43,8 @@ function AlbumImage({
         src={src}
         title={image.title ?? ""}
         alt={image.alt ?? ""}
-        width={width}
-        height={height}
+        width={maxWidth}
+        height={maxHeight}
         sizes='(max-width: 768px) 90vw, (max-width: 1200px) 50vw'
         priority={priority}
       />
