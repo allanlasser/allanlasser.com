@@ -146,17 +146,11 @@ export default function Search(props: SearchProps) {
         >
           <SearchIcon />
         </label>
-        <Suspense
-          fallback={
-            <SearchInput onChange={onInputChange} onClick={onInputClick} />
-          }
-        >
-          <SearchInput
-            query={query}
-            onChange={onInputChange}
-            onClick={onInputClick}
-          />
-        </Suspense>
+        <SearchInput
+          query={query}
+          onChange={onInputChange}
+          onClick={onInputClick}
+        />
       </form>
       {showResults && (
         <div
