@@ -10,14 +10,15 @@ export default function useSearch(
 ) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const queryParam = searchParams?.get("query");
 
-  const [query, setQuery] = useState(initialQuery ?? "");
+  const [query, setQuery] = useState(initialQuery ?? queryParam ?? "");
   const [response, setResponse] = useState(initialResponse);
 
   const formRef = useRef<HTMLFormElement>(null);
   const prevQuery = useRef<string>(query);
+  const firstRun = useRef<boolean>(true);
 
-  const queryParam = searchParams?.get("query");
   useEffect(() => {
     if (queryParam && queryParam !== prevQuery.current) {
       setQuery(queryParam);
@@ -25,7 +26,7 @@ export default function useSearch(
   }, [queryParam]);
 
   const runSearch = useCallback(async () => {
-    if (query !== prevQuery.current) {
+    if (query !== prevQuery.current || firstRun.current) {
       if (!query) {
         setResponse({});
       } else {
@@ -40,6 +41,7 @@ export default function useSearch(
       }
     }
     prevQuery.current = query;
+    firstRun.current = false;
   }, [query]);
 
   useEffect(() => {
