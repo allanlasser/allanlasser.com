@@ -24,8 +24,8 @@
     "feed": "^4.2.2",
     "isomorphic-fetch": "^3.0.0",
     "lucide-react": "^0.274.0",
-    "next": "^13.5.4",
-    "next-sanity": "^5.5.5",
+    "next": "^14.0.0",
+    "next-sanity": "^5.5.10",
     "prop-types": "^15.8.1",
     "qs": "^6.11.1",
     "react": "^18.2.0",
@@ -62,7 +62,7 @@
     "@types/react-dom": "^18.2.11",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.39.0",
-    "eslint-config-next": "^13.5.4",
+    "eslint-config-next": "^14.0.0",
     "typescript": "^5.0.4"
   }
 }
