@@ -30,7 +30,6 @@ const sourceCode = Source_Code_Pro({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: "Allan Lasser",
-  viewport: { width: "device-width", initialScale: 1 },
   icons: [{ type: "image/x-icon", url: "/static/favicon.ico" }],
   alternates: {
     canonical: getSiteUrl(),
