@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import Sanity from "src/providers/sanity";
 import { Note } from "src/types/note";
 
-const GET_NON_BOOK_NOTES = groq`*[_type == "note" && source->type != "book"] | order(_createdAt desc) {
+const GET_NON_BOOK_NOTES = groq`*[_type == "note" && source->type != "book"] | order(_createdAt desc)[0...20] {
   _id,
   _type,
   _createdAt,
