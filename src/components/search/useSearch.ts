@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { SearchResponse } from "src/data/search";
 
 export default function useSearch(
@@ -9,21 +9,13 @@ export default function useSearch(
   initialResponse?: SearchResponse
 ) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const queryParam = searchParams?.get("query");
 
-  const [query, setQuery] = useState(initialQuery ?? queryParam ?? "");
+  const [query, setQuery] = useState(initialQuery ?? "");
   const [response, setResponse] = useState(initialResponse);
 
   const formRef = useRef<HTMLFormElement>(null);
   const prevQuery = useRef<string>(query);
   const firstRun = useRef<boolean>(true);
-
-  useEffect(() => {
-    if (queryParam && queryParam !== prevQuery.current) {
-      setQuery(queryParam);
-    }
-  }, [queryParam]);
 
   const runSearch = useCallback(async () => {
     if (query !== prevQuery.current || firstRun.current) {
