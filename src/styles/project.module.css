@@ -1,22 +1,10 @@
-.article {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 0 2rem;
-}
-
 .body {
   flex: 1 1 100%;
   line-height: 1.65;
-  margin: 1.5rem auto 2rem 0;
+  margin: 4rem auto 2rem 0;
 }
 
 .image {
-  margin: 1.5rem 0;
-}
-
-.title {
-  max-width: 32rem;
   margin: 1.5rem 0;
 }
 
@@ -45,8 +33,8 @@
   display: block;
   flex: 0 1 auto;
   font-size: .8em;
-  font-weight: 700;
   margin: 0;
+  font-weight: 700;
 }
 
 .year {
@@ -64,11 +52,12 @@
 }
 
 .title {
+  max-width: 32rem;
   flex: 1 1 100%;
   font-weight: 800;
   font-size: 3em;
   line-height: 1.2;
-  margin: 0 auto 1.5rem 0;
+  margin: 1.5rem 0 1.5rem 0;
   
 }
 
@@ -76,7 +65,7 @@
   flex: 1 1 auto;
   color: var(--color-gray-600);
   order: 3;
-  margin: 0;
+  margin-bottom: 1.5rem;
 }
 
 .fullWidth {

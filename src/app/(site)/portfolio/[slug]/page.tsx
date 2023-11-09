@@ -7,6 +7,7 @@ import styles from "src/styles/project.module.css";
 import BlockContent from "src/components/block-content";
 import getProject from "src/data/getProject";
 import getAllProjects from "src/data/getAllProjects";
+import Company from "src/components/company";
 
 export default async function PortfolioProject({ params }) {
   const project = await getProject(params.slug);
@@ -19,12 +20,10 @@ export default async function PortfolioProject({ params }) {
         </p>
       </header>
       <aside className={styles.aside}>
+        {project.company && <Company company={project.company} />}
         {project.year && <p className={styles.year}>{project.year}</p>}
         {project.link && (
-          <Link
-            href={project.link}
-            className={cx(styles.link, typography.data)}
-          >
+          <Link href={project.link} className={cx(styles.link)}>
             {project.link}
           </Link>
         )}

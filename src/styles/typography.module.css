@@ -9,7 +9,7 @@
 
 .data {
   font-display: swap;
-	font-family: var(--font-mono, var(--fallback-font-sans-serif));
+	font-family: var(--font-sans-serf, var(--fallback-font-sans-serif));
   font-optical-sizing: auto;
 }
 
