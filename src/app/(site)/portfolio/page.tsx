@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import BlockContent from "src/components/block-content";
-import ProjectList from "src/components/project-list";
+import Projects from "src/components/project-list";
 import getPortfolio from "src/data/getPortfolio";
 import typography from "src/styles/typography.module.css";
 
@@ -16,7 +16,7 @@ export default async function PortfolioRoot() {
       <div className={typography.bodyText}>
         <BlockContent value={personalStatement} />
       </div>
-      <ProjectList projects={projects} />
+      <Projects projects={projects} />
     </article>
   );
 }
