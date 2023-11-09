@@ -5,7 +5,18 @@ import type { BlockContent } from "src/providers/sanity/schema";
 
 const PORTFOLIO_QUERY = groq`*[_type == "portfolio" && _id == "portfolio"][0]{
   personalStatement,
-  projects[]->
+  projects[]->{
+    title,
+    slug,
+    description,
+    year,
+    link,
+    mainImage,
+    company -> {
+      name,
+      logo
+    },
+  }
 }`;
 
 export default async function getPortfolio() {

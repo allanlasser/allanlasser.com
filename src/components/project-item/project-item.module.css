@@ -23,7 +23,7 @@
 .projectImage {
   flex: 1 1 20%;
   position: relative;
-  margin: 0;
+  margin: 1rem 0 0;
   width: 100%;
   height: 0;
   padding-top: 100%;

@@ -12,13 +12,7 @@ export default async function getProject(slug: string) {
     mainImage,
     company -> {
       name,
-      "logo": logo.asset -> {
-        url,
-        title,
-        altText,
-        "palette": metadata.palette,
-        "dimensions": metadata.dimensions
-      }
+      logo
     },
     role,
     body[] { ${blockContent} }
