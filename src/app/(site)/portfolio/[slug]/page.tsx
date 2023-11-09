@@ -11,17 +11,15 @@ import getAllProjects from "src/data/getAllProjects";
 export default async function PortfolioProject({ params }) {
   const project = await getProject(params.slug);
   return (
-    <article>
+    <article className={styles.article}>
       <header className={styles.header}>
-        <div className={styles.fullWidth}>
-          <h1 className={cx(styles.title, typography.title)}>
-            {project.title}
-          </h1>
-          <p className={cx(styles.subtitle, typography.title)}>
-            {project.description}
-          </p>
-        </div>
-        {project.year && <span className={styles.year}>{project.year}</span>}
+        <h1 className={cx(styles.title, typography.title)}>{project.title}</h1>
+        <p className={cx(styles.subtitle, typography.title)}>
+          {project.description}
+        </p>
+      </header>
+      <aside className={styles.aside}>
+        {project.year && <p className={styles.year}>{project.year}</p>}
         {project.link && (
           <Link
             href={project.link}
@@ -30,7 +28,7 @@ export default async function PortfolioProject({ params }) {
             {project.link}
           </Link>
         )}
-      </header>
+      </aside>
       <main className={cx(typography.bodyText, styles.body)}>
         {project.body && <BlockContent value={project.body} />}
       </main>

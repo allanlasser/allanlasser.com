@@ -5,7 +5,7 @@
 
 .projectList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 2rem;
   list-style-type: none;
   margin: 0 0 2rem 0;
@@ -20,4 +20,18 @@
 .projectListItem a:hover {
   text-decoration: none;
   opacity: .5;
+}
+
+.yearHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-gray-500);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.yearHeader hr {
+  flex: 1 1 auto;
+  border: 1px solid var(--color-gray-300);
 }
