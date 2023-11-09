@@ -11,7 +11,7 @@
   display: block;
   max-width: 100%;
   height: auto;
-  border: 1px solid var(--color-gray-100);
+  /* border: 1px solid var(--color-gray-100); */
   box-sizing: border-box;
   border-radius: .25em;
   overflow: hidden;
