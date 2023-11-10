@@ -1706,7 +1706,7 @@
     json5 "^2.2.3"
     lodash "^4.17.21"
 
-"@sanity/webhook@3.0.1":
+"@sanity/webhook@3.0.1", "@sanity/webhook@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@sanity/webhook/-/webhook-3.0.1.tgz#ed70a185940ec5775770cfb43503ecaee328e49e"
   integrity sha512-2eTDg/+TR8lSX2OH6wH7M8UUwZUsD/i8Raw9mFH9myt2mkPY3ns77cU6K1QL2ZhwIIDJT5tttTELURF7RjlzVg==
