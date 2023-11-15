@@ -17,6 +17,7 @@
     "@sanity/types": "^3.19.2",
     "@sanity/ui": "^1.8.2",
     "@sanity/vision": "^3.19.2",
+    "@sanity/webhook": "^3.0.1",
     "@vercel/analytics": "^1.1.1",
     "classnames": "^2.3.2",
     "codemirror": "^6.0.1",
