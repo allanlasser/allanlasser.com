@@ -59,11 +59,8 @@ export async function POST(request: NextRequest) {
       { status: 400, statusText: message }
     );
   }
-  const isValid = isValidSignature(
-    JSON.stringify(request.body),
-    signature,
-    SANITY_WEBHOOK_SECRET
-  );
+  const body = await readBody(request.body);
+  const isValid = isValidSignature(body, signature, SANITY_WEBHOOK_SECRET);
   if (!isValid) {
     const message = "Sanity webhook secret is invalid.";
     return NextResponse.json<RevalidateResponse>(
@@ -72,12 +69,27 @@ export async function POST(request: NextRequest) {
     );
   }
   /* The request is valid. Attempt revalidation. */
-  const body: WebhookBody = await request.json();
-  const paths = pathsToRevalidate(body);
+  const jsonBody: WebhookBody = JSON.parse(body);
+  const paths = pathsToRevalidate(jsonBody);
   paths.forEach((path) => revalidatePath(path));
   const message = `Revalidated the following paths: ${JSON.stringify(paths)}`;
   return NextResponse.json<RevalidateResponse>(
     { revalidated: true, now: Date.now(), message },
     { status: 200 }
   );
+}
+
+// Next.js will by default parse the body, which can lead to invalid signatures
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+async function readBody(readable) {
+  const chunks: any[] = [];
+  for await (const chunk of readable) {
+    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks).toString("utf8");
 }
