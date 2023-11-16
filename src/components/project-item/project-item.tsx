@@ -5,7 +5,6 @@ import type { Project } from "src/types/project";
 import styles from "./project-item.module.css";
 
 export default function ProjectItem({ project }: { project: Project }) {
-  console.log(project.company);
   return (
     <div className={styles.projectItem}>
       {project.company && <Company company={project.company} />}
