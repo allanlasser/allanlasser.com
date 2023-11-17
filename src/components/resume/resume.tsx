@@ -37,7 +37,7 @@ const Education = (props) => {
   return (
     <div className={cx(styles.entry, styles.education)}>
       <aside className={cx(styles.when, typography.data)}>
-        <p>Class of {classYear}</p>
+        <p>{classYear}</p>
       </aside>
       <div className={cx(styles.entryBody)}>
         <header className={cx(typography.data)}>
@@ -71,7 +71,7 @@ const Resume = (props) => {
         <Education
           institution='Oregon State University'
           degree='Permaculture Design Certificate'
-          classYear={2023}
+          classYear={"Winter 2023"}
         >
           <p>
             I completed the 10-week online Permaculture Design program from
@@ -84,7 +84,7 @@ const Resume = (props) => {
         <Education
           institution='Boston University'
           degree='Bachelor of Arts, Computer Science and American Studies'
-          classYear={2014}
+          classYear={"Class of 2014"}
         >
           <p>
             Published in{" "}
@@ -98,7 +98,7 @@ const Resume = (props) => {
         </Education>
         <Education
           institution='Hunterdon Central Regional High School'
-          classYear={2010}
+          classYear={"Class of 2010"}
         >
           <p>Recieved the English Department distinguished student award</p>
           <p>
@@ -106,13 +106,24 @@ const Resume = (props) => {
           </p>
         </Education>
       </section>
-      <section>
-        <h2>Skills</h2>
+      <section className={cx(styles.flex, styles.alignBaseline)}>
+        <h2>Technical Skills</h2>
         <ul className={cx(styles.skills, typography.data)}>
           {skills.map((skill) => (
             <li key={skill}>{skill}</li>
           ))}
         </ul>
+      </section>
+      <section className={cx(styles.flex, styles.alignBaseline)}>
+        <h2>References</h2>
+        <p>
+          <a
+            className={styles.emailLink}
+            href='mailto:Allan%20Lasser%3Callan@lasser.design%3E?subject=Reference%20Request'
+          >
+            Available upon request
+          </a>
+        </p>
       </section>
     </article>
   );
