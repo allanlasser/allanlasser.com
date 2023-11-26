@@ -48,7 +48,7 @@ export async function GET(
   const searchParams = req.nextUrl.searchParams;
   const id = searchParams.getAll("id") ?? "";
   let data: Source | Source[];
-  console.log(id);
+
   if (id && Boolean(id.length)) {
     const idArray = ([] as string[]).concat(id);
     if (idArray.length === 1) {
@@ -58,9 +58,7 @@ export async function GET(
       data = await Promise.all(idArray.map(async (id) => await getSource(id)));
     }
   } else {
-    console.log("get all sources");
     data = await getAllSources();
-    console.log(data);
   }
   return NextResponse.json(data, { status: 200 });
 }
