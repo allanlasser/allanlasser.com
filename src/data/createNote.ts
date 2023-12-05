@@ -31,7 +31,7 @@ export default async function createNote(args: CreateNoteArgs) {
       ? {
           _ref: source._id,
         }
-      : null,
+      : undefined,
   });
   return { note, source };
 }

@@ -10,10 +10,12 @@ import {
   FileText,
   FileVideo,
   Link as LinkIcon,
+  LucideIcon,
   Podcast,
 } from "lucide-react";
 import Link from "next/link";
 import smartquotes from "smartquotes";
+import getNoteTitle from "src/data/getNoteTitle";
 
 const SourceTypeIcons = {
   book: Book,
@@ -28,40 +30,46 @@ const SourceTypeLabel = {
   video: "Video",
 };
 
-function NoteSource({
+function NoteTitle({
+  title,
   source,
   page,
 }: {
-  source: Source;
+  title: string;
+  source: Source | null;
   page?: string | null;
 }) {
-  const Icon = SourceTypeIcons[source.type] ?? File;
-  const smartTitle = smartquotes(source.title);
-  const url = source.url ? new URL(source.url) : null;
-  const title = source.url ? (
-    <a href={source.url} rel='external' className={styles.sourceTitle}>
-      <span
-        className={styles.sourceType}
-        title={SourceTypeLabel[source.type] ?? "Link"}
-      >
-        <Icon size={24} />
-      </span>
+  let Icon: LucideIcon | null = null;
+  let type: string = "article";
+  let smartTitle = smartquotes(title);
+  let url: URL | null = null;
+  if (source) {
+    type = source.type;
+    Icon = SourceTypeIcons[type];
+    url = source.url ? new URL(source.url) : null;
+  }
+  const titleElement = url ? (
+    <a href={url.href} rel='external' className={styles.sourceTitle}>
+      {Icon && (
+        <span className={styles.sourceType} title={SourceTypeLabel[type]}>
+          <Icon size={24} />
+        </span>
+      )}
       <span>{smartTitle}</span>
     </a>
   ) : (
     <span className={styles.sourceTitle}>
-      <span
-        className={styles.sourceType}
-        title={SourceTypeLabel[source.type] ?? "Link"}
-      >
-        <Icon size={24} />
-      </span>
+      {Icon && (
+        <span className={styles.sourceType} title={SourceTypeLabel[type]}>
+          <Icon size={24} />
+        </span>
+      )}
       <span>{smartTitle}</span>
     </span>
   );
   return (
     <figure className={styles.source}>
-      <h2>{title}</h2>
+      <h2>{titleElement}</h2>
       {url && (
         <a
           className={cx(
@@ -86,12 +94,14 @@ export default function NoteItem({
   note: Note;
   omitSource?: boolean;
 }) {
+  const title = getNoteTitle(note);
   const date = new Date(note._createdAt);
+  const showHeader = !omitSource && (note.source || note.title !== "Untitled");
   return (
     <section id={note._id} className={styles.note}>
-      {!omitSource && note.source && (
+      {showHeader && (
         <header className={cx(styles.header)}>
-          <NoteSource source={note.source} page={note.page} />
+          <NoteTitle title={title} source={note.source} page={note.page} />
         </header>
       )}
       <main className={cx(styles.main, typography.bodyText)}>
