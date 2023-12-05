@@ -7,7 +7,7 @@ export interface CreateNoteArgs {
   title?: string;
   body: string;
   page?: number;
-  source: {
+  source?: {
     type: SourceType;
     title: string;
     url?: string;
@@ -17,11 +17,11 @@ export interface CreateNoteArgs {
 
 export interface CreateNoteResponse {
   note: Note;
-  source: Source;
+  source: Source | null;
 }
 
 export default async function createNote(args: CreateNoteArgs) {
-  const source = await createSource(args.source);
+  const source = args.source ? await createSource(args.source) : null;
   const note = await client.create({
     _type: "note",
     title: args.title,
@@ -31,7 +31,7 @@ export default async function createNote(args: CreateNoteArgs) {
       ? {
           _ref: source._id,
         }
-      : undefined,
+      : null,
   });
   return { note, source };
 }
