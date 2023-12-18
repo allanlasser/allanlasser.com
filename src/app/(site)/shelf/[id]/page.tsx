@@ -1,6 +1,4 @@
-import getAllBooks from "src/data/getAllBooks";
-import getSource from "src/data/getSource";
-import getSourceNotes from "src/data/getSourceNotes";
+import { getSourceNotes, getSource, getAllBooks } from "src/data/source";
 import NoteList from "src/components/note-list";
 import Book from "src/components/source/book";
 import orderNotesByPage from "src/utils/orderNotesByPage";
@@ -36,7 +34,7 @@ export default async function SourcePage({ params }) {
   return (
     <div>
       {/* @ts-expect-error Server component import bug */}
-      <Book {...source} size="large" />
+      <Book {...source} size='large' />
       {notes.length > 0 && (
         <>
           <h1 style={{ fontSize: "1.4rem" }}>Notes &amp; Highlights</h1>

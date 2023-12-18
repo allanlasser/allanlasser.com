@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import Sanity from "src/providers/sanity";
-import getNonBookNotes from "src/data/getNonBookNotes";
+import { getNonBookNotes } from "src/data/note";
 import { getAllPosts, getPublishedPosts } from "src/data/getPosts";
 import { Source } from "src/types/source";
 import { Note } from "src/types/note";

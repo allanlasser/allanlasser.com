@@ -1,12 +1,11 @@
 import { Feed } from "feed";
 import smartquotes from "smartquotes";
-import getAllNotes from "src/data/getAllNotes";
-import getNoteTitle from "src/data/getNoteTitle";
+import { getNoteTitle, getNonBookNotes } from "src/data/note";
 import markdownToHtml from "./markdownToHtml";
 import getSiteUrl from "./getSiteUrl";
 
 export default async function generateFeed() {
-  const notes = await getAllNotes();
+  const notes = await getNonBookNotes();
   const siteURL = getSiteUrl();
   const date = new Date();
   const author = {

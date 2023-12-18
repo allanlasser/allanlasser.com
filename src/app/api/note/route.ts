@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import createNote, { CreateNoteArgs } from "src/data/createNote";
-import getAllNotes from "src/data/getAllNotes";
-import getNote from "src/data/getNote";
+import {
+  getAllNotes,
+  getNote,
+  createNote,
+  CreateNoteArgs,
+} from "src/data/note";
 import { Note } from "src/types/note";
 
 interface POSTBody extends CreateNoteArgs {
@@ -29,17 +32,28 @@ export async function POST(
       statusText: "Not Authorized",
     });
   }
-  // create new entry in Sanity
-  const { note } = await createNote(body);
-  // return the link the page in the studio
-  return NextResponse.json(
-    {
-      message: "Note successfully created",
-      liveUrl: `https://allanlasser.com/notes/${note._id}`,
-      studioUrl: `https://allanlasser.com/studio/desk/notes;${note._id}`,
-    },
-    { status: 200 }
-  );
+  try {
+    // create new entry in Sanity
+    const note = await createNote(body);
+    // return the link the page in the studio
+    return NextResponse.json(
+      {
+        message: "Note successfully created",
+        id: note._id,
+        liveUrl: `https://allanlasser.com/notes/${note._id}`,
+        studioUrl: `https://allanlasser.com/studio/desk/notes;${note._id}`,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        message: "An error occurred",
+        error: String(error),
+      },
+      { status: 500 }
+    );
+  }
 }
 
 export async function GET(
