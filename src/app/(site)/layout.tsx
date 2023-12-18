@@ -2,6 +2,7 @@ import cx from "classnames";
 import { Metadata } from "next";
 import { Inter, Source_Serif_4, Source_Code_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Page from "src/components/page";
 import "src/styles/app.css";
 import "src/styles/typography.module.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
     >
       <body>
         <Page>{children}</Page>
+        <SpeedInsights />
         <Analytics />
       </body>
     </html>
