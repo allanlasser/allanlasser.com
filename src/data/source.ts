@@ -23,6 +23,20 @@ export async function createSource(
   return source;
 }
 
+export async function findExistingSource(
+  args: CreateSourceArgs
+): Promise<Source | null> {
+  const searchValue = args.url ?? args.isbn ?? args.title;
+  const FIND_SOURCE = groq`*[_type == "source" && ((type == "book" && isbn == $searchValue) || (type == "article" && url == $searchValue) || (title == $searchValue))][0] {
+    _id,
+    url,
+    isbn,
+    title
+  }
+  `;
+  return Sanity.fetch<Source>(FIND_SOURCE, { searchValue });
+}
+
 export async function getSource(id: string): Promise<Source> {
   const GET_SOURCE = groq`*[_type == "source" && _id == "${id}"][0] {
     _id,

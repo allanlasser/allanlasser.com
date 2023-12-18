@@ -4,11 +4,12 @@ import {
   getAllSources,
   createSource,
   CreateSourceArgs,
+  findExistingSource,
 } from "src/data/source";
 import { Source } from "src/types/source";
 
 interface POSTBody extends CreateSourceArgs {
-  secret: string;
+  secret?: string;
 }
 
 type ResponseData =
@@ -32,15 +33,27 @@ export async function POST(
       statusText: "Not Authorized",
     });
   }
+  delete body.secret;
+  // check if a note already exists for the given URL or ISBN
+  // if it does, we'll just return the existing source
+  const existingSource = await findExistingSource(body);
+  if (existingSource) {
+    return NextResponse.json({
+      message: "Existing source found",
+      id: existingSource._id,
+      liveUrl: `https://allanlasser.com/shelf/${existingSource._id}`,
+      studioUrl: `https://allanlasser.com/studio/desk/shelf;${existingSource._id}`,
+    });
+  }
   // create new entry in Sanity
-  const source = await createSource(body);
+  const newSource = await createSource(body);
   // return the link the page in the studio
   return NextResponse.json(
     {
       message: "Source successfully created",
-      id: source._id,
-      liveUrl: `https://allanlasser.com/shelf/${source._id}`,
-      studioUrl: `https://allanlasser.com/studio/desk/shelf;${source._id}`,
+      id: newSource._id,
+      liveUrl: `https://allanlasser.com/shelf/${newSource._id}`,
+      studioUrl: `https://allanlasser.com/studio/desk/shelf;${newSource._id}`,
     },
     { status: 200 }
   );
