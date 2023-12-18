@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import createSource, { CreateSourceArgs } from "src/data/createSource";
-import getAllSources from "src/data/getAllSources";
-import getSource from "src/data/getSource";
+import {
+  getSource,
+  getAllSources,
+  createSource,
+  CreateSourceArgs,
+} from "src/data/source";
 import { Source } from "src/types/source";
 
 interface POSTBody extends CreateSourceArgs {
@@ -34,7 +37,8 @@ export async function POST(
   // return the link the page in the studio
   return NextResponse.json(
     {
-      message: "Note successfully created",
+      message: "Source successfully created",
+      id: source._id,
       liveUrl: `https://allanlasser.com/shelf/${source._id}`,
       studioUrl: `https://allanlasser.com/studio/desk/shelf;${source._id}`,
     },
