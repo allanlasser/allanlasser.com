@@ -1,3 +1,4 @@
+import { toPlainText } from "@portabletext/react";
 import { groq } from "next-sanity";
 import Sanity from "src/providers/sanity";
 import { BlockContent } from "src/providers/sanity/schema";
@@ -63,4 +64,28 @@ export async function search(query: string): Promise<SearchResponse> {
   } catch (e) {
     return { error: String(e), results: undefined };
   }
+}
+
+const FIRST_LINE_MAX_LENGTH = 80;
+
+export function getSearchResultFirstLine(result: SearchResult): string {
+  console.log(result);
+  let firstLine: string | null;
+  firstLine = result.title ?? result.source?.title ?? null;
+  if (!firstLine) {
+    let body: string | null;
+    if (typeof result.body === "string") {
+      body = result.body;
+    } else {
+      body = toPlainText(result.body ?? []);
+    }
+    if (body.length > FIRST_LINE_MAX_LENGTH) {
+      firstLine = body.slice(0, FIRST_LINE_MAX_LENGTH) + "…";
+    } else if (body.length > 0) {
+      firstLine = body;
+    } else {
+      firstLine = result._type;
+    }
+  }
+  return firstLine;
 }
