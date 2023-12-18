@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import smartquotes from "smartquotes";
-import getNoteTitle from "src/data/getNoteTitle";
+import { getNoteTitle } from "src/data/note";
 
 const SourceTypeIcons = {
   book: Book,
@@ -35,7 +35,7 @@ function NoteTitle({
   source,
   page,
 }: {
-  title: string;
+  title: string | null;
   source: Source | null;
   page?: string | null;
 }) {

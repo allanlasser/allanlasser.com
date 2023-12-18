@@ -1,7 +1,5 @@
-import getNote from "src/data/getNote";
 import NoteItem from "src/components/note-item/note-item";
-import getAllNotes from "src/data/getAllNotes";
-import getNoteTitle from "src/data/getNoteTitle";
+import { getNote, getAllNotes, getNoteTitle } from "src/data/note";
 import { Metadata } from "next";
 import { srcFor } from "src/providers/sanity";
 
