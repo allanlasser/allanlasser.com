@@ -11,7 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import getPermalink from "src/utils/getPermalink";
-import { type SearchResult } from "src/data/search";
+import { getSearchResultFirstLine, type SearchResult } from "src/data/search";
 import styles from "./search.module.css";
 
 function getTypeIcon(type: string): LucideIcon {
@@ -44,7 +44,7 @@ export default function SearchResultItem({
           ""
         )
       : null;
-  const firstLine = result.title ?? result.source?.title ?? "Untitled";
+  const firstLine = getSearchResultFirstLine(result);
   const secondLine = page ?? result.author ?? url;
   const Icon = getTypeIcon(result.type ?? result._type);
   return (
