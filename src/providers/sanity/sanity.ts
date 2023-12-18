@@ -1,22 +1,18 @@
-import {
-  ClientConfig,
-  ClientPerspective,
-  createClient,
-  SanityClient,
-} from "@sanity/client";
+import { ClientPerspective, createClient, SanityClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
 const env = process.env.NODE_ENV || "production";
 const perspective = (process.env.SANITY_PERSPECTIVE ||
   "published") as ClientPerspective;
 
-export const sanityConfig: ClientConfig = {
+export const sanityConfig = {
   projectId:
     process.env.SANITY_PROJECT || process.env.NEXT_PUBLIC_SANITY_PROJECT,
   dataset: process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2022-01-01",
   perspective,
-  useCdn: env !== "development" && perspective !== "previewDrafts", // `false` if you want to ensure fresh data
+  useCdn: false,
+  // studioUrl: "/studio",
   token: process.env.SANITY_TOKEN,
 };
 
