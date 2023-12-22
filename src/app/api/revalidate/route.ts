@@ -25,7 +25,12 @@ function pathsToRevalidate(body: WebhookBody): string[] {
   switch (_type) {
     case "post":
     case "note":
-      relatedRoutes = ["/"];
+      relatedRoutes = [
+        "/",
+        "/feeds/rss.xml",
+        "/feeds/atom.xml",
+        "feeds/feed.json",
+      ];
       break;
     case "project":
       relatedRoutes = ["/portfolio"];
