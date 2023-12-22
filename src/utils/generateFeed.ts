@@ -37,8 +37,9 @@ export default async function generateFeed() {
           const id = `${siteURL}/notes/${note._id}`;
           const url = note.source?.url ? note.source.url : id;
           const content = String(await markdownToHtml(smartquotes(note.body)));
+          const title = getNoteTitle(note);
           feed.addItem({
-            title: smartquotes(getNoteTitle(note)),
+            title: title ? smartquotes(title) : "",
             id,
             link: url,
             content,
