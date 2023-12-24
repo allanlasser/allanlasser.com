@@ -23,6 +23,7 @@ export async function createNote(args: CreateNoteArgs): Promise<Partial<Note>> {
     page: args.page ?? null,
     source: args.sourceId
       ? {
+          _type: "reference",
           _ref: args.sourceId,
         }
       : undefined,
