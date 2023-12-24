@@ -28,6 +28,7 @@
     "lucide-react": "^0.292.0",
     "next": "^14.0.2",
     "next-sanity": "^7.0.4",
+    "open-graph-scraper": "^6.3.2",
     "prop-types": "^15.8.1",
     "qs": "^6.11.1",
     "react": "^18.2.0",
@@ -47,7 +48,8 @@
     "sanity-plugin-media": "^2.2.2",
     "smartquotes": "^2.3.2",
     "styled-components": "^5.3.10",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "zod": "^3.22.4"
   },
   "scripts": {
     "dev": "next dev",

@@ -3,6 +3,7 @@ import { SanityDocument } from "@sanity/client";
 import Sanity from "src/providers/sanity";
 import { Note } from "src/types/note";
 import { Source, SourceType } from "src/types/source";
+import { getOpenGraphData } from "src/providers/openGraph";
 
 export interface CreateSourceArgs {
   type: SourceType;
@@ -99,4 +100,16 @@ export async function getAllBooks() {
   }
   `;
   return Sanity.fetch<Source[]>(GET_ALL_BOOKS);
+}
+
+export async function createArticleFromUrl(url: string) {
+  const ogData = await getOpenGraphData(url);
+  const source = await Sanity.create({
+    _type: "source",
+    type: "article",
+    title: ogData.ogTitle,
+    author: ogData.articleAuthor ?? ogData.ogArticleAuthor ?? ogData.author,
+    url,
+  });
+  return source;
 }
