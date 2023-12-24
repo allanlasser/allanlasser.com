@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import cx from 'classnames';
-import getBookData from "src/data/getBookData";
+import cx from "classnames";
+import { getBookData } from "src/providers/openLibrary";
 import { srcFor } from "src/providers/sanity";
 import styles from "./book.module.css";
 
@@ -18,13 +18,23 @@ export interface BookProps {
 }
 
 export default async function Book(props: BookProps) {
-  const { _id, title, subtitle, author, imageUrl, isbn, size = 'small', link } = props;
+  const {
+    _id,
+    title,
+    subtitle,
+    author,
+    imageUrl,
+    isbn,
+    size = "small",
+    link,
+  } = props;
   const imageSize = {
     large: [250, 375],
     medium: [100, 150],
-    small: [50, 75]
+    small: [50, 75],
   };
-  const bookData = isbn && size === 'large' ? await getBookData(isbn) : undefined;
+  const bookData =
+    isbn && size === "large" ? await getBookData(isbn) : undefined;
   const bookComponent = (
     <div className={cx(styles.book, styles[size])}>
       {imageUrl && (
@@ -40,7 +50,7 @@ export default async function Book(props: BookProps) {
                   .url() ?? ""
               }
               fill
-              style={{objectFit: 'contain'}}
+              style={{ objectFit: "contain" }}
             />
           )}
         </figure>
@@ -58,16 +68,16 @@ export default async function Book(props: BookProps) {
               <dd>{bookData.publishers.join(", ")}</dd>
             </>
           )}
-          {bookData?.publishedOn && (
+          {bookData?.publish_date && (
             <>
               <dt>Published</dt>
-              <dd>{bookData.publishedOn}</dd>
+              <dd>{bookData.publish_date}</dd>
             </>
           )}
-          {bookData?.pageCount && (
+          {bookData?.number_of_pages && (
             <>
               <dt>Pages</dt>
-              <dd>{bookData.pageCount}</dd>
+              <dd>{bookData.number_of_pages}</dd>
             </>
           )}
           {isbn && (
