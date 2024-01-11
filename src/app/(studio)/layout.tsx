@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import "src/styles/sanity.css";
 
 export const metadata: Metadata = {
   title: "Homebase",
-  viewport: "width=device-width,initial-scale=1,viewport-fit=cover",
   robots: "noindex",
   referrer: "same-origin",
   other: {

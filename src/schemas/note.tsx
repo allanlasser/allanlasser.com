@@ -33,9 +33,10 @@ const Note = {
       title: "title",
       sourceTitle: "source.title",
       page: "page",
+      body: "body",
     },
     prepare(selection) {
-      const { title, sourceTitle, page } = selection;
+      const { title, sourceTitle, page, body } = selection;
       let subtitle = page ? `pg. ${page}` : "";
       if (title && sourceTitle) {
         subtitle = `${sourceTitle}${page ? `, ${subtitle}` : ""}`;
@@ -44,6 +45,7 @@ const Note = {
         title: title ?? sourceTitle ?? "Untitled",
         subtitle,
         media: <Bookmark strokeWidth={1.5} />,
+        body,
       };
     },
   },

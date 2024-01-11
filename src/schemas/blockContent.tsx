@@ -1,5 +1,6 @@
-import { ExternalLink, ImageIcon } from "lucide-react";
+import { ImageIcon, BookmarkIcon } from "lucide-react";
 import BlockEditor from "src/components/block-editor";
+import { NotePreview } from "src/components/notes/NotePreview";
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -123,11 +124,14 @@ const blockContent = {
       ],
     },
     {
-      name: "reference",
-      title: "Reference",
+      name: "note",
+      title: "Note",
       type: "reference",
-      icon: <ExternalLink size={20} strokeWidth={1.5} />,
-      to: [{ type: "album" }, { type: "note" }],
+      to: [{ type: "note" }],
+      icon: <BookmarkIcon size={20} strokeWidth={1.5} />,
+      components: {
+        preview: NotePreview,
+      },
     },
     {
       type: "code",
