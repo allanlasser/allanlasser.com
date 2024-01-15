@@ -7,7 +7,7 @@ import cx from "classnames";
 
 export default function Post({ post, link }: { post: Post; link?: boolean }) {
   const publishedAt = post.publishedAt ? new Date(post.publishedAt) : undefined;
-  const layout = post.layout;
+  const title = post.title ?? post.source?.title;
   const header = (
     <header className={styles.header}>
       <hr className={styles.divider} />
@@ -27,14 +27,11 @@ export default function Post({ post, link }: { post: Post; link?: boolean }) {
       ) : (
         <span className={styles.publishedAt}>Draft</span>
       )}
-      <h1 className={styles.title}>{post.title}</h1>
+      {title && <h1 className={styles.title}>{title}</h1>}
     </header>
   );
   return (
-    <article
-      className={cx(styles.container, styles[layout])}
-      id={post.slug.current}
-    >
+    <article className={cx(styles.container)} id={post.slug.current}>
       {link ? (
         <Link
           href={`/posts/${post.slug.current}`}
