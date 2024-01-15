@@ -38,6 +38,13 @@
   width: 100%;
 }
 
+.footer {
+  margin-top: 4rem;
+  padding: 8rem 0;
+  background-color: var(--text-color);
+  color: var(--bg-color)
+}
+
 @media print {
   .container {
     margin: 1.5rem auto;

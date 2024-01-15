@@ -59,6 +59,7 @@ export default function RootLayout({
           <Navigation />
         </header>
         <div className={layout.container}>{children}</div>
+        <footer className={layout.footer}></footer>
         <SpeedInsights />
         <Analytics />
         {isDev && <div className={layout.envBanner}>Dev Mode</div>}
