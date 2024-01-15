@@ -2,6 +2,17 @@
   max-width: var(--layout-max-width);
   margin: 0 auto;
   padding: 1rem var(--layout-padding-h);
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.detail {
+  max-width: var(--layout-body-width);
+  margin: 4rem auto 0;
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 .title {
@@ -9,19 +20,6 @@
   margin: 6rem 0 3rem;
   font-size: 1.5em;
   line-height: 1.3;
-}
-
-header.container {
-  background: var(--page-color);
-  width: 100vw;
-  font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
-  padding: 2rem 0;
-  margin-bottom: 0;
-  z-index: 10;
-}
-
-main.container {
-  padding-bottom: 4rem;
 }
 
 .envBanner {
@@ -43,12 +41,6 @@ main.container {
 @media print {
   .container {
     margin: 1.5rem auto;
-  }
-  header.container {
-    padding: 0;
-  }
-  main.container {
-    padding: 0;
   }
   .envBanner {
     display: none;

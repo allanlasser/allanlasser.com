@@ -13,7 +13,7 @@
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  font-size: 1.125em;
+  font-size: 1em;
 }
 
 .sourceType {
@@ -22,6 +22,7 @@
 
 .sourceType svg {
   vertical-align: text-bottom;
+
 }
 
 .source h2 {

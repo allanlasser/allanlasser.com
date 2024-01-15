@@ -1,11 +1,17 @@
+import cx from "classnames";
 import NoteItem from "src/components/note-item/note-item";
 import { getNote, getAllNotes, getNoteTitle } from "src/data/note";
 import { Metadata } from "next";
 import { srcFor } from "src/providers/sanity";
+import layout from "src/styles/layout.module.css";
 
 export default async function NotePage({ params }) {
   const note = await getNote(params.id);
-  return <NoteItem note={note} />;
+  return (
+    <div className={cx(layout.container, layout.detail)}>
+      <NoteItem note={note} />
+    </div>
+  );
 }
 
 export async function generateStaticParams() {

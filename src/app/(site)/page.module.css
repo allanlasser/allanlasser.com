@@ -1,0 +1,26 @@
+.homepage {
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse wrap;
+  align-items: flex-start;
+  gap: .5rem 4rem;
+}
+
+.homepage .aside {
+  flex: 1 1 10em;
+  width: 100%;
+  position: sticky;
+  top: 1rem;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+.homepage .main {
+  flex: 3 1 20em;
+  width: 100%;
+}
+
+.homepage .main ul {
+  margin: 0;
+}
