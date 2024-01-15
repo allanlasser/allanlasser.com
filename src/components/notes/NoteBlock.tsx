@@ -42,7 +42,9 @@ export default function NoteBlock({ note }: { note: Note }) {
           {intersperse<ReactNode>(
             Object.values(citation).filter((component) => Boolean(component)),
             ", "
-          )}
+          ).map((node, i) => (
+            <span key={i}>{node}</span>
+          ))}
         </cite>
         <Link
           rel='bookmark'

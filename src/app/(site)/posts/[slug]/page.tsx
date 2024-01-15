@@ -22,7 +22,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
 export async function generateStaticParams() {
   const posts = await getPublishedPosts();
-  return posts.map((post) => ({ slug: post.slug.current }));
+  return posts
+    .map((post) => ({ slug: post.slug?.current }))
+    .filter(({ slug }) => Boolean(slug));
 }
 
 export const revalidate = 3600;
