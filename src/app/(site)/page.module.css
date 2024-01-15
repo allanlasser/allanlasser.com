@@ -3,11 +3,11 @@
   display: flex;
   flex-flow: row-reverse wrap;
   align-items: flex-start;
-  gap: .5rem 4rem;
+  gap: 2rem 4rem;
 }
 
 .homepage .aside {
-  flex: 1 1 10em;
+  flex: 1 1 16em;
   width: 100%;
   position: sticky;
   top: 1rem;
@@ -19,6 +19,12 @@
 .homepage .main {
   flex: 3 1 20em;
   width: 100%;
+}
+
+@media (max-width: 64.375rem) {
+  .homepage .aside {
+    position: unset;
+  }
 }
 
 .homepage .main ul {
