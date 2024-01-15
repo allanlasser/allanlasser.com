@@ -52,7 +52,7 @@ function NoteTitle({
     <a href={url.href} rel='external' className={styles.sourceTitle}>
       {Icon && (
         <span className={styles.sourceType} title={SourceTypeLabel[type]}>
-          <Icon size={24} />
+          <Icon size={20} />
         </span>
       )}
       <span>{smartTitle}</span>
@@ -61,7 +61,7 @@ function NoteTitle({
     <span className={styles.sourceTitle}>
       {Icon && (
         <span className={styles.sourceType} title={SourceTypeLabel[type]}>
-          <Icon size={24} />
+          <Icon size={20} />
         </span>
       )}
       <span>{smartTitle}</span>
