@@ -1,7 +1,7 @@
 .homepage {
   width: 100%;
   display: flex;
-  flex-flow: row-reverse wrap;
+  flex-flow: row-reverse;
   align-items: flex-start;
   gap: 2rem 4rem;
 }
@@ -22,6 +22,9 @@
 }
 
 @media (max-width: 64.375rem) {
+  .homepage {
+    flex-flow: column;
+  }
   .homepage .aside {
     position: unset;
   }
