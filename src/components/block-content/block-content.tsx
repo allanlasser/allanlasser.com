@@ -7,8 +7,8 @@ import styles from "./block-content.module.css";
 import CodeBlock from "src/components/code-block";
 import ImageBlock from "../image-block";
 import AlbumBlock from "../album/album";
-import NoteItem from "../note-item/note-item";
-import Link from "next/link";
+import NoteBlock from "../notes/NoteBlock";
+import { Note } from "src/types/note";
 
 const components: Partial<PortableTextReactComponents> = {
   types: {
@@ -28,11 +28,7 @@ const components: Partial<PortableTextReactComponents> = {
       return <AlbumBlock images={value.images} />;
     },
     note: ({ value }) => {
-      return (
-        <figure className={styles.noteBlock}>
-          <NoteItem note={value} omitSource />
-        </figure>
-      );
+      return <NoteBlock note={value} />;
     },
   },
 };

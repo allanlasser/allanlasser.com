@@ -41,7 +41,7 @@ function NoteTitle({
 }) {
   let Icon: LucideIcon | null = null;
   let type: string = "article";
-  let smartTitle = smartquotes(title);
+  let smartTitle = title ? smartquotes(title) : null;
   let url: URL | null = null;
   if (source) {
     type = source.type;

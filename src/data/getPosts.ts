@@ -45,7 +45,19 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
   slug,
   body[] {
     _type != 'note' => @,
-    _type == 'note' => @->
+    _type == 'note' => @->{
+      _id,
+      _type,
+      title,
+      body,
+      page,
+      source->
+    }
+  },
+  source -> {
+    _id,
+    title,
+    url
   }
 }
 `;
