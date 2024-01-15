@@ -149,4 +149,5 @@
 
 .small {
   margin: 1rem 0;
+  justify-content: flex-start;
 }
