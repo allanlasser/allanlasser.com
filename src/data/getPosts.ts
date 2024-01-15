@@ -44,22 +44,8 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
   title,
   slug,
   body[] {
-    _type != 'reference' => @,
-    _type == 'reference' => @->{
-      _type != 'album' => @,
-      _type == 'album' => {
-        _type,
-        _id,
-        title,
-        images[] {
-          asset,
-          "_id": asset->_id,
-          "title": asset->title,
-          "alt": asset->altText,
-          "src": asset->url
-        }
-      }
-    }
+    _type != 'note' => @,
+    _type == 'note' => @->
   }
 }
 `;
