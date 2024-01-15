@@ -57,7 +57,8 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
   source -> {
     _id,
     title,
-    url
+    url,
+    type
   }
 }
 `;

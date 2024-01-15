@@ -9,22 +9,6 @@
   gap: 1rem;
 }
 
-.sourceTitle {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  font-size: 1em;
-}
-
-.sourceType {
-  display: inline-block;
-}
-
-.sourceType svg {
-  vertical-align: text-bottom;
-
-}
-
 .source h2 {
   margin: 0;
   font-size: 1em;

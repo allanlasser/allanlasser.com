@@ -4,6 +4,7 @@ import typography from "src/styles/typography.module.css";
 import styles from "./post.module.css";
 import Link from "next/link";
 import cx from "classnames";
+import Title from "../title";
 
 export default function Post({ post, link }: { post: Post; link?: boolean }) {
   const publishedAt = post.publishedAt ? new Date(post.publishedAt) : undefined;
@@ -27,7 +28,11 @@ export default function Post({ post, link }: { post: Post; link?: boolean }) {
       ) : (
         <span className={styles.publishedAt}>Draft</span>
       )}
-      {title && <h1 className={styles.title}>{title}</h1>}
+      {title && (
+        <h1 className={styles.title}>
+          <Title title={post.title ?? null} source={post.source ?? null} />
+        </h1>
+      )}
     </header>
   );
   return (

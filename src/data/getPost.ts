@@ -21,10 +21,11 @@ export default async function getPost(slug: string) {
         source->
       }
     },
-    source {
+    source -> {
       _id,
       title,
-      url
+      url,
+      type
     }
   }`;
   return await Sanity.fetch<Post>(GET_POST_QUERY);
