@@ -15,14 +15,27 @@
   flex: 0 1 2rem;
   display: block;
   position: relative;
+  box-shadow: 0px .125em .25em rgba(0, 0, 0, .2);
+  border-radius: 2px;
 }
 
-.bookCover img {
+.bookCover img, .bookCover picture {
   width: 100%;
   display: block;
   overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
+  border-radius: 2px;
+}
+
+.bookCover picture::after {
+  box-shadow: inset .15rem 0 .075rem -.075rem rgba(0, 0, 0, .15);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  border-radius: 2px;
 }
 
 .bookDetails {
@@ -77,19 +90,38 @@
   page-break-before: avoid;
 }
 
+.medium .bookCover {
+  box-shadow: 0px .25em .375em rgba(0, 0, 0, .2);
+}
+
+.medium .bookCover picture::after {
+  box-shadow: inset .5rem 0 .25rem -.25rem rgba(0, 0, 0, .15);
+}
+
 .large {
   margin-bottom: 3rem;
 }
 
 .large.book {
   gap: 3rem;
+  align-items: center;
 }
 
 .large .bookCover {
   flex-basis: 16rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px var(--color-gray);
   min-height: 16rem;
+  box-shadow: -1rem .5rem 1rem .25rem rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.large .bookCover img, .large .bookCover picture {
+  border-radius: 4px;
+}
+
+.large .bookCover picture::after {
+  border-radius: 4px;
+  box-shadow: inset .75rem 0 .25rem -.25rem rgba(0, 0, 0, .15);
 }
 
 .large .bookDetails {
