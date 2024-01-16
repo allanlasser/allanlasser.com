@@ -1,16 +1,17 @@
 import * as Schema from "src/providers/sanity/schema";
+import { Source } from "./source";
 
 export interface Post {
   _type: "post";
   _id: string;
   _createdAt: string;
   _updatedAt: string;
-  publishedAt: string;
-  title: string;
-  layout: "essay" | "gallery" | string;
   slug: {
     _type: "slug";
     current: string;
   };
+  publishedAt: string;
+  title?: string;
   body: Schema.BlockContent;
+  source?: Source;
 }

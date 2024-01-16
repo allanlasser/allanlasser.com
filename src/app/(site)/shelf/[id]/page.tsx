@@ -4,6 +4,7 @@ import Book from "src/components/source/book";
 import orderNotesByPage from "src/utils/orderNotesByPage";
 import { Metadata } from "next";
 import { srcFor } from "src/providers/sanity";
+import layout from "src/styles/layout.module.css";
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const source = await getSource(params.id);
@@ -32,7 +33,7 @@ export default async function SourcePage({ params }) {
   const source = await getSource(params.id);
   const notes = await getSourceNotes(params.id);
   return (
-    <div>
+    <div className={layout.detail}>
       {/* @ts-expect-error Server component import bug */}
       <Book {...source} size='large' />
       {notes.length > 0 && (

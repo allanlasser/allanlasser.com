@@ -1,13 +1,8 @@
-.container {
-
-}
-
 .header {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   gap: 1rem;
-  margin: 0 0 2rem;
 }
 
 .headerLink {
@@ -47,12 +42,7 @@
   font-size: 2em;
   line-height: 1.2;
   margin: 0;
-}
-
-@media (min-width: 36rem) {
-  .title {
-    font-size: 3em;
-  }
+  display: inline-block;
 }
 
 .gallery img {

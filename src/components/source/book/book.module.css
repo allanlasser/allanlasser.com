@@ -2,8 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
-  gap: 0 1rem;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0 auto;
 }
 
 .book p, .book figure {
@@ -17,7 +18,11 @@
 }
 
 .bookCover img {
+  width: 100%;
   display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
 }
 
 .bookDetails {
@@ -26,7 +31,7 @@
   flex-direction: column;
   flex: 1 1 8rem;
   gap: .25rem;
-  margin: .5rem 0 0;
+  margin: .25rem 0 0;
   max-width: 24rem;
 }
 
@@ -144,4 +149,5 @@
 
 .small {
   margin: 1rem 0;
+  justify-content: flex-start;
 }

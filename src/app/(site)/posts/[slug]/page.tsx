@@ -1,11 +1,16 @@
 import { Metadata } from "next";
 import Post from "src/components/post";
 import getPost from "src/data/getPost";
-import {getPublishedPosts} from "src/data/getPosts";
+import { getPublishedPosts } from "src/data/getPosts";
+import layout from "src/styles/layout.module.css";
 
 export default async function PostPage({ params }) {
   const post = await getPost(params.slug);
-  return <Post post={post} />;
+  return (
+    <div className={layout.detail}>
+      <Post post={post} />
+    </div>
+  );
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
@@ -17,7 +22,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
 export async function generateStaticParams() {
   const posts = await getPublishedPosts();
-  return posts.map((post) => ({ slug: post.slug.current }));
+  return posts
+    .map((post) => ({ slug: post.slug?.current }))
+    .filter(({ slug }) => Boolean(slug));
 }
 
 export const revalidate = 3600;

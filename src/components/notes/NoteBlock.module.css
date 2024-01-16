@@ -1,0 +1,37 @@
+.noteBlock {
+  margin: 0;
+  position: relative;
+}
+
+.noteBlock .figCaption {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0;
+  font-family: var(--font-sans-serif);
+  line-height: 2;
+  opacity: .8;
+}
+
+.noteBlock blockquote:only-child, .noteBlock blockquote *:only-child {
+  margin: 0;
+}
+
+.noteBlock blockquote *:first-child {
+  margin-top: 0;
+}
+
+.permalink, .permalink svg {
+  display: block;
+}
+
+.noteBlock cite {
+  font-style: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+  .noteBlock footer a:hover, .noteBlock footer a:focus {
+    background: #2e5235;
+  }
+}

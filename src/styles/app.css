@@ -1,7 +1,8 @@
 :root {
-	--text-color: hsl(0, 0%, 20%);
+	--text-color: hsl(30, 30%, 25%);
 	--page-color: hsl(0, 0%, 100%);
-	--link-color: hsl(0, 0%, 20%);
+  --bg-color: hsl(120, 25%, 97%);
+	--link-color: hsl(30, 30%, 25%);
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
   --highlight-color: hsla(143, 59%, 73%, 70%);
@@ -23,6 +24,7 @@
   --fallback-font-mono: Monaco;
   /* Layout Vars */
   --layout-max-width: 100vw;
+  --layout-body-width: 100vw;
   --layout-padding-h: .5rem;
 }
 
@@ -49,7 +51,8 @@
 
 @media (min-width: 30rem) {
   :root {
-    --layout-max-width: 48rem;
+    --layout-max-width: 72rem;
+    --layout-body-width: 50rem;
     --layout-padding-h: 1rem;
   }
 }
@@ -63,7 +66,7 @@ html, body {
 	font-size: 16px;
   line-height: 1.4;
 	color: var(--text-color);
-	background: var(--page-color);
+	background: var(--bg-color);
   font-family: var(--font-sans-serif, var(--fallback-font-sans-serif));
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { srcFor } from "src/providers/sanity";
 import typography from "src/styles/typography.module.css";
+import layout from "src/styles/layout.module.css";
 import styles from "src/styles/project.module.css";
 import BlockContent from "src/components/block-content";
 import getProject from "src/data/getProject";
@@ -12,7 +13,7 @@ import Company from "src/components/company";
 export default async function PortfolioProject({ params }) {
   const project = await getProject(params.slug);
   return (
-    <article className={styles.article}>
+    <article className={cx(styles.article, layout.detail)}>
       <header className={styles.header}>
         <h1 className={cx(styles.title, typography.title)}>{project.title}</h1>
         <p className={cx(styles.subtitle, typography.title)}>

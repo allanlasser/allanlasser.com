@@ -1,0 +1,14 @@
+.notePreview {
+  padding: 0 !important;
+}
+
+.notePreview blockquote {
+  margin: 1em 0;
+  padding: 0 1em;
+  border-left: 2px solid #eee;
+  font-style: italic;
+}
+
+.notePreview blockquote p {
+  margin: 0;
+}
