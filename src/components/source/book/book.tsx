@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import cx from "classnames";
 import { getBookData } from "src/providers/openLibrary";
-import { srcFor } from "src/providers/sanity";
 import styles from "./book.module.css";
+import Cover from "./cover";
 
 export interface BookProps {
   _id: string;
@@ -28,32 +27,12 @@ export default async function Book(props: BookProps) {
     size = "small",
     link,
   } = props;
-  const imageSize = {
-    large: [250, 375],
-    medium: [100, 150],
-    small: [50, 75],
-  };
+
   const bookData =
     isbn && size === "large" ? await getBookData(isbn) : undefined;
   const bookComponent = (
     <div className={cx(styles.book, styles[size])}>
-      {imageUrl && (
-        <figure className={styles.bookCover}>
-          {imageUrl && (
-            <img
-              alt={`The cover of the book ${title}`}
-              src={
-                srcFor(imageUrl)
-                  .width(imageSize[size][0] * 2)
-                  .height(imageSize[size][1] * 2)
-                  .crop("center")
-                  .url() ?? ""
-              }
-              style={{ objectFit: "contain" }}
-            />
-          )}
-        </figure>
-      )}
+      {imageUrl && <Cover url={imageUrl} size={size} title={title} />}
       <div className={styles.bookDetails}>
         <p className={styles.bookTitle}>{title}</p>
         {subtitle && <p className={styles.bookSubtitle}>{subtitle}</p>}
