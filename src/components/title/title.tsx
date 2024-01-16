@@ -6,6 +6,7 @@ import {
   Link as LinkIcon,
   LucideIcon,
   Podcast,
+  ExternalLink,
 } from "lucide-react";
 import cx from "classnames";
 import { Source } from "src/types/source";
@@ -25,52 +26,30 @@ const SourceTypeLabel = {
   video: "Video",
 };
 
+function Icon({ type }: { type?: string | null }) {
+  let Icon: LucideIcon | null;
+  Icon = type ? SourceTypeIcons[type] : null;
+  if (!type || !Icon) return null;
+  return (
+    <span className={styles.icon} title={type ? SourceTypeLabel[type] : ""}>
+      <ExternalLink size={16} />
+    </span>
+  );
+}
+
 export default function Title(props: {
   title: string | null;
   source: Source | null;
   page?: string | null;
 }) {
   const title = props.title ?? props.source?.title;
-  let Icon: LucideIcon | null;
-  let url: URL | null;
-  let type: keyof typeof SourceTypeIcons | null;
-  if (props.source) {
-    url = props.source?.url ? new URL(props.source.url) : null;
-    type = props.source?.type;
-    Icon = type ? SourceTypeIcons[type] : null;
-    return url ? (
-      <a
-        href={url.href}
-        rel='external'
-        className={cx(styles.title, styles.source)}
-      >
-        {Icon && (
-          <span
-            className={styles.icon}
-            title={type ? SourceTypeLabel[type] : ""}
-          >
-            <Icon size={24} />
-          </span>
-        )}
-        <span>{smartquotes(title)}</span>
-      </a>
-    ) : (
-      <span className={cx(styles.title, styles.source)}>
-        {Icon && (
-          <span
-            className={styles.icon}
-            title={type ? SourceTypeLabel[type] : ""}
-          >
-            <Icon size={24} />
-          </span>
-        )}
-        <span>{smartquotes(title)}</span>
-      </span>
-    );
-  }
+  if (!title) return null;
   return (
-    <span className={cx(styles.title, styles.standalone)}>
-      {smartquotes(title)}
+    <span
+      className={cx(styles.title, { [styles.source]: Boolean(props.source) })}
+    >
+      <Icon type={props.source?.type} />
+      <span>{smartquotes(title)}</span>
     </span>
   );
 }

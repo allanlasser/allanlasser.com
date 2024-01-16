@@ -1,18 +1,16 @@
 .source.title {
   display: inline-flex;
   align-items: baseline;
-  gap: 1rem;
+  gap: .5em;
   font-size: 1.25rem;
 }
 
 .title {
   font-size: 1.75rem;
+  font-weight: 800;
 }
 
 .icon {
   display: inline-block;
-}
-
-.icon svg {
-  vertical-align: text-bottom;
+  order: 1;
 }
