@@ -1,7 +1,7 @@
 .container {
   --album-aspect-ratio: calc(3/2);
-  --album-height: min(calc(100vh - (2 * var(--layout-padding-h))), calc(var(--layout-max-width) * (1/var(--album-aspect-ratio))), calc(100vw * (1/var(--album-aspect-ratio))));
-  --album-image-max-width: min(calc(100vw - (2 * var(--layout-padding-h))), calc(var(--layout-max-width) - (2 * var(--layout-padding-h))));
+  --album-height: min(calc(100vh - (2 * var(--layout-padding-h))), calc(var(--layout-body-width) * (1/var(--album-aspect-ratio))), calc(100vw * (1/var(--album-aspect-ratio))));
+  --album-image-max-width: min(calc(100vw - (2 * var(--layout-padding-h))), calc(var(--layout-body-width)));
   --album-scroll-padding: max(var(--layout-padding-h), calc((100vw - var(--album-image-max-width))/2));
 }
 

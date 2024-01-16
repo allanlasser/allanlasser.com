@@ -1,8 +1,8 @@
 import cx from "classnames";
 import { Resume, Position } from "src/providers/sanity/schema";
-import Page from "src/components/page";
 import styles from "./resume.module.css";
 import typography from "src/styles/typography.module.css";
+import layout from "src/styles/layout.module.css";
 
 export type PositionProps = Position;
 
@@ -59,7 +59,7 @@ export type ResumeProps = Resume;
 const Resume = (props) => {
   const { history, skills } = props;
   return (
-    <article className={cx(styles.resume)}>
+    <article className={cx(styles.resume, layout.detail)}>
       <section>
         <h2>Employment History</h2>
         {history.map((position, index) => (

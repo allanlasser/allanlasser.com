@@ -90,6 +90,6 @@ export async function getNonBookNotes() {
 }
 
 /** Returns either the note's explicit title, the implicit title of its source, or `null`. */
-export function getNoteTitle(note: Note): string | null {
-  return note.title ?? note.source?.title ?? null;
+export function getNoteTitle(note?: Note): string | null {
+  return note?.title ?? note?.source?.title ?? null;
 }

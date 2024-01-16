@@ -3,7 +3,6 @@ import cx from "classnames";
 
 import typography from "src/styles/typography.module.css";
 import styles from "./page.module.css";
-import Navigation from "../navigation";
 
 export interface PageProps {
   htmlTitle?: string;
@@ -12,13 +11,8 @@ export interface PageProps {
 
 export default function Page(props: React.PropsWithChildren<PageProps>) {
   const { title } = props;
-  const isDev = process.env.NODE_ENV === "development";
   return (
     <div className={cx(typography.text)}>
-      <header className={cx(styles.container)}>
-        {isDev && <div className={styles.envBanner}>Dev Mode</div>}
-        <Navigation />
-      </header>
       <main className={cx(styles.container)}>
         {title && <h1 className={styles.title}>{title}</h1>}
         {props.children}

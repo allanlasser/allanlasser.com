@@ -3,9 +3,10 @@ import { Metadata } from "next";
 import { Inter, Source_Serif_4, Source_Code_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Page from "src/components/page";
 import "src/styles/app.css";
 import "src/styles/typography.module.css";
+import layout from "src/styles/layout.module.css";
+import Navigation from "src/components/navigation";
 import getSiteUrl from "src/utils/getSiteUrl";
 
 const inter = Inter({
@@ -47,15 +48,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isDev = process.env.NODE_ENV === "development";
   return (
     <html
       lang='en'
       className={cx(inter.variable, sourceSerif.variable, sourceCode.variable)}
     >
       <body>
-        <Page>{children}</Page>
+        <header className={layout.header}>
+          <Navigation />
+        </header>
+        <div className={layout.container}>{children}</div>
+        <footer className={layout.footer}></footer>
         <SpeedInsights />
         <Analytics />
+        {isDev && <div className={layout.envBanner}>Dev Mode</div>}
       </body>
     </html>
   );

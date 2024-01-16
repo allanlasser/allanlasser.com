@@ -40,7 +40,7 @@ export default async function Book(props: BookProps) {
       {imageUrl && (
         <figure className={styles.bookCover}>
           {imageUrl && (
-            <Image
+            <img
               alt={`The cover of the book ${title}`}
               src={
                 srcFor(imageUrl)
@@ -49,7 +49,6 @@ export default async function Book(props: BookProps) {
                   .crop("center")
                   .url() ?? ""
               }
-              fill
               style={{ objectFit: "contain" }}
             />
           )}
