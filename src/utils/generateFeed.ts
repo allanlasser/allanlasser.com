@@ -67,8 +67,11 @@ export default async function generateFeed() {
         new Promise<void>(async (resolve) => {
           const id = `${siteURL}/posts/${post.slug.current}`;
           const url = post.source?.url ? post.source.url : id;
+          const isExternal = id !== url;
           const content = generatePostContent(post, id);
-          const title = post.title ?? post.source?.title ?? "";
+          const title =
+            (post.title ?? post.source?.title ?? "") +
+            (isExternal ? "&nbsp;&#10172;" : "");
           feed.addItem({
             title: smartquotes(title),
             id,
