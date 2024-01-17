@@ -33,27 +33,8 @@ export default function NoteBlock({ note }: { note: Note }) {
     ),
   };
   return (
-    <figure className={cx(styles.noteBlock)}>
-      <div className={cx(typography.bodyText)}>
-        <ReactMarkdown>{smartquotes(note.body)}</ReactMarkdown>
-      </div>
-      <figcaption className={cx(styles.figCaption, typography.smallSize)}>
-        <cite>
-          {intersperse<ReactNode>(
-            Object.values(citation).filter((component) => Boolean(component)),
-            ", "
-          ).map((node, i) => (
-            <span key={i}>{node}</span>
-          ))}
-        </cite>
-        <Link
-          rel='bookmark'
-          href={`/notes/${note._id}`}
-          className={cx(styles.permalink, typography.noUnderline)}
-        >
-          <LinkIcon size={14} strokeWidth={1.5} />
-        </Link>
-      </figcaption>
-    </figure>
+    <div className={cx(typography.bodyText)}>
+      <ReactMarkdown>{smartquotes(note.body)}</ReactMarkdown>
+    </div>
   );
 }

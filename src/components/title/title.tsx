@@ -32,7 +32,7 @@ function Icon({ type }: { type?: string | null }) {
   if (!type || !Icon) return null;
   return (
     <span className={styles.icon} title={type ? SourceTypeLabel[type] : ""}>
-      <ExternalLink size={16} />
+      <Icon size={16} />
     </span>
   );
 }
@@ -48,8 +48,13 @@ export default function Title(props: {
     <span
       className={cx(styles.title, { [styles.source]: Boolean(props.source) })}
     >
-      <Icon type={props.source?.type} />
+      {/* <Icon type={props.source?.type} /> */}
       <span>{smartquotes(title)}</span>
+      {props.source?.url && (
+        <span className={styles.icon}>
+          <ExternalLink size={16} />
+        </span>
+      )}
     </span>
   );
 }

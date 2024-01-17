@@ -18,14 +18,27 @@ export default function NoteItem({
 }) {
   const title = getNoteTitle(note);
   const date = new Date(note._createdAt);
-  const showHeader = !omitSource && (note.source || note.title !== "Untitled");
+  const showHeader = !omitSource && (note.source?.title || note.title);
+  const sourceLink = note.source
+    ? note.source.url ?? `/shelf/${note.source._id}`
+    : null;
+  const sourceLinkRel = note.source?.url ? "bookmark" : "";
+  const titleComponent = (
+    <h2>
+      <Title title={title} source={note.source} />
+    </h2>
+  );
   return (
     <section id={note._id} className={styles.note}>
       {showHeader && (
         <header className={cx(styles.header)}>
-          <h2>
-            <Title title={title} source={note.source} />
-          </h2>
+          {sourceLink ? (
+            <Link href={sourceLink} rel={sourceLinkRel}>
+              {titleComponent}
+            </Link>
+          ) : (
+            titleComponent
+          )}
         </header>
       )}
       <main className={cx(styles.main, typography.bodyText)}>
