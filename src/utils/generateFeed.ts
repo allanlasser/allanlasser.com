@@ -2,28 +2,27 @@ import { Feed } from "feed";
 import smartquotes from "smartquotes";
 import markdownToHtml from "./markdownToHtml";
 import getSiteUrl from "./getSiteUrl";
-import { getPublishedPosts } from "src/data/getPosts";
+import { getAllPosts, getPublishedPosts } from "src/data/getPosts";
 import { toHTML } from "@portabletext/to-html";
 import { Post } from "src/types/post";
+import { encode } from "html-entities";
+import { dimensionsFor, srcFor } from "src/providers/sanity";
+
+function generateImage({ value }) {
+  const { width, height } = dimensionsFor(value);
+  const src = srcFor(value).width(width).height(height).url();
+  return `<img src="${src}" width="${width}" height="${height}" title="${value.title}" alt="${value.alt}" />`;
+}
 
 function generatePostContent(post: Post) {
   const html = toHTML(post.body, {
     components: {
       types: {
-        note: ({ value }) => {
-          const cite = [
-            value.source.author,
-            value.source?.url
-              ? `<a href="${value.source.url}" rel="external">${smartquotes(
-                  value.source.title
-                )}</a>`
-              : smartquotes(value.source.title),
-            value.page,
-          ].filter((entry) => Boolean(entry));
-          return `<figure>${markdownToHtml(value.body)}${
-            cite.length > 0 ? `<figcaption>${cite.join(", ")}</figcaption>` : ""
-          }</figure>`;
-        },
+        image: generateImage,
+        // TODO: Add Album references back into block content
+        // album: ({ value }) => value.images.map(generateImage).join("\n"),
+        code: ({ value }) => `<pre><code>${encode(value.code)}</code></pre>`,
+        note: ({ value }) => String(markdownToHtml(value.body)),
       },
     },
   });
@@ -31,7 +30,8 @@ function generatePostContent(post: Post) {
 }
 
 export default async function generateFeed() {
-  const posts = await getPublishedPosts();
+  const isDev = process.env.NODE_ENV === "development";
+  const posts = isDev ? await getAllPosts() : await getPublishedPosts();
   const siteURL = getSiteUrl();
   const date = new Date();
   const author = {

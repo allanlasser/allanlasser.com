@@ -24,9 +24,10 @@ const components: Partial<PortableTextReactComponents> = {
         code={value.code}
       />
     ),
-    album: ({ value }) => {
-      return <AlbumBlock images={value.images} />;
-    },
+    // TODO: Add albums back into block content
+    // album: ({ value }) => {
+    //   return <AlbumBlock images={value.images} />;
+    // },
     note: ({ value }) => {
       return <NoteBlock note={value} />;
     },

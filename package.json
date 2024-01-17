@@ -25,6 +25,7 @@
     "codemirror": "^6.0.1",
     "easymde": "^2.18.0",
     "feed": "^4.2.2",
+    "html-entities": "^2.4.0",
     "isomorphic-fetch": "^3.0.0",
     "lucide-react": "^0.292.0",
     "next": "^14.0.2",
