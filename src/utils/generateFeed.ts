@@ -19,8 +19,10 @@ function generatePostContent(post: Post) {
     components: {
       types: {
         image: generateImage,
-        // TODO: Add Album references back into block content
-        // album: ({ value }) => value.images.map(generateImage).join("\n"),
+        album: ({ value }) =>
+          value.images
+            ?.map((image) => generateImage({ value: image }))
+            .join("\n"),
         code: ({ value }) => `<pre><code>${encode(value.code)}</code></pre>`,
         note: ({ value }) => String(markdownToHtml(value.body)),
       },
