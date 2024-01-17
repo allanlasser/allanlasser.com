@@ -14,7 +14,7 @@ function generateImage({ value }) {
   return `<img src="${src}" width="${width}" height="${height}" title="${value.title}" alt="${value.alt}" />`;
 }
 
-function generatePostContent(post: Post) {
+function generatePostContent(post: Post, permalink: string) {
   const html = toHTML(post.body, {
     components: {
       types: {
@@ -28,7 +28,10 @@ function generatePostContent(post: Post) {
       },
     },
   });
-  return html;
+  return (
+    html +
+    `<footer><a href="${permalink}" rel="bookmark" alt="Permanent link">&#128279;</a></footer>`
+  );
 }
 
 export default async function generateFeed() {
@@ -64,7 +67,7 @@ export default async function generateFeed() {
         new Promise<void>(async (resolve) => {
           const id = `${siteURL}/posts/${post.slug.current}`;
           const url = post.source?.url ? post.source.url : id;
-          const content = generatePostContent(post);
+          const content = generatePostContent(post, id);
           const title = post.title ?? post.source?.title ?? "";
           feed.addItem({
             title: smartquotes(title),
