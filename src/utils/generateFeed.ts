@@ -1,11 +1,42 @@
 import { Feed } from "feed";
 import smartquotes from "smartquotes";
-import { getNoteTitle, getNonBookNotes } from "src/data/note";
 import markdownToHtml from "./markdownToHtml";
 import getSiteUrl from "./getSiteUrl";
+import { getAllPosts, getPublishedPosts } from "src/data/getPosts";
+import { toHTML } from "@portabletext/to-html";
+import { Post } from "src/types/post";
+import { encode } from "html-entities";
+import { dimensionsFor, srcFor } from "src/providers/sanity";
+
+function generateImage({ value }) {
+  const { width, height } = dimensionsFor(value);
+  const src = srcFor(value).width(width).height(height).url();
+  return `<img src="${src}" width="${width}" height="${height}" title="${value.title}" alt="${value.alt}" />`;
+}
+
+function generatePostContent(post: Post, permalink: string) {
+  const html = toHTML(post.body, {
+    components: {
+      types: {
+        image: generateImage,
+        album: ({ value }) =>
+          value.images
+            ?.map((image) => generateImage({ value: image }))
+            .join("\n"),
+        code: ({ value }) => `<pre><code>${encode(value.code)}</code></pre>`,
+        note: ({ value }) => String(markdownToHtml(value.body)),
+      },
+    },
+  });
+  return (
+    html +
+    `<footer><a href="${permalink}" rel="bookmark" alt="Permanent link">&#128279;</a></footer>`
+  );
+}
 
 export default async function generateFeed() {
-  const notes = await getNonBookNotes();
+  const isDev = process.env.NODE_ENV === "development";
+  const posts = isDev ? await getAllPosts() : await getPublishedPosts();
   const siteURL = getSiteUrl();
   const date = new Date();
   const author = {
@@ -31,19 +62,22 @@ export default async function generateFeed() {
     author,
   });
   await Promise.all(
-    notes.map(
-      async (note) =>
+    posts.map(
+      async (post) =>
         new Promise<void>(async (resolve) => {
-          const id = `${siteURL}/notes/${note._id}`;
-          const url = note.source?.url ? note.source.url : id;
-          const content = String(await markdownToHtml(smartquotes(note.body)));
-          const title = getNoteTitle(note);
+          const id = `${siteURL}/posts/${post.slug.current}`;
+          const url = post.source?.url ? post.source.url : id;
+          const isExternal = id !== url;
+          const content = generatePostContent(post, id);
+          const title =
+            (post.title ?? post.source?.title ?? "") +
+            (isExternal ? "&nbsp;&#10172;" : "");
           feed.addItem({
-            title: title ? smartquotes(title) : "",
+            title: smartquotes(title),
             id,
             link: url,
+            date: new Date(post.publishedAt),
             content,
-            date: new Date(note._createdAt),
           });
           resolve();
         })

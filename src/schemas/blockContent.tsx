@@ -1,4 +1,4 @@
-import { ImageIcon, BookmarkIcon } from "lucide-react";
+import { ImageIcon, BookmarkIcon, BookImageIcon } from "lucide-react";
 import BlockEditor from "src/components/block-editor";
 import { NotePreview } from "src/components/notes/NotePreview";
 
@@ -74,6 +74,23 @@ const blockContent = {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
+      name: "note",
+      title: "Note",
+      type: "reference",
+      to: [{ type: "note" }],
+      icon: <BookmarkIcon size={20} strokeWidth={1.5} />,
+      components: {
+        preview: NotePreview,
+      },
+    },
+    {
+      type: "code",
+      title: "Code",
+      options: {
+        withFilename: true,
+      },
+    },
+    {
       type: "image",
       title: "Image",
       icon: <ImageIcon size={20} strokeWidth={1.5} />,
@@ -124,21 +141,11 @@ const blockContent = {
       ],
     },
     {
-      name: "note",
-      title: "Note",
+      name: "album",
+      title: "Album",
       type: "reference",
-      to: [{ type: "note" }],
-      icon: <BookmarkIcon size={20} strokeWidth={1.5} />,
-      components: {
-        preview: NotePreview,
-      },
-    },
-    {
-      type: "code",
-      title: "Code Block",
-      options: {
-        withFilename: true,
-      },
+      to: [{ type: "album" }],
+      icon: <BookImageIcon size={20} strokeWidth={1.5} />,
     },
   ],
 };

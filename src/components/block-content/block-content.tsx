@@ -1,5 +1,3 @@
-"use client";
-
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import * as Schema from "src/providers/sanity/schema";
 import { srcFor, dimensionsFor } from "src/providers/sanity";
@@ -8,7 +6,6 @@ import CodeBlock from "src/components/code-block";
 import ImageBlock from "../image-block";
 import AlbumBlock from "../album/album";
 import NoteBlock from "../notes/NoteBlock";
-import { Note } from "src/types/note";
 
 const components: Partial<PortableTextReactComponents> = {
   types: {
@@ -24,12 +21,8 @@ const components: Partial<PortableTextReactComponents> = {
         code={value.code}
       />
     ),
-    album: ({ value }) => {
-      return <AlbumBlock images={value.images} />;
-    },
-    note: ({ value }) => {
-      return <NoteBlock note={value} />;
-    },
+    album: ({ value }) => <AlbumBlock images={value.images} />,
+    note: ({ value }) => <NoteBlock note={value} />,
   },
 };
 

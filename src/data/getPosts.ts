@@ -11,7 +11,7 @@ const GET_PUBLISHED_POSTS = groq`*[_type == "post" && defined(publishedAt)] | or
   title,
   slug,
   body[] {
-    _type != 'note' => @,
+    (_type != 'note' || _type != 'album') => @,
     _type == 'note' => @->{
       _id,
       _type,
@@ -19,6 +19,18 @@ const GET_PUBLISHED_POSTS = groq`*[_type == "post" && defined(publishedAt)] | or
       body,
       page,
       source->
+    },
+    _type == 'album' => @->{
+      _type,
+      _id,
+      title,
+      images[] {
+        asset,
+        "_id": asset->_id,
+        "title": asset->title,
+        "alt": asset->altText,
+        "src": asset->url
+      }
     }
   },
   source -> {
@@ -34,7 +46,7 @@ export async function getPublishedPosts() {
   return Sanity.fetch<Post[]>(GET_PUBLISHED_POSTS);
 }
 
-const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !defined(*[_id == "drafts." + ^._id][0]))] | order(select(defined(publishedAt) => 1,  0) desc, publishedAt desc)[0...5] {
+const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !defined(*[_id == "drafts." + ^._id][0]))] | order(select(defined(publishedAt) => 1,  0) desc, publishedAt desc) {
   _id,
   _type,
   _createdAt,
@@ -43,7 +55,7 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
   title,
   slug,
   body[] {
-    _type != 'note' => @,
+    (_type != 'note' || _type != 'album') => @,
     _type == 'note' => @->{
       _id,
       _type,
@@ -51,6 +63,18 @@ const GET_ALL_POSTS = groq`*[_type == "post" && (_id in path("drafts.**") || !de
       body,
       page,
       source->
+    },
+    _type == 'album' => @->{
+      _type,
+      _id,
+      title,
+      images[] {
+        asset,
+        "_id": asset->_id,
+        "title": asset->title,
+        "alt": asset->altText,
+        "src": asset->url
+      }
     }
   },
   source -> {

@@ -1292,6 +1292,14 @@
     "@portabletext/toolkit" "^2.0.10"
     "@portabletext/types" "^2.0.8"
 
+"@portabletext/to-html@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@portabletext/to-html/-/to-html-2.0.5.tgz#29eb2ae198906e51f7e26369aaafbf6d7271b329"
+  integrity sha512-KkUI6iBuKSzclyKYnwGLiE0asxvW1ZcFmZ7wBslW+nulw78qwpTl3wuK47zf+y0XX7g52d5gw5WlYBAhuSEjSg==
+  dependencies:
+    "@portabletext/toolkit" "^2.0.10"
+    "@portabletext/types" "^2.0.8"
+
 "@portabletext/toolkit@^2.0.1":
   version "2.0.1"
   resolved "https://registry.npmjs.org/@portabletext/toolkit/-/toolkit-2.0.1.tgz"
@@ -4381,6 +4389,11 @@ html-encoding-sniffer@^3.0.0:
   integrity sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==
   dependencies:
     whatwg-encoding "^2.0.0"
+
+html-entities@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.4.0.tgz#edd0cee70402584c8c76cc2c0556db09d1f45061"
+  integrity sha512-igBTJcNNNhvZFRtm8uA6xMY6xYleeDwn3PeBCkDz7tHttv4F2hsDI2aPgNERWzvRcNYHNT3ymRaQzllmXj4YsQ==
 
 html-void-elements@^2.0.0:
   version "2.0.1"

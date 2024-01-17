@@ -11,7 +11,7 @@ export default async function getPost(slug: string) {
     title,
     slug,
     body[] {
-      _type != 'note' => @,
+      (_type != 'note' || _type != 'album') => @,
       _type == 'note' => @->{
         _id,
         _type,
@@ -19,6 +19,18 @@ export default async function getPost(slug: string) {
         body,
         page,
         source->
+      },
+      _type == 'album' => @->{
+        _type,
+        _id,
+        title,
+        images[] {
+          asset,
+          "_id": asset->_id,
+          "title": asset->title,
+          "alt": asset->altText,
+          "src": asset->url
+        }
       }
     },
     source -> {
