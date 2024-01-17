@@ -32,6 +32,7 @@
   :root {
   	--text-color: hsl(0, 0%, 90%);
   	--page-color: hsl(0, 0%, 10%);
+    --bg-color: hsl(0, 0%, 0%);
   	--link-color: hsl(0, 0%, 80%);
   	--link-hover-color: hsl(0, 0%, 60%);
   	--link-visited-color: hsl(0, 0%, 60%);
