@@ -1,11 +1,37 @@
 import { Feed } from "feed";
 import smartquotes from "smartquotes";
-import { getNoteTitle, getNonBookNotes } from "src/data/note";
 import markdownToHtml from "./markdownToHtml";
 import getSiteUrl from "./getSiteUrl";
+import { getPublishedPosts } from "src/data/getPosts";
+import { toHTML } from "@portabletext/to-html";
+import { Post } from "src/types/post";
+
+function generatePostContent(post: Post) {
+  const html = toHTML(post.body, {
+    components: {
+      types: {
+        note: ({ value }) => {
+          const cite = [
+            value.source.author,
+            value.source?.url
+              ? `<a href="${value.source.url}" rel="external">${smartquotes(
+                  value.source.title
+                )}</a>`
+              : smartquotes(value.source.title),
+            value.page,
+          ].filter((entry) => Boolean(entry));
+          return `<figure>${markdownToHtml(value.body)}${
+            cite.length > 0 ? `<figcaption>${cite.join(", ")}</figcaption>` : ""
+          }</figure>`;
+        },
+      },
+    },
+  });
+  return html;
+}
 
 export default async function generateFeed() {
-  const notes = await getNonBookNotes();
+  const posts = await getPublishedPosts();
   const siteURL = getSiteUrl();
   const date = new Date();
   const author = {
@@ -31,19 +57,19 @@ export default async function generateFeed() {
     author,
   });
   await Promise.all(
-    notes.map(
-      async (note) =>
+    posts.map(
+      async (post) =>
         new Promise<void>(async (resolve) => {
-          const id = `${siteURL}/notes/${note._id}`;
-          const url = note.source?.url ? note.source.url : id;
-          const content = String(await markdownToHtml(smartquotes(note.body)));
-          const title = getNoteTitle(note);
+          const id = `${siteURL}/posts/${post.slug.current}`;
+          const url = post.source?.url ? post.source.url : id;
+          const content = generatePostContent(post);
+          const title = post.title ?? post.source?.title ?? "";
           feed.addItem({
-            title: title ? smartquotes(title) : "",
+            title: smartquotes(title),
             id,
             link: url,
+            date: new Date(post.publishedAt),
             content,
-            date: new Date(note._createdAt),
           });
           resolve();
         })

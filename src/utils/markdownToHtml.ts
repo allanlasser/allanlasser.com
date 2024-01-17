@@ -4,13 +4,13 @@ import remarkRehype from "remark-rehype";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 
-export default async function markdownToHtml(input: string) {
-  const file = await unified()
+export default function markdownToHtml(input: string) {
+  const file = unified()
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypeSanitize)
     .use(rehypeStringify)
-    .process(input);
+    .processSync(input);
 
   return file;
 }

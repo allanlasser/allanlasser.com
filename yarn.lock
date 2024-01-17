@@ -1292,6 +1292,14 @@
     "@portabletext/toolkit" "^2.0.10"
     "@portabletext/types" "^2.0.8"
 
+"@portabletext/to-html@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@portabletext/to-html/-/to-html-2.0.5.tgz#29eb2ae198906e51f7e26369aaafbf6d7271b329"
+  integrity sha512-KkUI6iBuKSzclyKYnwGLiE0asxvW1ZcFmZ7wBslW+nulw78qwpTl3wuK47zf+y0XX7g52d5gw5WlYBAhuSEjSg==
+  dependencies:
+    "@portabletext/toolkit" "^2.0.10"
+    "@portabletext/types" "^2.0.8"
+
 "@portabletext/toolkit@^2.0.1":
   version "2.0.1"
   resolved "https://registry.npmjs.org/@portabletext/toolkit/-/toolkit-2.0.1.tgz"
