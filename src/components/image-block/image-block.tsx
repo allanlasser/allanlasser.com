@@ -1,6 +1,7 @@
 import cx from "classnames";
 import Image from "next/image";
 import styles from "./image-block.module.css";
+import smartquotes from "smartquotes";
 
 export interface ImageBlockProps {
   src: string;
@@ -44,10 +45,12 @@ function ImageBlockCaption({
   if (!title && !author && !credit && !caption && !source) return null;
   return (
     <figcaption className={styles.imageBlockCaption}>
-      {title && <p className={styles.title}>{title}</p>}
-      {caption && <p className={styles.caption}>{caption}</p>}
+      {title && <p className={styles.title}>{smartquotes(title)}</p>}
+      {caption && <p className={styles.caption}>{smartquotes(caption)}</p>}
       {(credit || author) && (
-        <SourceLink href={source}>{credit ?? author ?? "Source"}</SourceLink>
+        <SourceLink href={source}>
+          {smartquotes(credit ?? author ?? "Source")}
+        </SourceLink>
       )}
     </figcaption>
   );
