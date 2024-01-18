@@ -6,6 +6,7 @@ import CodeBlock from "src/components/code-block";
 import ImageBlock from "../image-block";
 import AlbumBlock from "../album/album";
 import NoteBlock from "../notes/NoteBlock";
+import smartPortableText from "src/utils/smartPortableText";
 
 const components: Partial<PortableTextReactComponents> = {
   types: {
@@ -26,10 +27,13 @@ const components: Partial<PortableTextReactComponents> = {
   },
 };
 
-const BlockContent = (props: { value: Schema.BlockContent }) => (
-  <div className={styles.blockContent}>
-    <PortableText value={props.value} components={components} />
-  </div>
-);
+const BlockContent = (props: { value: Schema.BlockContent }) => {
+  const smartText = smartPortableText(props.value);
+  return (
+    <div className={styles.blockContent}>
+      <PortableText value={smartText} components={components} />
+    </div>
+  );
+};
 
 export default BlockContent;

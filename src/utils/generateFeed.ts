@@ -7,6 +7,7 @@ import { toHTML } from "@portabletext/to-html";
 import { Post } from "src/types/post";
 import { encode } from "html-entities";
 import { dimensionsFor, srcFor } from "src/providers/sanity";
+import smartPortableText from "./smartPortableText";
 
 function generateImage({ value }) {
   const { width, height } = dimensionsFor(value);
@@ -15,7 +16,8 @@ function generateImage({ value }) {
 }
 
 function generatePostContent(post: Post, permalink: string) {
-  const html = toHTML(post.body, {
+  const smartText = smartPortableText(post.body);
+  const html = toHTML(smartText, {
     components: {
       types: {
         image: generateImage,
