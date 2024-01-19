@@ -7,7 +7,7 @@ export default async function ResumePage() {
   const resume = await getResume();
   return (
     <div className={layout.detail}>
-      <Resume {...resume} />;
+      <Resume {...resume} />
     </div>
   );
 }
