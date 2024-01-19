@@ -34,7 +34,6 @@ export default async function SourcePage({ params }) {
   const notes = await getSourceNotes(params.id);
   return (
     <div className={layout.detail}>
-      {/* @ts-expect-error Server component import bug */}
       <Book {...source} size='large' />
       {notes.length > 0 && (
         <>

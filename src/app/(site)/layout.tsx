@@ -56,7 +56,6 @@ export default function RootLayout({
     >
       <body>
         <header className={layout.header}>
-          {/* @ts-expect-error Server Component */}
           <Navigation />
         </header>
         <div className={layout.container}>{children}</div>
