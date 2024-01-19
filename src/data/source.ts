@@ -54,6 +54,7 @@ export async function getSource(id: string): Promise<Source> {
     subtitle,
     author,
     "imageUrl": cover.asset->url,
+    "palette": cover.asset->metadata.palette,
     url,
     isbn
   }
@@ -102,6 +103,7 @@ export async function getAllBooks() {
     subtitle,
     author,
     "imageUrl": cover.asset->url,
+    "palette": cover.asset->metadata.palette,
     url,
     isbn
   }

@@ -12,18 +12,30 @@
 }
 
 .bookCover {
+  --border-radius: 1px;
+  --shadow: var(--shadow-dark, rgba(0, 0, 0, .4));
   flex: 0 1 2rem;
   display: block;
   position: relative;
-  box-shadow: 0px .125em .25em rgba(0, 0, 0, .2);
-  border-radius: 2px;
+  box-shadow: 0px .125em .25em var(--shadow);
+  border-radius: calc(1*var(--border-radius));
+  border-top-right-radius: calc(2*var(--border-radius));
+  border-bottom-right-radius: calc(2*var(--border-radius));
+}
+
+@media (prefers-color-scheme: dark) {
+  .bookCover {
+    --shadow: var(--shadow-light, rgba(255, 255, 255, .25));
+  }
 }
 
 .bookCover img, .bookCover picture {
   width: 100%;
   display: block;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: calc(1*var(--border-radius));
+  border-top-right-radius: calc(2*var(--border-radius));
+  border-bottom-right-radius: calc(2*var(--border-radius));
 }
 
 .bookCover picture::after, .bookCover picture::before {
@@ -34,7 +46,9 @@
   top: 0;
   width: 100%;
   pointer-events: none;
-  border-radius: 2px;
+  border-radius: calc(1*var(--border-radius));
+  border-top-right-radius: calc(2*var(--border-radius));
+  border-bottom-right-radius: calc(2*var(--border-radius));
 }
 
 .large .bookCover picture::before {
@@ -99,7 +113,8 @@
 }
 
 .medium .bookCover {
-  box-shadow: 0px .25em .375em rgba(0, 0, 0, .2);
+  --border-radius: 2px;
+  box-shadow: 0px .25em .375em var(--shadow);
 }
 
 .medium .bookCover picture::after {
@@ -116,20 +131,24 @@
 }
 
 .large .bookCover {
+  --border-radius: 4px;
   flex-basis: 16rem;
   min-height: 16rem;
   max-width: 60vw;
-  box-shadow: -.375em .75em .75rem -.25rem rgba(0, 0, 0, .375);
-  border-radius: 4px;
+  box-shadow: -.375em .75em .75rem -.25rem var(--shadow);
   overflow: hidden;
 }
 
-.large .bookCover img, .large .bookCover picture {
+/* .large .bookCover img, .large .bookCover picture {
   border-radius: 4px;
-}
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+} */
 
 .large .bookCover picture::after {
-  border-radius: 4px;
+  /* border-radius: 4px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px; */
   box-shadow: inset .75rem 0 .25rem -.25rem rgba(0, 0, 0, .15);
 }
 

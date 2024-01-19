@@ -3,6 +3,7 @@ import cx from "classnames";
 import { getBookData } from "src/providers/openLibrary";
 import styles from "./book.module.css";
 import Cover from "./cover";
+import { ImagePalette } from "sanity";
 
 export interface BookProps {
   _id: string;
@@ -10,6 +11,7 @@ export interface BookProps {
   subtitle?: string | null;
   author?: string | null;
   imageUrl?: string | null;
+  palette?: ImagePalette | null;
   isbn?: string | null;
   url?: string | null;
   size?: "small" | "medium" | "large";
@@ -23,6 +25,7 @@ export default async function Book(props: BookProps) {
     subtitle,
     author,
     imageUrl,
+    palette,
     isbn,
     size = "small",
     link,
@@ -32,7 +35,9 @@ export default async function Book(props: BookProps) {
     isbn && size === "large" ? await getBookData(isbn) : undefined;
   const bookComponent = (
     <div className={cx(styles.book, styles[size])}>
-      {imageUrl && <Cover url={imageUrl} size={size} title={title} />}
+      {imageUrl && (
+        <Cover url={imageUrl} size={size} title={title} colors={palette} />
+      )}
       <div className={styles.bookDetails}>
         <p className={styles.bookTitle}>{title}</p>
         {subtitle && <p className={styles.bookSubtitle}>{subtitle}</p>}
