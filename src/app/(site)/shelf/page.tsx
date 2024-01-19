@@ -18,7 +18,6 @@ export default async function Library() {
       {books.map((book) => {
         return (
           <li key={book._id}>
-            {/* @ts-expect-error Server Component */}
             <Book {...book} link size='medium' />
           </li>
         );

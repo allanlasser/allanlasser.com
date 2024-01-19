@@ -15,7 +15,6 @@ export default function Status({
           <header>Currently Reading</header>
 
           {reading.map((book) => (
-            /* @ts-expect-error Server Component */
             <Book {...book} key={book._id} link />
           ))}
         </div>
@@ -24,7 +23,6 @@ export default function Status({
         <div className={styles.section}>
           <header>Recently Read</header>
           {read.map((book) => (
-            /* @ts-expect-error Server Component */
             <Book {...book} key={book._id} link />
           ))}
         </div>
