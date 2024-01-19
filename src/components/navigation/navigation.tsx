@@ -4,27 +4,24 @@ import Link from "next/link";
 import styles from "./navigation.module.css";
 import Status from "src/components/status";
 import { GitHub, Mastodon } from "src/components/icons";
+import getTitle from "src/data/getTitle";
+import getStatus from "src/data/getStatus";
 
-export default function Navigation() {
+export const revalidate = 60;
+
+export default async function Navigation() {
+  const title = await getTitle();
+  const status = await getStatus();
   return (
     <div className={cx(styles.container)}>
       <div className={cx(styles.identity)}>
-        <Link href='/' className={cx(styles.avatar)}>
-          <Image
-            alt='An avatar for Allan'
-            src='/static/avatar.png'
-            fill
-            sizes='(-webkit-min-device-pixel-ratio: 2) 6rem, 
-                  (min-resolution: 192dpi) 6rem,
-                  3rem'
-          />
-        </Link>
         <div className={cx(styles.masthead)}>
           <h1>
-            <Link href='/'>Allan Lasser</Link>
+            <Link href='/'>
+              {title ?? process.env.SITE_TITLE ?? "Allan Lasser"}
+            </Link>
           </h1>
-          {/** @ts-expect-error Server Component */}
-          <Status />
+          <Status>{status}</Status>
         </div>
       </div>
       <div className={cx(styles.links)}>

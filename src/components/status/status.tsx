@@ -1,12 +1,6 @@
-import React from "react";
-import getStatus from "src/data/getStatus";
 import styles from "./status.module.css";
+import smartquotes from "smartquotes";
 
-export const revalidate = 60;
-
-export default async function Status({
-  children,
-}: React.PropsWithChildren<{}>) {
-  const status = await getStatus();
-  return <p className={styles.status}>{status}</p>;
+export default function Status({ children }: React.PropsWithChildren<{}>) {
+  return <p className={styles.status}>{smartquotes(children)}</p>;
 }

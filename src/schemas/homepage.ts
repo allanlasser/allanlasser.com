@@ -4,6 +4,11 @@ const homepage = {
   type: "document",
   fields: [
     {
+      name: "title",
+      title: "Title",
+      type: "string",
+    },
+    {
       name: "status",
       title: "Status",
       type: "string",
