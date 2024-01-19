@@ -118,6 +118,7 @@
 .large .bookCover {
   flex-basis: 16rem;
   min-height: 16rem;
+  max-width: 60vw;
   box-shadow: -.375em .75em .75rem -.25rem rgba(0, 0, 0, .375);
   border-radius: 4px;
   overflow: hidden;
@@ -134,7 +135,7 @@
 
 .large .bookDetails {
   margin: 0;
-  gap: 2rem;
+  gap: 1rem 2rem;
   align-items: center;
   justify-content: center;
 }

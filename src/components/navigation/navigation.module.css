@@ -54,7 +54,7 @@
 }
 
 .container p {
-  flex: 1 0 16rem;
+  flex: 1 1 16rem;
   margin: 0;
   font-size: .85em;
   line-height: 1.4;
