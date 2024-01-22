@@ -1,4 +1,5 @@
 import blockContent from "./blockContent";
+import breakBlock from "./break";
 import post from "./post";
 import company from "./company";
 import portfolio from "./portfolio";
@@ -10,6 +11,7 @@ import homepage from "./homepage";
 import album from "./album";
 
 const schemas = [
+  breakBlock,
   note,
   source,
   album,

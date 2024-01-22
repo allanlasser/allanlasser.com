@@ -20,6 +20,13 @@ function generatePostContent(post: Post, permalink: string) {
   const html = toHTML(smartText, {
     components: {
       types: {
+        break: ({ value }) => {
+          const { style } = value;
+          if (style === "break") {
+            return `<hr className='lineBreak' />`;
+          }
+          return "";
+        },
         image: generateImage,
         album: ({ value }) =>
           value.images

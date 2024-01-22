@@ -10,6 +10,13 @@ import smartPortableText from "src/utils/smartPortableText";
 
 const components: Partial<PortableTextReactComponents> = {
   types: {
+    break: ({ value }) => {
+      const { style } = value;
+      if (style === "break") {
+        return <hr className={styles.lineBreak} />;
+      }
+      return null;
+    },
     image: ({ value }) => {
       const { width, height } = dimensionsFor(value);
       const src = srcFor(value).width(width).height(height).url();

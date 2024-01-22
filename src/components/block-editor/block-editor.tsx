@@ -31,7 +31,14 @@ const handlePaste: OnPasteFn = async (input) => {
              * learn all about them:
              * https://developer.mozilla.org/en-US/docs/Web/API/Element
              **/
-            /* We only want special formatting for <pre> blocks */
+            /* Turn hrs into `break` blocks */
+            if (el.nodeName.toLowerCase() === "hr") {
+              return block({
+                _type: "break",
+                style: "break",
+              });
+            }
+            /* Special formatting for <pre> blocks */
             if (
               !el ||
               !el.hasChildNodes ||

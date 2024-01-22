@@ -1,0 +1,5 @@
+.lineBreak {
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px dashed var(--color-gray-200);
+}

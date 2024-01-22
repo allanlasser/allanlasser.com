@@ -1,4 +1,10 @@
-import { ImageIcon, BookmarkIcon, BookImageIcon } from "lucide-react";
+import {
+  ImageIcon,
+  BookmarkIcon,
+  BookImageIcon,
+  FlipVertical,
+  FlipVerticalIcon,
+} from "lucide-react";
 import BlockEditor from "src/components/block-editor";
 import { NotePreview } from "src/components/notes/NotePreview";
 
@@ -73,6 +79,15 @@ const blockContent = {
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
+    {
+      type: "break",
+      name: "break",
+      title: "Break",
+      icon: <FlipVerticalIcon size={20} strokeWidth={1.5} />,
+      components: {
+        preview: () => <hr />,
+      },
+    },
     {
       name: "note",
       title: "Note",
