@@ -26,6 +26,11 @@
   font-size: .8em;
 }
 
+.finePrint {
+  font-size: .7em;
+  opacity: .8;
+}
+
 .normalWeight {
   font-weight: 400;
 }

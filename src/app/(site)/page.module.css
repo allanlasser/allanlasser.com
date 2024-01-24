@@ -7,7 +7,8 @@
 }
 
 .homepage .aside {
-  flex: 1 1 16em;
+  flex: 0 1 24em;
+  min-width: 0;
   width: 100%;
   position: sticky;
   top: 1rem;
@@ -36,11 +37,6 @@
   margin: 0 0 .5em;
   font-size: .875em;
   font-weight: 500;
-}
-
-.finePrint {
-  font-size: .7em;
-  opacity: .8;
 }
 
 .homepage .main {

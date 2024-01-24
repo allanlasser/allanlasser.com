@@ -5,9 +5,9 @@ import Reading from "src/components/reading";
 import Search from "src/components/search";
 import list from "src/styles/list.module.css";
 import layout from "src/styles/layout.module.css";
-import styles from "./page.module.css";
 import { getAllPosts, getPublishedPosts } from "src/data/getPosts";
 import Subscribe from "src/components/subscribe";
+import styles from "./page.module.css";
 
 export default async function HomePage({ searchParams }) {
   const { reading, read } = await getHomepage();
@@ -26,11 +26,6 @@ export default async function HomePage({ searchParams }) {
         </div>
         <div className={styles.asideBottom}>
           <Subscribe />
-          <p className={styles.finePrint}>
-            I’ll be flattered if you subscribe. You’ll only receieve updates
-            when I (infrequently) publish. One-click to unsubscribe, zero hard
-            feelings.
-          </p>
         </div>
       </aside>
       <main className={styles.main}>

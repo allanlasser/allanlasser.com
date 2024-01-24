@@ -15,10 +15,32 @@
   border-radius: .5em;
   overflow: hidden;
   background: var(--page-color);
+  width: 100%;
 }
 
 .signupForm:focus-within {
   outline: 1px solid var(--highlight-color);
+}
+
+.success {
+  color: var(--primary-color);
+  align-items: center;
+}
+
+.error {
+  color: var(--error-color);
+}
+
+.success p {
+  flex: 1 1 auto;
+  margin: .25rem;
+  font-size: .875em;
+  padding: 0 .5rem;
+  font-weight: 600;
+}
+
+.icon.success {
+  color: var(--primary-color);
 }
 
 .icon {
@@ -37,6 +59,10 @@
   background: transparent;
   font-family: var(--font-sans-serif);
   font-size: 1em;
+}
+
+.signupForm input:disabled, .signupForm button:disabled {
+  opacity: .5;
 }
 
 .signupForm input {
