@@ -62,7 +62,6 @@ export default function RootLayout({
         <footer className={layout.footer}></footer>
         <SpeedInsights />
         <Analytics />
-        {isDev && <div className={layout.envBanner}>Dev Mode</div>}
       </body>
     </html>
   );

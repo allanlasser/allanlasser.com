@@ -14,11 +14,39 @@
   display: flex;
   flex-flow: column;
   gap: 2rem;
+  min-height: 100vh;
+}
+
+.homepage .asideTop {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.homepage .asideBottom {
+  position: sticky;
+  bottom: 0;
+  padding: 1rem 0;
+  background-color: var(--bg-color);
+}
+
+.subscribeHeading {
+  margin: 0 0 .5em;
+  font-size: .875em;
+  font-weight: 500;
+}
+
+.finePrint {
+  font-size: .7em;
+  opacity: .8;
 }
 
 .homepage .main {
   flex: 3 1 20em;
   width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 64.375rem) {
@@ -26,7 +54,15 @@
     flex-flow: column;
   }
   .homepage .aside {
+    order: 2;
     position: unset;
+    min-height: unset;
+  }
+  .homepage .asideBottom {
+    min-width: 0;
+    flex: 1 1 auto;
+    position: unset;
+    padding: 0;
   }
 }
 
