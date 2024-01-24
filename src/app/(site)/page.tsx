@@ -5,8 +5,9 @@ import Reading from "src/components/reading";
 import Search from "src/components/search";
 import list from "src/styles/list.module.css";
 import layout from "src/styles/layout.module.css";
-import styles from "./page.module.css";
 import { getAllPosts, getPublishedPosts } from "src/data/getPosts";
+import Subscribe from "src/components/subscribe";
+import styles from "./page.module.css";
 
 export default async function HomePage({ searchParams }) {
   const { reading, read } = await getHomepage();
@@ -15,8 +16,17 @@ export default async function HomePage({ searchParams }) {
   return (
     <div className={styles.homepage}>
       <aside className={styles.aside}>
-        <Search query={searchParams.query} floatResults />
-        <Reading reading={reading} read={read} />
+        <div className={styles.asideTop}>
+          <div className={styles.search}>
+            <Search query={searchParams.query} floatResults />
+          </div>
+          <div className={styles.reading}>
+            <Reading reading={reading} read={read} />
+          </div>
+        </div>
+        <div className={styles.asideBottom}>
+          <Subscribe />
+        </div>
       </aside>
       <main className={styles.main}>
         <ul className={cx(layout.fullWidth, list.noStyle)}>

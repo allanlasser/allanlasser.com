@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  gap: .5em;
+}
+
+.heading {
+  margin: 0;
+}
+
+.signupForm {
+  flex: 1 1 auto;
+  display: flex;
+  gap: .25em;
+  border: 1px solid var(--color-gray-200);
+  border-radius: .5em;
+  overflow: hidden;
+  background: var(--page-color);
+  width: 100%;
+}
+
+.signupForm:focus-within {
+  outline: 1px solid var(--highlight-color);
+}
+
+.success {
+  color: var(--primary-color);
+  align-items: center;
+}
+
+.error {
+  color: var(--error-color);
+}
+
+.success p {
+  flex: 1 1 auto;
+  margin: .25rem;
+  font-size: .875em;
+  padding: 0 .5rem;
+  font-weight: 600;
+}
+
+.icon.success {
+  color: var(--primary-color);
+}
+
+.icon {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0 0.5em 0.5em;
+  color: var(--color-gray-400);
+}
+
+.signupForm input, .signupForm button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans-serif);
+  font-size: 1em;
+}
+
+.signupForm input:disabled, .signupForm button:disabled {
+  opacity: .5;
+}
+
+.signupForm input {
+  min-width: 0;
+  flex: 1 1 auto;
+  margin: .25em 0;
+  padding: 0 .5em;
+  border-radius: .25em;
+  outline: none;
+}
+
+.button {
+  flex: 0 1 auto;
+  margin: .25em .25em .25em 0;
+  border-radius: .25em;
+  flex: 0 1 auto;
+  cursor: pointer;
+  font-weight: 600;
+  padding: .25em .5em;
+  color: var(--primary-color);
+}
+
+.icon.button {
+  margin: .25em 0;
+  color: var(--primary-color);
+}
+
+.button:hover, .button:focus {
+  background-color: var(--highlight-color);
+}

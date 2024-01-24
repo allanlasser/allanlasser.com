@@ -7,7 +7,7 @@
 .search {
   display: flex;
   gap: .5em;
-  border: 1px solid var(--color-gray-300);
+  border: 1px solid var(--color-gray-200);
   border-radius: .5em;
   padding: .5em;
   background-color: var(--page-color);
@@ -36,10 +36,7 @@
 .searchInputLabel {
   display: flex;
   align-items: center;
-}
-
-.searchInputLabel svg {
-  stroke: var(--color-gray-500);
+  color: var(--color-gray-400);
 }
 
 .float {
