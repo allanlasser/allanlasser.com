@@ -14,6 +14,11 @@ const homepage = {
       type: "string",
     },
     {
+      name: "bio",
+      title: "Biography",
+      type: "markdown",
+    },
+    {
       name: "reading",
       title: "Currently Reading",
       type: "array",

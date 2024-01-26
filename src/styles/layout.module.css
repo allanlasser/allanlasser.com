@@ -8,7 +8,7 @@
 
 .detail {
   max-width: var(--layout-body-width);
-  margin: 4vh auto 0;
+  margin: 4vh auto 0 0;
 }
 
 .fullWidth {
