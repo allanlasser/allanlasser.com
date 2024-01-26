@@ -33,7 +33,7 @@ export default async function HomePage({ searchParams }) {
       </aside>
       <main className={styles.main}>
         {bio && (
-          <section className={cx(styles.bio)}>
+          <section className={cx(layout.card, styles.bio)}>
             <ReactMarkdown className={typography.bodyText}>
               {smartquotes(bio)}
             </ReactMarkdown>
