@@ -27,7 +27,7 @@
   /* Layout Vars */
   --layout-max-width: 100vw;
   --layout-body-width: 100vw;
-  --layout-padding-h: .5rem;
+  --layout-padding-h: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {

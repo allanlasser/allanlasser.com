@@ -7,11 +7,13 @@ import { Note } from "src/types/note";
 import { Post } from "src/types/post";
 
 interface GetHomepage {
+  bio: string;
   reading: Array<Source>;
   read: Array<Source>;
 }
 
 const GET_HOMEPAGE = groq`*[_type == "homepage" && _id == "homepage"][0] {
+  bio,
   reading[]->{
     _id,
     title,

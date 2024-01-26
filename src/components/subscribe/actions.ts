@@ -1,6 +1,5 @@
 "use server";
 
-import { cookies } from "next/headers";
 import { createSubscriber } from "src/providers/buttondown";
 
 export interface FormState {
@@ -22,7 +21,6 @@ export async function handleSignup(
       message: String(err),
     };
   }
-  cookies().set("subscriber", data.email);
   return {
     success: true,
     message: "You’re now subscribed, thank you!",
