@@ -1,29 +1,22 @@
 "use client";
 
-import { SyntheticEvent, useTransition } from "react";
 import Link from "next/link";
 import cx from "classnames";
 import { MailCheckIcon, MailIcon, RssIcon } from "lucide-react";
 import typography from "src/styles/typography.module.css";
 import styles from "./subscribe.module.css";
 import { handleSignup } from "./actions";
-import { useFormState } from "react-dom";
+import { useForm } from "src/hooks/useForm";
 
 export interface NewsletterSignupProps {
   subscriber?: string;
 }
 
 export default function NewsletterSignup(props: NewsletterSignupProps) {
-  const [isPending, startTransition] = useTransition();
-  const [formState, formAction] = useFormState(handleSignup, {});
-
-  function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    startTransition(async () => {
-      await formAction(formData);
-    });
-  }
+  const { formState, isPending, formAction, onSubmit } = useForm(
+    handleSignup,
+    {}
+  );
 
   return (
     <div>
@@ -44,7 +37,7 @@ export default function NewsletterSignup(props: NewsletterSignupProps) {
         ) : (
           <form
             action={formAction}
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             className={cx(styles.signupForm, {
               [styles.error]: formState.error,
             })}
