@@ -1,0 +1,24 @@
+.subscribe {
+  margin: 3rem 0 0;
+  padding: 2rem;
+}
+
+.subscribe > header {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+  align-items: baseline;
+  font-weight: 600;
+}
+
+.subscribe header > h2, .subscribe header > p {
+  margin-top: 0
+}
+
+.subscribe header > h2 {
+  font-size: 1.25em;
+}
+
+.subscribe header > p {
+  opacity: .75;
+}
