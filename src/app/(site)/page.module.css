@@ -53,7 +53,7 @@
   font-weight: 600;
 }
 
-.bio p {
+.bio p:first-child {
   margin-top: 0;
 }
 
