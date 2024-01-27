@@ -2,13 +2,15 @@
 	--text-color: hsl(30, 30%, 25%);
 	--page-color: hsl(0, 0%, 100%);
   --bg-color: hsl(120, 25%, 97%);
+  --primary-color: hsl(143, 92%, 26%);
+  --highlight-color: hsla(143, 59%, 73%, 70%);
   
 	--link-color: hsl(30, 30%, 25%);
 	--link-hover-color: hsl(0, 0%, 40%);
 	--link-visited-color: hsl(0, 0%, 40%);
-  --highlight-color: hsla(143, 59%, 73%, 70%);
-  --primary-color: hsl(143, 92%, 26%);
+
   --error-color: hsl(10, 80%, 50%);
+  
   --color-gray-50: hsl(0, 0%, 95%);
   --color-gray-100: hsl(0, 0%, 90%);
   --color-gray-200: hsl(0, 0%, 80%);
