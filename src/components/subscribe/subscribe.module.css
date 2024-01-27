@@ -83,10 +83,22 @@
   font-weight: 600;
   padding: .25em .5em;
   color: var(--primary-color);
+  display: flex;
+  gap: .5em;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
-.icon.button {
+.button .label {
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--primary-color);
+}
+
+.button .icon {
   margin: .25em 0;
+  padding: 0;
   color: var(--primary-color);
 }
 

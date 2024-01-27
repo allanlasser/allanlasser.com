@@ -3,10 +3,16 @@
   padding: 2rem;
 }
 
+@media (max-width: 48rem) {
+  .subscribe {
+    padding: 1rem;
+  }
+}
+
 .subscribe > header {
   display: flex;
   flex-flow: row wrap;
-  gap: 1em;
+  gap: .5em 1em;
   align-items: baseline;
   font-weight: 600;
 }
@@ -16,6 +22,7 @@
 }
 
 .subscribe header > h2 {
+  margin: 0;
   font-size: 1.25em;
 }
 
