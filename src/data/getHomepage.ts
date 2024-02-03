@@ -19,14 +19,16 @@ const GET_HOMEPAGE = groq`*[_type == "homepage" && _id == "homepage"][0] {
     title,
     subtitle,
     author,
-    "imageUrl": cover.asset->url
+    "imageUrl": cover.asset->url,
+    "noteCount": count(*[_type=="note" && references(^._id)]),
   },
   read[]->{
     _id,
     title,
     subtitle,
     author,
-    "imageUrl": cover.asset->url
+    "imageUrl": cover.asset->url,
+    "noteCount": count(*[_type=="note" && references(^._id)]),
   }
 }`;
 

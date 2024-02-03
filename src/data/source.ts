@@ -55,6 +55,7 @@ export async function getSource(id: string): Promise<Source> {
     author,
     "imageUrl": cover.asset->url,
     "palette": cover.asset->metadata.palette,
+    "noteCount": count(*[_type=="note" && references(^._id)]),
     url,
     isbn
   }
@@ -87,6 +88,7 @@ export async function getAllSources() {
     subtitle,
     author,
     "imageUrl": cover.asset->url,
+    "noteCount": count(*[_type=="note" && references(^._id)]),
     url,
     isbn
   }
@@ -104,6 +106,7 @@ export async function getAllBooks() {
     author,
     "imageUrl": cover.asset->url,
     "palette": cover.asset->metadata.palette,
+    "noteCount": count(*[_type=="note" && references(^._id)]),
     url,
     isbn
   }
