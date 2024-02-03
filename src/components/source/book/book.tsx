@@ -4,6 +4,9 @@ import { getBookData } from "src/providers/openLibrary";
 import styles from "./book.module.css";
 import Cover from "./cover";
 import { ImagePalette } from "sanity";
+import Chip from "src/components/chip/chip";
+import pluralize from "pluralize";
+import { BookmarkIcon } from "lucide-react";
 
 export interface BookProps {
   _id: string;
@@ -15,6 +18,7 @@ export interface BookProps {
   isbn?: string | null;
   url?: string | null;
   size?: "small" | "medium" | "large";
+  noteCount?: number;
   link?: boolean;
 }
 
@@ -28,6 +32,7 @@ export default async function Book(props: BookProps) {
     palette,
     isbn,
     size = "small",
+    noteCount,
     link,
   } = props;
 
@@ -42,6 +47,12 @@ export default async function Book(props: BookProps) {
         <p className={styles.bookTitle}>{title}</p>
         {subtitle && <p className={styles.bookSubtitle}>{subtitle}</p>}
         {author && <p className={styles.bookAuthor}>{author}</p>}
+        {Boolean(noteCount) && (
+          <Chip className={styles.bookmarkCount}>
+            <BookmarkIcon size={12} /> {noteCount}{" "}
+            {pluralize("bookmark", noteCount)}
+          </Chip>
+        )}
         <dl className={styles.bookMeta}>
           {bookData?.publishers && (
             <>
