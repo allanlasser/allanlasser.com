@@ -9,7 +9,7 @@ import Title from "../title";
 export default function Post({ post, link }: { post: Post; link?: boolean }) {
   const publishedAt = post.publishedAt ? new Date(post.publishedAt) : undefined;
   const title = post.title ?? post.source?.title;
-  const permalink = `/posts/${post.slug.current}`;
+  const permalink = `/posts/${post.slug?.current}`;
   const postLink = post.source?.url ? post.source.url : permalink;
   const timestamp = publishedAt ? (
     <time
@@ -35,12 +35,12 @@ export default function Post({ post, link }: { post: Post; link?: boolean }) {
   ) : null;
 
   return (
-    <article className={cx(styles.container)} id={post.slug.current}>
+    <article className={cx(styles.container)} id={post.slug?.current}>
       <header className={styles.header}>
         <div className={styles.headerRow}>
           {link ? (
             <Link
-              href={`/posts/${post.slug.current}`}
+              href={`/posts/${post.slug?.current}`}
               rel='bookmark'
               className={styles.headerLink}
             >
