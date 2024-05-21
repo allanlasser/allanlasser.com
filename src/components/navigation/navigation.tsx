@@ -1,9 +1,8 @@
 import cx from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./navigation.module.css";
 import Status from "src/components/status";
-import { GitHub, Mastodon } from "src/components/icons";
+import { GitHub, Mastodon, Initial } from "src/components/icons";
 import getTitle from "src/data/getTitle";
 import getStatus from "src/data/getStatus";
 
@@ -16,18 +15,24 @@ export default async function Navigation() {
     <div className={cx(styles.container)}>
       <div className={cx(styles.identity)}>
         <div className={cx(styles.masthead)}>
-          <h1>
-            <Link href='/'>
-              {title ?? process.env.SITE_TITLE ?? "Allan Lasser"}
-            </Link>
-          </h1>
-          <Status>{status}</Status>
+          <Link
+            href='/'
+            className={styles.initial}
+            title={title ?? process.env.SITE_TITLE ?? "Allan Lasser"}
+          >
+            <Initial
+              className={cx(styles.icon, styles.initial)}
+              width={64}
+              height={64}
+            />
+          </Link>
+          {/* <Status>{status}</Status> */}
         </div>
       </div>
       <div className={cx(styles.links)}>
         <ul className={cx(styles.internalLinks)}>
           <li>
-            <Link href='/shelf'>Shelf</Link>
+            <Link href='/shelf'>Library</Link>
           </li>
           <li>
             <Link href='/portfolio'>Portfolio</Link>
