@@ -125,6 +125,7 @@
 @media print {
   .container {
     padding: 0;
+    display: none;
   }
   .initial,
   .avatar,

@@ -60,6 +60,15 @@ const Resume = (props) => {
   const { history, skills } = props;
   return (
     <article className={cx(styles.resume, layout.detail)}>
+      <header className={styles.printOnly}>
+        <h1>Allan Lasser</h1>
+        <p>
+          <a href='mailto:allan@lasser.design'>allan@lasser.design</a>
+        </p>
+        <p>
+          <a href='tel:19085282207'>(908) 528&ndash;2207</a>
+        </p>
+      </header>
       <section>
         <h2>Employment History</h2>
         {history.map((position, index) => (
