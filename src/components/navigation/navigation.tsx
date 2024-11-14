@@ -1,9 +1,8 @@
 import cx from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./navigation.module.css";
 import Status from "src/components/status";
-import { GitHub, Mastodon } from "src/components/icons";
+import { GitHub, Mastodon, Initial, Bluesky } from "src/components/icons";
 import getTitle from "src/data/getTitle";
 import getStatus from "src/data/getStatus";
 
@@ -16,18 +15,19 @@ export default async function Navigation() {
     <div className={cx(styles.container)}>
       <div className={cx(styles.identity)}>
         <div className={cx(styles.masthead)}>
-          <h1>
-            <Link href='/'>
-              {title ?? process.env.SITE_TITLE ?? "Allan Lasser"}
-            </Link>
-          </h1>
-          <Status>{status}</Status>
+          <Link
+            href='/'
+            title={title ?? process.env.SITE_TITLE ?? "Allan Lasser"}
+          >
+            Allan Lasser
+          </Link>
+          {/* <Status>{status}</Status> */}
         </div>
       </div>
       <div className={cx(styles.links)}>
         <ul className={cx(styles.internalLinks)}>
           <li>
-            <Link href='/shelf'>Shelf</Link>
+            <Link href='/shelf'>Library</Link>
           </li>
           <li>
             <Link href='/portfolio'>Portfolio</Link>
@@ -56,6 +56,15 @@ export default async function Navigation() {
               rel='nofollow noopener noreferrer me'
             >
               <Mastodon className={cx(styles.icon)} aria-label='Mastodon' />
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://bsky.app/profile/allanlasser.com'
+              target='_blank'
+              rel='nofollow noopener noreferrer me'
+            >
+              <Bluesky className={cx(styles.icon)} aria-label='Bluesky' />
             </a>
           </li>
         </ul>
