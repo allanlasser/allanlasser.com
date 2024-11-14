@@ -23,6 +23,9 @@
   display: flex;
   align-items: baseline;
   gap: 1em;
+
+  font-weight: 700;
+  font-size: 1.25em;
 }
 
 .container {
@@ -33,8 +36,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: .5rem 2rem;
-  padding: 2rem var(--layout-padding-h) .5rem;
+  gap: 0.5rem 2rem;
+  padding: 2rem var(--layout-padding-h) 0.5rem;
 }
 
 .container img {
@@ -47,7 +50,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
   font-feature-settings: "smcp";
   font-variant: small-caps;
   text-transform: lowercase;
@@ -56,7 +59,7 @@
 .container p {
   flex: 1 1 16rem;
   margin: 0;
-  font-size: .85em;
+  font-size: 0.85em;
   line-height: 1.4;
   font-weight: 400;
 }
@@ -64,11 +67,11 @@
 .container a {
   color: var(--text-color);
   text-decoration: none;
-  transition: opacity .1s linear;
+  transition: opacity 0.1s linear;
 }
 
 .container a:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .container a:visited {
@@ -105,18 +108,11 @@
   width: 1.4em;
 }
 
-.initial {
-  height: 2.75rem;
-  width: 2.75rem;
-  fill: var(--text-color);
-  display: block;
-}
-
 @media (min-width: 36rem) {
   .container {
     flex-direction: row;
     justify-content: space-between;
-    padding: 2rem 1rem .5rem;
+    padding: 2rem 1rem 0.5rem;
   }
   .links {
     flex: 1 1 auto;
@@ -130,7 +126,9 @@
   .container {
     padding: 0;
   }
-  .avatar, .links {
+  .initial,
+  .avatar,
+  .links {
     display: none;
   }
 }
