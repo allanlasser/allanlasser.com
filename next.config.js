@@ -1,3 +1,6 @@
+// Posts that moved to compostmodernism.org, keyed by old /posts/<slug>.
+const compostmodernismPosts = require("./redirects/compostmodernism-posts.json");
+
 module.exports = {
   reactStrictMode: true,
   images: {
@@ -15,6 +18,11 @@ module.exports = {
         destination: "/shelf/:id",
         permanent: true,
       },
+      ...Object.entries(compostmodernismPosts).map(([slug, destination]) => ({
+        source: `/posts/${slug}`,
+        destination,
+        permanent: true,
+      })),
     ];
   },
 };
