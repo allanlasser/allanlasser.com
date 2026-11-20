@@ -21,8 +21,7 @@ module.exports = {
       ...Object.entries(compostmodernismPosts).map(([slug, destination]) => ({
         source: `/posts/${slug}`,
         destination,
-        // Temporary while we verify the migration live; make permanent later.
-        permanent: false,
+        permanent: true,
       })),
     ];
   },
